@@ -233,12 +233,15 @@ export const InputWrapper = styled.div`
 `;
 
 export const Label = styled.label`
-  margin-bottom: 8px;
+  margin-bottom: clamp(5px, 0.72vw, 11px);
+  color: #4e3629;
+  font-size: clamp(15px, 1.58vw, 24px);
+  line-height: clamp(28px, 2.11vw, 32px);
+  font-weight: 600;
 `;
 
 export const Input = styled.input`
-  border: 1px solid #421b00;
-  border-radius: 4px;
+  border: 2px solid #cb333b;
   padding: 9px 24px 5px 24px;
   outline: 0;
   font-size: 18px;

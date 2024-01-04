@@ -5,6 +5,7 @@ import styled from 'styled-components';
 export const OuterContainer = styled.nav`
   z-index: 1000;
   display: flex;
+  position: sticky;
   justify-content: center;
   top: 0;
   right: 0;
@@ -110,6 +111,7 @@ export const MobileWrapper = styled.nav`
   width: 100%;
   padding: 2px 32px;
   display: flex;
+  position: sticky;
   justify-content: space-between;
   z-index: 1000;
   align-items: center;

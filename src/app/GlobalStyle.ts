@@ -23,7 +23,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     color: #474747;
     margin: 0;
-    overflow-x: hidden;
     width: 100%;
     display: flex;
     min-height: 100vh;

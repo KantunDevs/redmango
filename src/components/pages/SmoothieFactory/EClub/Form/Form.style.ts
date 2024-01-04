@@ -263,7 +263,6 @@ export const FormButton = styled.button`
   color: #cb333b;
   grid-column: 1 / -1;
   width: max-content;
-  margin-inline: auto;
 `;
 
 export const Paper = styled.div`

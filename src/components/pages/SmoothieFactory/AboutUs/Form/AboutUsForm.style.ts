@@ -28,9 +28,10 @@ export const Form = styled.form`
 
 export const FormTitle = styled.h1`
   font-size: clamp(35px, 3.43vw, 52px);
-  line-height: clamp(45px, 4.76vw, 72px);
-  margin-bottom: 24px;
-  color: #23aa5d;
+  line-height: clamp(45px, 3.96vw, 60px);
+  margin-bottom: 39px;
+  color: #cb333b;
+  text-transform: uppercase;
 `;
 
 export const FormBg = styled.div`
@@ -40,8 +41,6 @@ export const FormBg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: -70px;
-
   @media (max-width: ${theme.breakpoints.mobile}px) {
     padding-bottom: 306px;
   }
@@ -51,15 +50,12 @@ export const Paper = styled.div`
   background: #ffffff;
   width: 100%;
   position: relative;
-  max-width: clamp(960px, 76.25vw, 1153px);
+  max-width: clamp(796px, 53.3vw, 806px);
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 5px 10px rgba(66, 27, 0, 0.25);
-  border-radius: 29px;
-  padding: clamp(30px, 7.4vw, 112px) clamp(32px, 3.7vw, 56px) clamp(72px, 6.21vw, 94px) clamp(32px, 3.7vw, 56px);
+  padding: 32px clamp(32px, 5.62vw, 85px) clamp(33px, 3.76vw, 57px) clamp(32px, 5.62vw, 85px);
   @media (max-width: ${theme.breakpoints.smallScreen}px) {
     flex-direction: column;
-    gap: 0;
   }
   @media (max-width: ${theme.breakpoints.mobile}px) {
     width: 100%;
@@ -76,8 +72,7 @@ export const InputWrapper = styled.div<{ stretch?: boolean }>`
 `;
 
 export const TextAreaInput = styled.textarea`
-  border: 1px solid #421b00;
-  border-radius: 4px;
+  border: 2px solid #cb333b;
   padding: 9px 24px 5px 24px;
   outline: 0;
   font-size: 18px;

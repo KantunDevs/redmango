@@ -4,131 +4,43 @@ import Image from 'next/image';
 import { MaxWidthWrapper } from '@styles/common';
 
 import type { FC } from 'react';
-import { Title } from '../../Home/common';
 
-import {
-  ContentWrapper,
-  FloatingOrangeShapeImage,
-  Text,
-  WoodBg,
-  PersonCard,
-  CardTitle,
-  WoodBgTitle,
-  StoreBg,
-  CardsWrapper,
-  Card,
-  InfoCardTitle,
-  InfoCardText,
-} from './HowItStarted.style';
+import { ContentWrapper, Text, Title, OurMission, OurMissionText, OurMissionTitle } from './HowItStarted.style';
+import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 
-import FloatingImage from '@components/pages/SmoothieFactory/OrangeLeaf/common/FloatingImage/FloatingImage';
-import theme from '@styles/theme';
-import useWindowSize from '@hooks/useWindowSize';
 const HowItStarted: FC = () => {
-  const { width } = useWindowSize();
-
-  const isMobile = width <= theme.breakpoints.tablet;
-
   return (
     <>
-      <MaxWidthWrapper>
-        <ContentWrapper>
-          <FloatingOrangeShapeImage
-            alt="orange shape"
-            height="clamp(270px, 40.542vw, 613px)"
-            src="/images/orange-and-shape.png"
-            style={{ zIndex: -1 }}
-            top="0"
-            width="clamp(262px, 30.88vw, 467px)"
-          />
-
-          <Title color="#ED6C32" mb="clamp(16px,2.11vw, 24px)">
-            How it started
-          </Title>
-          <Text>
-            Smoothie Factory was founded by Olympic athlete James Villasana in 1996. As a high-level athlete, James
-            needed healthy food options made with only the highest quality ingredients to fuel his body. His carefully
-            crafted smoothies were created with nutrition, taste, and overall health in mind.
+      <ContentWrapper>
+        <MaxWidthWrapper style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+          <Image alt="bg" src="/images/about-us-bg.jpg" style={{ objectFit: 'cover', zIndex: -1 }} fill />
+          <Title>How it started</Title>
+          <Text style={{ marginBottom: 'clamp(26px,1.85vw, 28px)' }}>
+            When we opened our first Red Mango in 2007, we set out to provide an indulgent treat that is also wholesome
+            and better for you. For those people who aspire to a more balanced lifestyle, and see wellness holistically,
+            Red Mango is the treat for your whole self. Today, there are over 200 locations domestically, in Mexico and
+            in Central America, and yes, every spoonful is still as good as the first.
           </Text>
-        </ContentWrapper>
-      </MaxWidthWrapper>
-      <WoodBg>
-        {isMobile ? (
-          <Image alt="wood bg" src="/images/wood-mobile-bg.png" fill />
-        ) : (
-          <Image alt="wood bg" src="/images/about-you-wood-bg.png" style={{ objectFit: 'cover' }} fill />
-        )}
-        <PersonCard>
+          <Text>
+            Every single one of our locations are locally owned. We support the local communities in which we are
+            located and provide more than just yummy and better-for-you treats! Enough talk, come visit one of our
+            locations and experience Red Mango for yourself.
+          </Text>
+        </MaxWidthWrapper>
+      </ContentWrapper>
+      <OurMission>
+        <MaxWidthWrapper style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
           <FloatingImage
-            alt="person"
-            height="clamp(229px,28.04vw, 424px)"
-            src="/images/Smoothie-Drinker.jpg"
-            style={{ marginBottom: 'clamp(23px,2.91vw, 44px)' }}
-            width="clamp(229px,27.97vw, 423px)"
+            width="clamp(82px,7.47vw, 113px)"
+            height="clamp(80px, 7.27vw, 110px)"
+            alt="logo"
+            src="/images/Vector (11).svg"
+            style={{ marginBottom: 'clamp(24px,3.70vw, 56px)' }}
           />
-          <CardTitle>OUR MISSION</CardTitle>
-        </PersonCard>
-        <WoodBgTitle>
-          Smoothie Factory exists to help health conscious people maintain their active lifestyle
-        </WoodBgTitle>
-        <FloatingImage
-          alt="apple"
-          bottom="-40%"
-          height="clamp(129px,15.27vw, 231px )"
-          right="-35%"
-          src="/images/apple.png"
-          width="clamp(132px,15.60vw, 236px)"
-        />
-      </WoodBg>
-      <StoreBg>
-        <Image alt="store bg" src="/images/store.jpg" style={{ objectFit: 'cover' }} fill />
-      </StoreBg>
-      <MaxWidthWrapper>
-        <Title color="#23AA5D" mb="clamp(32px, 3.70vw, 56px)" style={{ textAlign: 'center' }}>
-          We are here for you
-        </Title>
-        <CardsWrapper>
-          <Card>
-            <FloatingImage
-              alt="card image"
-              height="clamp(90px, 7.93vw, 120px)"
-              src="/images/stars.svg"
-              width="clamp(90px, 7.93vw, 120px)"
-            />
-            <InfoCardTitle>Outstanding space design!</InfoCardTitle>
-            <InfoCardText>
-              Experience our vibrant, modern space design while you enjoy your fresh and healthy Smoothie Factory
-              favorites!
-            </InfoCardText>
-          </Card>
-          <Card>
-            <FloatingImage
-              alt="card image"
-              height="clamp(90px, 7.93vw, 120px)"
-              src="/images/avocado-icon.svg"
-              width="clamp(90px, 7.93vw, 120px)"
-            />
-            <InfoCardTitle>Only the highest quality for you</InfoCardTitle>
-            <InfoCardText>
-              Our smoothies and bites are always made with the freshest ingredients, ensuring you get the best quality
-              and taste every time!
-            </InfoCardText>
-          </Card>
-          <Card>
-            <FloatingImage
-              alt="card image"
-              height="clamp(90px, 7.93vw, 120px)"
-              src="/images/orange-icon.svg"
-              width="clamp(90px, 7.93vw, 120px)"
-            />
-            <InfoCardTitle>The team that always smiles!</InfoCardTitle>
-            <InfoCardText>
-              Our friendly team is here to serve you with a smile and make your Smoothie Factory experience a memorable
-              one!
-            </InfoCardText>
-          </Card>
-        </CardsWrapper>
-      </MaxWidthWrapper>
+          <OurMissionTitle>our missions</OurMissionTitle>
+          <OurMissionText>Red Mango provides a wholesome and indulgent treat</OurMissionText>
+        </MaxWidthWrapper>
+      </OurMission>
     </>
   );
 };

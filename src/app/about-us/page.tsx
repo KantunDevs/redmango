@@ -5,7 +5,7 @@ import HowItStarted from '@components/pages/SmoothieFactory/AboutUs/HowItStarted
 import type { FC } from 'react';
 
 export const metadata = {
-  title: 'About | Smoothie Factory®',
+  title: 'About | Red Mango®',
 };
 
 const AboutUs: FC = () => (

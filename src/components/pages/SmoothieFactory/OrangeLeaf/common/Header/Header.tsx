@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import NextLink from 'next/link';
 import { useAnimate } from 'framer-motion';
@@ -37,24 +37,20 @@ const Header: FC = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflowY = 'hidden';
-      document.documentElement.style.overflowY = 'hidden';
-    } else {
-      document.body.style.overflowY = 'auto';
-      document.documentElement.style.overflowY = 'auto';
-    }
-  }, [isOpen]);
-
   const isMobile = width <= theme.breakpoints.smallScreen;
 
   const onHamburgerClick = (): void => {
+    document.body.style.overflowY = 'hidden';
+    document.documentElement.style.overflowY = 'hidden';
+    console.log('open');
     void animate(ref.current, { opacity: 1, x: 0 }, { duration: 0.3 });
     setIsOpen(true);
   };
 
   const onClose = (href: string): void => {
+    console.log('close');
+    document.body.style.overflowY = 'initial';
+    document.documentElement.style.overflowY = 'initial';
     void animate(ref.current, { opacity: 0, x: 20 });
     router.push(href);
     setIsOpen(false);
@@ -65,6 +61,8 @@ const Header: FC = () => {
       <HamburgerMenu ref={ref} data-is-open={isOpen} initial={{ opacity: 0, x: 20 }}>
         <CloseButton
           onClick={(): void => {
+            document.body.style.overflowY = 'initial';
+            document.documentElement.style.overflowY = 'initial';
             void animate(ref.current, { opacity: 0, x: 20 });
             setIsOpen(false);
           }}

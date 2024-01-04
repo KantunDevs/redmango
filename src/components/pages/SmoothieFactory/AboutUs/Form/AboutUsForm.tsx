@@ -30,8 +30,6 @@ import { Label, Input } from '../../OrangeLeaf/EClub/EClubSection/EClubSection.s
 
 import { FormButton } from '../../EClub/Form/Form.style';
 
-import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
-
 const schema = object({
   email: string().email('Add a valid email').required('This field is obligatory'),
   firstName: string().required('This field is obligatory'),
@@ -88,17 +86,9 @@ const AboutUsForm: FC = () => {
   return (
     <>
       <FormBg>
-        <ImageWrapper>
-          <FloatingImage
-            alt="letters"
-            height="clamp(133px,11.70vw, 177px)"
-            src="/images/Group 112.png"
-            width="clamp(134px,11.83vw, 179px)"
-          />
-        </ImageWrapper>
-        <Image alt="bg" src="/images/about-us-form-bg.jpg" style={{ objectFit: 'cover' }} fill />
+        <Image alt="bg" src="/images/image 66 (1).jpg" style={{ objectFit: 'cover' }} fill />
         <Paper>
-          <FormTitle>Contact us.</FormTitle>
+          <FormTitle>Want to tell us something?</FormTitle>
           {isSubmitted ? (
             <SuccessfulSubmit />
           ) : (
@@ -148,7 +138,7 @@ const AboutUsForm: FC = () => {
                 {errors.phone && <Error>{errors.phone.message}</Error>}
               </InputWrapper>
               <InputWrapper stretch>
-                <Label htmlFor="message">Add your message:</Label>
+                <Label htmlFor="message">Your message:</Label>
                 <TextAreaInput
                   data-has-error={Boolean(errors.message)}
                   id="message"
@@ -160,14 +150,13 @@ const AboutUsForm: FC = () => {
               </InputWrapper>
               <InputWrapper>
                 <FormButton disabled={isDisabled} type="submit">
-                  Send
+                  Submit
                 </FormButton>
               </InputWrapper>
             </Form>
           )}
         </Paper>
       </FormBg>
-      <Polygon />
     </>
   );
 };
