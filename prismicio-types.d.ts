@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = never;
+type HomeDocumentDataSlicesSlice = HomeHeaderSlice;
 
 /**
  * Content for Home documents
@@ -70,12 +70,63 @@ export type HomeDocument<Lang extends string = string> = prismic.PrismicDocument
 
 export type AllDocumentTypes = HomeDocument;
 
+/**
+ * Primary content in *HomeHeader → Primary*
+ */
+export interface HomeHeaderSliceDefaultPrimary {
+  /**
+   * Title field in *HomeHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_header.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for HomeHeader Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomeHeaderSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<HomeHeaderSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HomeHeader*
+ */
+type HomeHeaderSliceVariation = HomeHeaderSliceDefault;
+
+/**
+ * HomeHeader Shared Slice
+ *
+ * - **API ID**: `home_header`
+ * - **Description**: HomeHeader
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomeHeaderSlice = prismic.SharedSlice<'home_header', HomeHeaderSliceVariation>;
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
   }
 
   namespace Content {
-    export type { HomeDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, AllDocumentTypes };
+    export type {
+      HomeDocument,
+      HomeDocumentData,
+      HomeDocumentDataSlicesSlice,
+      AllDocumentTypes,
+      HomeHeaderSlice,
+      HomeHeaderSliceDefaultPrimary,
+      HomeHeaderSliceVariation,
+      HomeHeaderSliceDefault,
+    };
   }
 }
