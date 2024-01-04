@@ -1,0 +1,6 @@
+{
+  "apiEndpoint": "https://brixholdings.prismic.io/api/v2",
+  "repositoryName": "brixholdings",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./slices"]
+}
