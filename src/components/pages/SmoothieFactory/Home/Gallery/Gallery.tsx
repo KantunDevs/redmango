@@ -19,9 +19,10 @@ import {
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import type { FC } from 'react';
+import type { FC, MouseEventHandler } from 'react';
 import Image from 'next/image';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
+import { AnimatePresence } from 'framer-motion';
 
 type Slider = {
   img: {
@@ -39,39 +40,65 @@ const sliders = [
     text: '100% real fruit and vegetables with unique blends of delicious, beneficial ingredients blending nutrition with great taste.',
     title: 'SMOOTHIES:',
   },
+  {
+    img: {
+      src: '/images/Rectangle 106 (5).jpg',
+    },
+    text: '100% real fruit and vegetables with unique blends of delicious, beneficial ingredients blending nutrition with great taste.',
+    title: 'SMOOTHIES:',
+  },
 ];
 
-const sliderDefaultInterval = 10000;
+const sliderDefaultInterval = 4000;
+const sliderAfterClickInterval = 10000;
 
 const Gallery: FC<{ mb: string }> = ({ mb }) => {
   const [activeSliderIndex, setActiveSliderIndex] = useState(0);
+
   const intervalReference = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const changeSlide = useCallback((goBackwards: boolean) => {
+  const changeSlide = useCallback(() => {
     setActiveSliderIndex((currentIndex) => {
-      if (goBackwards) {
-        if (currentIndex === 0) {
-          return sliders.length - 1;
-        }
-        return currentIndex - 1;
-      }
-
       if (currentIndex === sliders.length - 1) {
         return 0;
       }
+
       return currentIndex + 1;
     });
   }, []);
 
-  const startSliderInterval = useCallback(() => {
-    intervalReference.current = setInterval(() => {
-      changeSlide(false);
+  const startSliderInterval = useCallback(
+    (timeout = sliderDefaultInterval) => {
+      intervalReference.current = setInterval(() => {
+        changeSlide();
+        if (timeout === sliderAfterClickInterval) {
+          if (intervalReference.current) {
+            clearInterval(intervalReference.current);
+          }
+          startSliderInterval(sliderDefaultInterval);
+        }
+      }, timeout);
+    },
+    [changeSlide],
+  );
+
+  const handleSliderButtonClick: MouseEventHandler<HTMLButtonElement> = useCallback(
+    (event) => {
+      const { target } = event;
+      const { id } = target as Element;
+
+      if (id !== activeSliderIndex.toString()) {
+        setActiveSliderIndex(Number(id));
+      }
+
       if (intervalReference.current) {
         clearInterval(intervalReference.current);
       }
-      startSliderInterval();
-    }, sliderDefaultInterval);
-  }, [changeSlide]);
+
+      startSliderInterval(sliderAfterClickInterval);
+    },
+    [activeSliderIndex, startSliderInterval],
+  );
 
   useEffect(() => {
     startSliderInterval();
@@ -82,14 +109,6 @@ const Gallery: FC<{ mb: string }> = ({ mb }) => {
       }
     };
   }, [startSliderInterval]);
-
-  const onClick = (goBackwards: boolean): void => {
-    if (intervalReference.current) {
-      clearInterval(intervalReference.current);
-    }
-    startSliderInterval();
-    changeSlide(goBackwards);
-  };
 
   return (
     <BorderContainer mb={mb}>
@@ -134,9 +153,19 @@ const Gallery: FC<{ mb: string }> = ({ mb }) => {
                 height="clamp(48px,5.22vw, 79px)"
               />
             </LemonsColumn>
-            <GalleryImage>
-              <Image src={sliders[0].img.src} alt="TODO:alt" fill style={{ objectFit: 'cover' }} />
-            </GalleryImage>
+            <AnimatePresence initial={false}>
+              <GalleryImage
+                key={activeSliderIndex}
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                }}
+              >
+                <Image src={sliders[activeSliderIndex].img.src} alt="TODO:alt" fill style={{ objectFit: 'cover' }} />
+              </GalleryImage>
+            </AnimatePresence>
           </LeftContainer>
           <RightContainer>
             <ContentContainer>
@@ -149,10 +178,14 @@ const Gallery: FC<{ mb: string }> = ({ mb }) => {
               <Button>See the menu</Button>
             </ContentContainer>
             <Indicators>
-              <Indicator active={false} />
-              <Indicator active={false} />
-              <Indicator active={false} />
-              <Indicator active />
+              {sliders.map((_slider, index) => (
+                <Indicator
+                  key={index}
+                  id={index.toString()}
+                  active={index === activeSliderIndex}
+                  onClick={handleSliderButtonClick}
+                />
+              ))}
             </Indicators>
           </RightContainer>
         </FlexWrapper>

@@ -1,6 +1,7 @@
-import FloatingImage from '@components/pages/SmoothieFactory/OrangeLeaf/common/FloatingImage/FloatingImage';
 import { MaxWidthWrapper } from '@styles/common';
 import theme from '@styles/theme';
+import { motion } from 'framer-motion';
+
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -59,53 +60,28 @@ export const Flavors = styled.div`
   }
 `;
 
-export const FlavorItem = styled.div`
-  flex: 0.25;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding: 14px;
-  border-left: 2px solid #cb333b;
-
-  @media only screen and (max-width: ${theme.breakpoints.smallScreen}px) {
-    justify-content: flex-end;
-  }
-  @media only screen and (max-width: ${theme.breakpoints.tablet}px) {
-    justify-content: flex-start;
-    flex: 1;
-    border-left: none;
-    border-top: 2px solid #cb333b;
-    &:last-of-type {
-      border-right: 0;
-    }
-  }
-`;
-
-export const FlavorText = styled.span`
-  color: #4e3629;
-  writing-mode: tb-rl;
-  transform: rotate(-180deg);
-  font-size: clamp(35px, 2.31vw, 52px);
-  font-weight: 500;
-  line-height: clamp(45px, 3.96vw, 60px);
-  text-transform: uppercase;
-
-  @media only screen and (max-width: ${theme.breakpoints.tablet}px) {
-    writing-mode: initial;
-    transform: initial;
-  }
-`;
-
-export const BG = styled.div`
-  height: 222px;
+export const BG = styled(motion.div)`
   width: 100%;
   position: relative;
   margin-bottom: clamp(50px, 5.42vw, 82px);
-
-  @media only screen and (max-width: ${theme.breakpoints.smallScreen}px) {
-    height: 232px;
-  }
+  height: 232px;
+  border-bottom: 2px solid #cb333b;
+  border-inline: 2px solid #cb333b;
   @media only screen and (max-width: ${theme.breakpoints.tablet}px) {
     height: 196px;
   }
+`;
+
+export const WhiteBG = styled.div`
+  width: 376px;
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  z-index: 1;
+  left: 0;
+  background-color: #fff;
+  border-right: 2px solid #cb333b;
 `;

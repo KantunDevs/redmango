@@ -1,0 +1,56 @@
+{
+  "id": "homepage_lets_connect",
+  "type": "SharedSlice",
+  "name": "HomepageLetsConnect",
+  "description": "HomepageLetsConnect",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "hashtag": {
+          "type": "Text",
+          "config": {
+            "label": "Hashtag",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "card_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card Title",
+            "placeholder": ""
+          }
+        },
+        "card_text": {
+          "type": "Text",
+          "config": {
+            "label": "Card Text",
+            "placeholder": ""
+          }
+        },
+        "card_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

@@ -17,6 +17,7 @@ export const MainTitle = styled.h1`
   color: transparent;
   -webkit-text-stroke: 2px #ffffff;
   letter-spacing: 1.8px;
+  font-weight: 700;
 `;
 
 export const Disclaimer = styled.div`

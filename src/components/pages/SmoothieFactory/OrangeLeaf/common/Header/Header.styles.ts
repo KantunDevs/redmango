@@ -41,12 +41,14 @@ export const LinkSection = styled(Section)`
 export const Link = styled.span`
   text-decoration: none;
   position: relative;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 20px;
   color: #474747;
-  font-weight: 700;
+  font-weight: 600;
+  font-family: 'futura-pt', sans-serif;
+  text-transform: uppercase;
   &[data-is-active='true'] {
-    font-weight: 900;
+    font-weight: 700;
   }
 `;
 
@@ -58,11 +60,12 @@ export const ButtonLink = styled.button`
   padding: 0;
   margin: 0;
   cursor: pointer;
-  font-family: var(--nexa);
-  font-size: 18px;
-  line-height: 25px;
+  font-weight: 600;
+  font-family: 'futura-pt', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
   color: #474747;
-  font-weight: 700;
+  text-transform: uppercase;
   &[data-is-active='true'] {
     &:before {
       content: '';
@@ -80,10 +83,12 @@ export const ButtonLink = styled.button`
 export const NativeLink = styled.a`
   text-decoration: none;
   position: relative;
-  font-size: 18px;
-  line-height: 25px;
-  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
   color: #474747;
+  font-weight: 600;
+  font-family: 'futura-pt', sans-serif;
+  text-transform: uppercase;
 `;
 
 export const Separator = styled.div`
@@ -100,11 +105,12 @@ export const Separator = styled.div`
 export const Button = styled(motion.a)`
   font-size: 16px;
   line-height: 20px;
-  text-transform: uppercase;
   border: none;
   color: #cb333b;
   cursor: pointer;
   font-weight: 600;
+  font-family: 'futura-pt', sans-serif;
+  text-transform: uppercase;
 `;
 
 export const MobileWrapper = styled.nav`

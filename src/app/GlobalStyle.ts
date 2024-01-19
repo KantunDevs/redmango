@@ -1,4 +1,5 @@
 'use client';
+
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -28,18 +29,21 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     flex-direction: column;
     position: relative;
-    font-family: var(--nexa);
+    font-family: var(--variable-black);
+  }
+
+  main{
+    flex: 1;
   }
 
   h1, h2, h3, h4, h5, h6, button {
-    font-weight: 900;
-    font-family: var(--nexa);
+    font-weight: 600;
+    font-family: "futura-pt", sans-serif;
   }
 
   p, span, input, a, label, textarea, select,li {
     font-weight: 400;
-    font-family: var(--nexa);
-
+    font-family: var(--variable-black);
   }
 
   ul{

@@ -45,6 +45,7 @@ export const PageTitle = styled.h1`
   color: transparent;
   -webkit-text-stroke: 2px #23aa5d;
   text-transform: uppercase;
+  font-weight: 700;
 `;
 
 export const Title = styled.h2`

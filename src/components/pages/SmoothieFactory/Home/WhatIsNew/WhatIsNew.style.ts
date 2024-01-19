@@ -20,5 +20,6 @@ export const Title = styled.h1`
   color: transparent;
   text-transform: uppercase;
   -webkit-text-stroke: 2px #cb333b;
+  font-weight: 700;
   margin-bottom: clamp(24px, 5.42vw, 82px);
 `;

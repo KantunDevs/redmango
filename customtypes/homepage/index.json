@@ -1,6 +1,6 @@
 {
-  "id": "home",
-  "label": "Home",
+  "id": "homepage",
+  "label": "Homepage",
   "format": "page",
   "repeatable": false,
   "status": true,
@@ -11,7 +11,19 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "home_header": {
+            "homepage_lets_connect": {
+              "type": "SharedSlice"
+            },
+            "homepage_join_our_club": {
+              "type": "SharedSlice"
+            },
+            "homepage_probiotics": {
+              "type": "SharedSlice"
+            },
+            "homepage_our_stars": {
+              "type": "SharedSlice"
+            },
+            "homepage_header": {
               "type": "SharedSlice"
             }
           }

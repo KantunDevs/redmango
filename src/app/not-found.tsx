@@ -1,32 +1,53 @@
 'use client';
 
-import { Container, FlexWrapper, StyledFloatingImage, Title, SubTitle } from './not-found.style';
+import { FlexWrapper, SubTitle, Wrapper, Numbers, Number, Title, OverflowContainer } from './not-found.style';
 
 import type { FC } from 'react';
 import Link from 'next/link';
 
-import { ButtonOutlined } from '@components/pages/SmoothieFactory/OrangeLeaf/common/ButtonOutlined/ButtonOutlined';
+import { Button, MaxWidthWrapper } from '@styles/common';
+import FloatingImage from '@components/pages/SmoothieFactory/OrangeLeaf/common/FloatingImage/FloatingImage';
+import Image from 'next/image';
 
 const NotFound: FC = () => (
-  <Container>
-    <StyledFloatingImage
-      alt="background"
-      height="718.21px"
-      right="0"
-      src="/images/slice30.png"
-      style={{ zIndex: -1 }}
-      top="4.29vw"
-      width="709.1px"
-      renderInBody
-    />
-    <FlexWrapper>
-      <Title>Error 404</Title>
-      <SubTitle>Page not found!</SubTitle>
-      <Link href="/">
-        <ButtonOutlined>Go back home</ButtonOutlined>
-      </Link>
-    </FlexWrapper>
-  </Container>
+  <MaxWidthWrapper>
+    <Title>Error:</Title>
+    <Wrapper>
+      <FlexWrapper>
+        <Numbers>
+          <Number>4</Number>
+          <Number>0</Number>
+          <Number>4</Number>
+        </Numbers>
+        <SubTitle>Page not found!</SubTitle>
+        <Link href="/">
+          <Button style={{ background: '#CB333B', color: '#fff' }}>Go back home</Button>
+        </Link>
+      </FlexWrapper>
+      <FlexWrapper>
+        <FloatingImage
+          alt="cup"
+          src="/images/image 51 (2).png"
+          width="clamp(340px,32.07vw, 485px)"
+          right="-7%"
+          bottom="17%"
+          style={{ zIndex: 2 }}
+          height="clamp(340px, 32.07vw,485px)"
+        />
+        <OverflowContainer>
+          <FloatingImage
+            alt="bg"
+            src="/images/Group 153 (1).svg"
+            width="695px"
+            right="-1%"
+            bottom="1%"
+            style={{ zIndex: 1, transform: 'translate(22%, 46%) rotate(154.31deg)' }}
+            height="674px"
+          />
+        </OverflowContainer>
+      </FlexWrapper>
+    </Wrapper>
+  </MaxWidthWrapper>
 );
 
 export default NotFound;

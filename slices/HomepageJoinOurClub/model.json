@@ -1,0 +1,47 @@
+{
+  "id": "homepage_join_our_club",
+  "type": "SharedSlice",
+  "name": "HomepageJoinOurClub",
+  "description": "HomepageJoinOurClub",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": ""
+          }
+        },
+        "button": {
+          "type": "Text",
+          "config": {
+            "label": "Button",
+            "placeholder": ""
+          }
+        },
+        "gift_cards_button": {
+          "type": "Text",
+          "config": {
+            "label": "Gift Cards Button",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

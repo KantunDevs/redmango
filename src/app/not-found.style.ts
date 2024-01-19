@@ -1,48 +1,30 @@
+import theme from '@styles/theme';
 import styled from 'styled-components';
 
-import FloatingImage from '@components/pages/SmoothieFactory/OrangeLeaf/common/FloatingImage/FloatingImage';
-import theme from '@styles/theme';
-
-export const Container = styled.section`
-  width: 100%;
-  min-height: 100vh;
-  margin-inline: auto;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const StyledFloatingImage = styled(FloatingImage)`
-  @media only screen and (max-width: ${theme.breakpoints.smallScreen}px) {
-    transform: translate(27.92vw, 9.27vw);
-  }
-  @media only screen and (max-width: ${theme.breakpoints.mobile}px) {
-    transform: translate(80vw, 9.27vw);
-  }
-  &::before {
-    content: '';
-    position: absolute;
-    backdrop-filter: blur(15px);
-    inset: 0;
-    z-index: 1;
-  }
-`;
-
 export const Title = styled.h1`
-  font-size: clamp(35px, 5.29vw, 80px);
-  line-height: clamp(45px, 5.82vw, 88px);
-  @media only screen and (max-width: ${theme.breakpoints.smallScreen}px) {
-    margin-bottom: 5px;
-  }
+  margin-top: clamp(133px, 12.56vw, 190px);
+  font-size: clamp(36px, 5.29vw, 80px);
+  line-height: clamp(40px, 5.29vw, 80px);
+  margin-bottom: clamp(16px, 1.78vw, 27px);
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px #cb333b;
+  letter-spacing: 1.8px;
+  margin-bottom: 87px;
+  font-weight: 700;
 `;
 
-export const SubTitle = styled.h2`
-  font-size: clamp(24px, 2.64vw, 40px);
-  line-height: clamp(32px, 3.7vw, 56px);
-  margin-bottom: clamp(46px, 3.5vw, 53px);
-  @media only screen and (max-width: ${theme.breakpoints.mobile}px) {
-    margin-bottom: 70px;
+export const SubTitle = styled.p`
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 32px;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  margin-bottom: 106px;
+  @media only screen and (max-width: ${theme.breakpoints.tablet}px) {
+    flex-direction: column;
   }
 `;
 
@@ -50,6 +32,54 @@ export const FlexWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-inline: 32px;
-  margin-bottom: 300px;
+  justify-content: center;
+  flex: 0.5;
+  border: 2px solid #cb333b;
+  padding: 111px 50px;
+  position: relative;
+  &:first-of-type {
+    z-index: 1;
+    border-right: none;
+    @media only screen and (max-width: ${theme.breakpoints.tablet}px) {
+      border-right: 2px solid #cb333b;
+    }
+  }
+  &:nth-of-type(2) {
+    @media only screen and (max-width: ${theme.breakpoints.tablet}px) {
+      display: none;
+    }
+  }
+`;
+
+export const Numbers = styled.div`
+  display: flex;
+  gap: 16px;
+  position: absolute;
+  left: clamp(0px, 3.3vw, 50px);
+  top: 0;
+  transform: translateY(-50%);
+`;
+
+export const OverflowContainer = styled.div`
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+`;
+
+export const Number = styled.span`
+  border: 2px solid #cb333b;
+  width: clamp(56px, 7.47vw, 113px);
+  height: clamp(56px, 7.47vw, 113px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  font-size: clamp(33px, 4.43vw, 67px);
+  line-height: clamp(25px, 3.3vw, 50px);
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px #cb333b;
+  font-weight: 700;
+  font-family: 'futura-pt', sans-serif;
 `;

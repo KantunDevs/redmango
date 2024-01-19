@@ -41,4 +41,5 @@ export const LeftColumnTitle = styled.h1`
   color: transparent;
   -webkit-text-stroke: 2px #cb333b;
   letter-spacing: 1.8px;
+  font-weight: 700;
 `;

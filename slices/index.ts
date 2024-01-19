@@ -3,5 +3,9 @@
 import dynamic from 'next/dynamic';
 
 export const components = {
-  home_header: dynamic(() => import('./HomeHeader')),
+  homepage_header: dynamic(() => import('./HomepageHeader')),
+  homepage_join_our_club: dynamic(() => import('./HomepageJoinOurClub')),
+  homepage_lets_connect: dynamic(() => import('./HomepageLetsConnect')),
+  homepage_our_stars: dynamic(() => import('./HomepageOurStars')),
+  homepage_probiotics: dynamic(() => import('./HomepageProbiotics')),
 };

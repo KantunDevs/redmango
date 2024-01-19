@@ -11,25 +11,15 @@ import type { FC, ReactNode } from 'react';
 import GlobalStyle from './GlobalStyle';
 import { StoreProvider } from 'src/context/StoreProvider';
 
-const nexa = localFont({
+const variableBlack = localFont({
   src: [
     {
-      path: '../../public/fonts/Nexa-Book.otf',
+      path: '../../public/fonts/VariableBlack.ttf',
       style: 'normal',
       weight: '400',
     },
-    {
-      path: '../../public/fonts/Nexa-Bold.otf',
-      style: 'normal',
-      weight: '700',
-    },
-    {
-      path: '../../public/fonts/NexaBlack.otf',
-      style: 'normal',
-      weight: '900',
-    },
   ],
-  variable: '--nexa',
+  variable: '--variable-black',
 });
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
@@ -45,18 +35,22 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
         <Footer />
       </>
     );
-
   return (
-    <html className={nexa.variable} lang="en">
-      <body>
-        <StoreProvider>
-          <StyledComponentsRegistry>
-            <GlobalStyle />
-            {content}
-          </StyledComponentsRegistry>
-        </StoreProvider>
-      </body>
-    </html>
+    <>
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/cst1rrm.css" />
+      </head>
+      <html className={`${variableBlack.variable}`} lang="en">
+        <body>
+          <StoreProvider>
+            <StyledComponentsRegistry>
+              <GlobalStyle />
+              {content}
+            </StyledComponentsRegistry>
+          </StoreProvider>
+        </body>
+      </html>
+    </>
   );
 };
 

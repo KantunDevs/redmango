@@ -1,5 +1,5 @@
 {
-  "apiEndpoint": "https://brixholdings.prismic.io/api/v2",
+  "apiEndpoint": "https://redmango.prismic.io/api/v2",
   "repositoryName": "redmango",
   "adapter": "@slicemachine/adapter-next",
   "libraries": ["./slices"]

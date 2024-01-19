@@ -1,8 +1,8 @@
 {
-  "id": "home_header",
+  "id": "homepage_header",
   "type": "SharedSlice",
-  "name": "HomeHeader",
-  "description": "HomeHeader",
+  "name": "HomepageHeader",
+  "description": "HomepageHeader",
   "variations": [
     {
       "id": "default",
@@ -16,6 +16,20 @@
           "type": "Text",
           "config": {
             "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "text": {
+          "type": "Text",
+          "config": {
+            "label": "Text",
+            "placeholder": ""
+          }
+        },
+        "button": {
+          "type": "Text",
+          "config": {
+            "label": "Button",
             "placeholder": ""
           }
         }

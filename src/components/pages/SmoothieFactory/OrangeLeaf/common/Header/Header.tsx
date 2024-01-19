@@ -42,13 +42,11 @@ const Header: FC = () => {
   const onHamburgerClick = (): void => {
     document.body.style.overflowY = 'hidden';
     document.documentElement.style.overflowY = 'hidden';
-    console.log('open');
     void animate(ref.current, { opacity: 1, x: 0 }, { duration: 0.3 });
     setIsOpen(true);
   };
 
   const onClose = (href: string): void => {
-    console.log('close');
     document.body.style.overflowY = 'initial';
     document.documentElement.style.overflowY = 'initial';
     void animate(ref.current, { opacity: 0, x: 20 });

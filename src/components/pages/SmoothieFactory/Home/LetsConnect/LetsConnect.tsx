@@ -28,33 +28,32 @@ import { MaxWidthWrapper } from '@styles/common';
 import { Title } from '../common';
 
 import type { FC } from 'react';
-import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
+import { HomepageLetsConnectSlice } from 'prismicio-types';
+import { PrismicNextImage } from '@prismicio/next';
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const LetsConnect: FC = () => (
+const LetsConnect: FC<{ slice: HomepageLetsConnectSlice }> = ({
+  slice: {
+    items,
+    primary: { title, hashtag },
+  },
+}) => (
   <>
     <BgWrapper>
       <Glass>
         <MaxWidthWrapper>
           <Row>
             <Column>
-              <Title mb="8px" color="#421B00">
-                Let’s connect
-              </Title>
-              <Hashtag>
-                Use #Frozenyogurt and/or <br /> #Brainfreeze...
-              </Hashtag>
+              <Title mb="8px" color="#421B00" dangerouslySetInnerHTML={{ __html: title as string }}></Title>
+              <Hashtag dangerouslySetInnerHTML={{ __html: hashtag as string }}></Hashtag>
             </Column>
             <CarouselWrapper>
               <Carousel>
-                {cards.map((card) => (
-                  <CardColumn key={card}>
+                {items.map(({ card_image, card_title, card_text }, index) => (
+                  <CardColumn key={index}>
                     <Card>
                       <Thumbnail>
-                        <Image
-                          alt="bg"
-                          src="/images/world-health-day.jpg"
+                        <PrismicNextImage
+                          field={card_image}
                           style={{ objectFit: 'cover', pointerEvents: 'none' }}
                           fill
                         />
@@ -64,12 +63,9 @@ const LetsConnect: FC = () => (
                           <Icon>
                             <Image alt="logo" src="/images/Vector (4).svg" height="35" width="36" />
                           </Icon>
-                          <CardTitle>redmango</CardTitle>
+                          <CardTitle dangerouslySetInnerHTML={{ __html: card_title as string }}></CardTitle>
                         </IconWrapper>
-
-                        <CardText>
-                          📞 Calling all dessert lovers for a Friday celebration in honor of #NationalDessertDay 🥳
-                        </CardText>
+                        <CardText dangerouslySetInnerHTML={{ __html: card_text as string }}></CardText>
                       </CardContent>
                     </Card>
                   </CardColumn>

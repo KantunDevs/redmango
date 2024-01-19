@@ -1,7 +1,5 @@
 'use client';
 
-import Lottie from 'lottie-react';
-
 import { BgImage, Card, CardTitle, CardText } from './Probiotics.style';
 
 import type { FC } from 'react';
@@ -10,8 +8,13 @@ import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 import useWindowSize from '@hooks/useWindowSize';
 import theme from '@styles/theme';
 import { Button } from '@styles/common';
+import { HomepageProbioticsSlice } from 'prismicio-types';
 
-const Probiotics: FC = () => {
+const Probiotics: FC<{ slice: HomepageProbioticsSlice }> = ({
+  slice: {
+    primary: { title, text, button },
+  },
+}) => {
   const { width } = useWindowSize();
   const isMobile = width <= theme.breakpoints.mobile;
 
@@ -28,13 +31,9 @@ const Probiotics: FC = () => {
         style={{ zIndex: 2 }}
       />
       <Card>
-        <CardTitle>Not all probiotics are equal!</CardTitle>
-        <CardText>
-          Many probiotics found in capsules and other yogurts are extremely fragile. Few survive the stomach acid and go
-          on to populate the intestine, providing minimal health benefits. Some producers even use processes that kill
-          these beneficial cultures.
-        </CardText>
-        <Button>Read more</Button>
+        <CardTitle dangerouslySetInnerHTML={{ __html: title as string }}></CardTitle>
+        <CardText dangerouslySetInnerHTML={{ __html: text as string }}></CardText>
+        <Button dangerouslySetInnerHTML={{ __html: button as string }}></Button>
       </Card>
       {isMobile ? (
         <FloatingImage

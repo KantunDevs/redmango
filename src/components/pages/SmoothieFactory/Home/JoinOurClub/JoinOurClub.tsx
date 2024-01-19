@@ -18,8 +18,14 @@ import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 import LetsConnect from '../LetsConnect/LetsConnect';
 
 import type { FC } from 'react';
+import { HomepageJoinOurClubSlice, HomepageLetsConnectSlice } from 'prismicio-types';
 
-const JoinOurClub: FC = () => (
+const JoinOurClub: FC<{ slice: HomepageJoinOurClubSlice; letsConnectSlice: HomepageLetsConnectSlice }> = ({
+  slice: {
+    primary: { title, subtitle, button, gift_cards_button },
+  },
+  letsConnectSlice,
+}) => (
   <Wrapper>
     <Image fill alt="bg" src="/images/image 45.jpg" style={{ objectFit: 'contain', objectPosition: '0 100px' }} />
     <Image fill alt="bg" src="/images/image 45.jpg" style={{ objectFit: 'contain', objectPosition: 'bottom' }} />
@@ -34,9 +40,9 @@ const JoinOurClub: FC = () => (
           height="clamp(201px,17.79vw, 269px)"
         />
         <Image alt="letter icon" src="/images/Group 17.svg" width="68" height="60" />
-        <LeftSectionTitle>Join our club</LeftSectionTitle>
-        <LeftSectionText>to get special offers</LeftSectionText>
-        <ButtonWhite>JOIN E-CLUB</ButtonWhite>
+        <LeftSectionTitle dangerouslySetInnerHTML={{ __html: title as string }}></LeftSectionTitle>
+        <LeftSectionText dangerouslySetInnerHTML={{ __html: subtitle as string }}></LeftSectionText>
+        <ButtonWhite dangerouslySetInnerHTML={{ __html: button as string }}></ButtonWhite>
         <FloatingImage
           bottom="18%"
           hideUnder={1024}
@@ -58,10 +64,10 @@ const JoinOurClub: FC = () => (
           height="clamp(171px,12.69vw, 192px)"
         />
         <RightSectionText style={{ color: '#4E3629' }}>... for that special person!</RightSectionText>
-        <ButtonRed>Gift cards</ButtonRed>
+        <ButtonRed dangerouslySetInnerHTML={{ __html: gift_cards_button as string }}></ButtonRed>
       </RightSection>
     </Background>
-    <LetsConnect />
+    <LetsConnect slice={letsConnectSlice} />
   </Wrapper>
 );
 

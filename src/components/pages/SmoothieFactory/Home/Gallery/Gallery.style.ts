@@ -47,7 +47,7 @@ export const LemonsColumn = styled.div`
   align-items: center;
 `;
 
-export const GalleryImage = styled.div`
+export const GalleryImage = styled(motion.div)`
   flex: 1;
   position: relative;
   border-right: 2px solid #cb333b;

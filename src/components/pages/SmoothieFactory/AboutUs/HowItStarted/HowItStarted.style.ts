@@ -19,6 +19,7 @@ export const Title = styled.h1`
   -webkit-text-stroke: 2px #cb333b;
   margin-bottom: 24px;
   text-transform: uppercase;
+  font-weight: 700;
 `;
 
 export const Text = styled.p`

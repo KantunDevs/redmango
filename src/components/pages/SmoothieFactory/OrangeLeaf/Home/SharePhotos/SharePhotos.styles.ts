@@ -5,8 +5,13 @@ import theme from '@styles/theme';
 
 const cardWidth = '368px';
 
-const translateinfinite = keyframes`
-	100% { transform:translateX(calc(-${cardWidth} * 5));  }
+const slide = keyframes`
+ from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 `;
 
 export const Slider = styled.div`
@@ -37,7 +42,6 @@ export const Item = styled.li`
   align-items: center;
   background: #fff;
   width: ${cardWidth};
-  animation: ${translateinfinite} 50s linear infinite;
   border: 1px solid #ffdb31;
   &:nth-of-type(2n) {
     border-color: #d9d32f;

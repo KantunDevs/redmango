@@ -1,0 +1,29 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "talk",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "announced",
+				"type": "Text"
+			},
+			"button": {
+				"__TYPE__": "FieldContent",
+				"value": "fallen",
+				"type": "Text"
+			},
+			"gift_cards_button": {
+				"__TYPE__": "FieldContent",
+				"value": "pictured",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

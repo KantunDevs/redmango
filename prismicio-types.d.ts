@@ -4,49 +4,54 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = HomeHeaderSlice;
+type HomepageDocumentDataSlicesSlice =
+  | HomepageLetsConnectSlice
+  | HomepageJoinOurClubSlice
+  | HomepageProbioticsSlice
+  | HomepageOurStarsSlice
+  | HomepageHeaderSlice;
 
 /**
- * Content for Home documents
+ * Content for Homepage documents
  */
-interface HomeDocumentData {
+interface HomepageDocumentData {
   /**
-   * Slice Zone field in *Home*
+   * Slice Zone field in *Homepage*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: home.slices[]
+   * - **API ID Path**: homepage.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice> /**
-   * Meta Description field in *Home*
+  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Homepage*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: home.meta_description
+   * - **API ID Path**: homepage.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Home*
+   * Meta Image field in *Homepage*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: home.meta_image
+   * - **API ID Path**: homepage.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
 
   /**
-   * Meta Title field in *Home*
+   * Meta Title field in *Homepage*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: home.meta_title
+   * - **API ID Path**: homepage.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -54,63 +59,471 @@ interface HomeDocumentData {
 }
 
 /**
- * Home document from Prismic
+ * Homepage document from Prismic
  *
- * - **API ID**: `home`
+ * - **API ID**: `homepage`
  * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type HomeDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
-  Simplify<HomeDocumentData>,
-  'home',
+export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<HomepageDocumentData>,
+  'homepage',
   Lang
 >;
 
-export type AllDocumentTypes = HomeDocument;
+type MenuDocumentDataSlicesSlice = HomepageOurStarsSlice;
 
 /**
- * Primary content in *HomeHeader → Primary*
+ * Content for Menu documents
  */
-export interface HomeHeaderSliceDefaultPrimary {
+interface MenuDocumentData {
   /**
-   * Title field in *HomeHeader → Primary*
+   * Slice Zone field in *Menu*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<MenuDocumentDataSlicesSlice> /**
+   * Meta Description field in *Menu*
    *
    * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: menu.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Menu*
+   *
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: home_header.primary.title
+   * - **API ID Path**: menu.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: menu.meta_title
+   * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  title: prismic.KeyTextField;
+  meta_title: prismic.KeyTextField;
 }
 
 /**
- * Default variation for HomeHeader Slice
+ * Menu document from Prismic
+ *
+ * - **API ID**: `menu`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MenuDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<MenuDocumentData>,
+  'menu',
+  Lang
+>;
+
+export type AllDocumentTypes = HomepageDocument | MenuDocument;
+
+/**
+ * Primary content in *HomepageHeader → Primary*
+ */
+export interface HomepageHeaderSliceDefaultPrimary {
+  /**
+   * Title field in *HomepageHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_header.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *HomepageHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_header.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * Button field in *HomepageHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_header.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for HomepageHeader Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HomeHeaderSliceDefault = prismic.SharedSliceVariation<
+export type HomepageHeaderSliceDefault = prismic.SharedSliceVariation<
   'default',
-  Simplify<HomeHeaderSliceDefaultPrimary>,
+  Simplify<HomepageHeaderSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *HomeHeader*
+ * Slice variation for *HomepageHeader*
  */
-type HomeHeaderSliceVariation = HomeHeaderSliceDefault;
+type HomepageHeaderSliceVariation = HomepageHeaderSliceDefault;
 
 /**
- * HomeHeader Shared Slice
+ * HomepageHeader Shared Slice
  *
- * - **API ID**: `home_header`
- * - **Description**: HomeHeader
+ * - **API ID**: `homepage_header`
+ * - **Description**: HomepageHeader
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HomeHeaderSlice = prismic.SharedSlice<'home_header', HomeHeaderSliceVariation>;
+export type HomepageHeaderSlice = prismic.SharedSlice<'homepage_header', HomepageHeaderSliceVariation>;
+
+/**
+ * Primary content in *HomepageJoinOurClub → Primary*
+ */
+export interface HomepageJoinOurClubSliceDefaultPrimary {
+  /**
+   * Title field in *HomepageJoinOurClub → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_join_our_club.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *HomepageJoinOurClub → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_join_our_club.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Button field in *HomepageJoinOurClub → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_join_our_club.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button: prismic.KeyTextField;
+
+  /**
+   * Gift Cards Button field in *HomepageJoinOurClub → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_join_our_club.primary.gift_cards_button
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  gift_cards_button: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for HomepageJoinOurClub Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageJoinOurClubSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<HomepageJoinOurClubSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HomepageJoinOurClub*
+ */
+type HomepageJoinOurClubSliceVariation = HomepageJoinOurClubSliceDefault;
+
+/**
+ * HomepageJoinOurClub Shared Slice
+ *
+ * - **API ID**: `homepage_join_our_club`
+ * - **Description**: HomepageJoinOurClub
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageJoinOurClubSlice = prismic.SharedSlice<'homepage_join_our_club', HomepageJoinOurClubSliceVariation>;
+
+/**
+ * Primary content in *HomepageLetsConnect → Primary*
+ */
+export interface HomepageLetsConnectSliceDefaultPrimary {
+  /**
+   * Title field in *HomepageLetsConnect → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_lets_connect.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Hashtag field in *HomepageLetsConnect → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_lets_connect.primary.hashtag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hashtag: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *HomepageLetsConnect → Items*
+ */
+export interface HomepageLetsConnectSliceDefaultItem {
+  /**
+   * Card Title field in *HomepageLetsConnect → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_lets_connect.items[].card_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_title: prismic.KeyTextField;
+
+  /**
+   * Card Text field in *HomepageLetsConnect → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_lets_connect.items[].card_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_text: prismic.KeyTextField;
+
+  /**
+   * Card Image field in *HomepageLetsConnect → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_lets_connect.items[].card_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HomepageLetsConnect Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageLetsConnectSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<HomepageLetsConnectSliceDefaultPrimary>,
+  Simplify<HomepageLetsConnectSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *HomepageLetsConnect*
+ */
+type HomepageLetsConnectSliceVariation = HomepageLetsConnectSliceDefault;
+
+/**
+ * HomepageLetsConnect Shared Slice
+ *
+ * - **API ID**: `homepage_lets_connect`
+ * - **Description**: HomepageLetsConnect
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageLetsConnectSlice = prismic.SharedSlice<'homepage_lets_connect', HomepageLetsConnectSliceVariation>;
+
+/**
+ * Primary content in *HomepageOurStars → Primary*
+ */
+export interface HomepageOurStarsSliceDefaultPrimary {
+  /**
+   * Main Title field in *HomepageOurStars → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_our_stars.primary.main_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_title: prismic.KeyTextField;
+
+  /**
+   * Title field in *HomepageOurStars → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_our_stars.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *HomepageOurStars → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_our_stars.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Text field in *HomepageOurStars → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_our_stars.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * Button field in *HomepageOurStars → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_our_stars.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button: prismic.KeyTextField;
+
+  /**
+   * Image field in *HomepageOurStars → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_our_stars.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Is Menu Page Variant field in *HomepageOurStars → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: homepage_our_stars.primary.is_menu_page_variant
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_menu_page_variant: prismic.BooleanField;
+}
+
+/**
+ * Default variation for HomepageOurStars Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageOurStarsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<HomepageOurStarsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HomepageOurStars*
+ */
+type HomepageOurStarsSliceVariation = HomepageOurStarsSliceDefault;
+
+/**
+ * HomepageOurStars Shared Slice
+ *
+ * - **API ID**: `homepage_our_stars`
+ * - **Description**: HomepageOurStars
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageOurStarsSlice = prismic.SharedSlice<'homepage_our_stars', HomepageOurStarsSliceVariation>;
+
+/**
+ * Primary content in *HomepageProbiotics → Primary*
+ */
+export interface HomepageProbioticsSliceDefaultPrimary {
+  /**
+   * Title field in *HomepageProbiotics → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_probiotics.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *HomepageProbiotics → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_probiotics.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * Button field in *HomepageProbiotics → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_probiotics.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for HomepageProbiotics Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageProbioticsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<HomepageProbioticsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HomepageProbiotics*
+ */
+type HomepageProbioticsSliceVariation = HomepageProbioticsSliceDefault;
+
+/**
+ * HomepageProbiotics Shared Slice
+ *
+ * - **API ID**: `homepage_probiotics`
+ * - **Description**: HomepageProbiotics
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageProbioticsSlice = prismic.SharedSlice<'homepage_probiotics', HomepageProbioticsSliceVariation>;
 
 declare module '@prismicio/client' {
   interface CreateClient {
@@ -119,14 +532,34 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
-      HomeDocument,
-      HomeDocumentData,
-      HomeDocumentDataSlicesSlice,
+      HomepageDocument,
+      HomepageDocumentData,
+      HomepageDocumentDataSlicesSlice,
+      MenuDocument,
+      MenuDocumentData,
+      MenuDocumentDataSlicesSlice,
       AllDocumentTypes,
-      HomeHeaderSlice,
-      HomeHeaderSliceDefaultPrimary,
-      HomeHeaderSliceVariation,
-      HomeHeaderSliceDefault,
+      HomepageHeaderSlice,
+      HomepageHeaderSliceDefaultPrimary,
+      HomepageHeaderSliceVariation,
+      HomepageHeaderSliceDefault,
+      HomepageJoinOurClubSlice,
+      HomepageJoinOurClubSliceDefaultPrimary,
+      HomepageJoinOurClubSliceVariation,
+      HomepageJoinOurClubSliceDefault,
+      HomepageLetsConnectSlice,
+      HomepageLetsConnectSliceDefaultPrimary,
+      HomepageLetsConnectSliceDefaultItem,
+      HomepageLetsConnectSliceVariation,
+      HomepageLetsConnectSliceDefault,
+      HomepageOurStarsSlice,
+      HomepageOurStarsSliceDefaultPrimary,
+      HomepageOurStarsSliceVariation,
+      HomepageOurStarsSliceDefault,
+      HomepageProbioticsSlice,
+      HomepageProbioticsSliceDefaultPrimary,
+      HomepageProbioticsSliceVariation,
+      HomepageProbioticsSliceDefault,
     };
   }
 }
