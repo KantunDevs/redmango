@@ -1,0 +1,26 @@
+{
+  "id": "whats_new",
+  "type": "SharedSlice",
+  "name": "WhatsNew",
+  "description": "WhatsNew",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

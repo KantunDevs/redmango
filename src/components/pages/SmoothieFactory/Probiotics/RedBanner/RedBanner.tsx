@@ -5,8 +5,13 @@ import type { FC } from 'react';
 import { Bg } from './RedBanner.style';
 import { Title } from '../../Home/common';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
+import { RedBannerSlice } from 'prismicio-types';
 
-const RedBanner: FC = () => (
+const RedBanner: FC<{ slice: RedBannerSlice }> = ({
+  slice: {
+    primary: { title },
+  },
+}) => (
   <>
     <Bg>
       <FloatingImage
@@ -25,9 +30,11 @@ const RedBanner: FC = () => (
         width="clamp(284px,38.3vw, 580px)"
         src="/images/Vector (9).svg"
       />
-      <Title color="#FFFFFF" style={{ maxWidth: '931px', textAlign: 'center' }}>
-        Only certain probiotics, like Red Mango's Super Biotics*, are clinically proven to deliver health benefits.
-      </Title>
+      <Title
+        color="#FFFFFF"
+        style={{ maxWidth: '931px', textAlign: 'center' }}
+        dangerouslySetInnerHTML={{ __html: title as string }}
+      ></Title>
     </Bg>
   </>
 );

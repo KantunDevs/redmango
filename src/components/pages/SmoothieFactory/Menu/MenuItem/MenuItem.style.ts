@@ -47,7 +47,9 @@ export const Subtitle = styled.span`
   font-size: clamp(23px, 2.11vw, 32px);
   line-height: clamp(27px, 3.17vw, 48px);
   color: #cb333b;
-  font-weight: 500;
+  font-weight: 600;
+  font-family: 'futura-pt', sans-serif;
+
   text-transform: uppercase;
   margin-bottom: 16px;
 `;
@@ -57,7 +59,7 @@ export const Title = styled.h1`
   line-height: clamp(39px, 4.62vw, 70px);
   color: #421b00;
   max-width: 498px;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 16px;
 `;
 

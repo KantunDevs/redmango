@@ -72,7 +72,7 @@ export const FlavorText = styled.span`
   font-family: 'futura-pt', sans-serif;
   transform: rotate(-180deg);
   font-size: clamp(35px, 2.31vw, 52px);
-  font-weight: 500;
+  font-weight: 600;
   line-height: clamp(45px, 3.96vw, 60px);
   text-transform: uppercase;
   white-space: nowrap;

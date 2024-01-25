@@ -14,6 +14,8 @@ import {
   HomepageProbioticsSlice,
   HomepageJoinOurClubSlice,
   HomepageLetsConnectSlice,
+  WhatsNewSlice,
+  GallerySlice,
 } from 'prismicio-types';
 
 export const metadata = {
@@ -47,11 +49,15 @@ const Home: FC = async () => {
     | HomepageLetsConnectSlice
     | undefined;
 
+  const whatsNewSlice = page.data.slices.find((slice) => slice.slice_type === 'whats_new') as WhatsNewSlice | undefined;
+
+  const gallerySlice = page.data.slices.find((slice) => slice.slice_type === 'gallery') as GallerySlice | undefined;
+
   return (
     <>
       {headerSlice ? <Header slice={headerSlice} /> : null}
-      <WhatIsNew />
-      <Gallery mb="clamp(48px, 10.18vw, 154px)" />
+      {whatsNewSlice ? <WhatIsNew slice={whatsNewSlice} /> : null}
+      {gallerySlice ? <Gallery mb="clamp(48px, 10.18vw, 154px)" slice={gallerySlice} /> : null}
       {ourStarsSlice ? <OurStars slice={ourStarsSlice} /> : null}
       {probioticsSlice ? <Probiotics slice={probioticsSlice} /> : null}
       {joinOurClubSlice && letsConnectSlice ? (

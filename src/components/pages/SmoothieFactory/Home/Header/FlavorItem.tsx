@@ -1,12 +1,12 @@
-import { FC, useRef } from 'react';
+import { Dispatch, FC, SetStateAction, useRef } from 'react';
 import { FlavorItem, FlavorText, AnimationWrapper, Slider, FlavorTextWhite } from './FlavorItem.style';
 import { animate } from 'framer-motion';
 import { INITIAL_IMG } from './Header';
 
 const FlavorItemComponent: FC<{
   slide: { text: string; animationText: string; image: string; icon: string };
-  setImage;
-  setIcon;
+  setImage: Dispatch<SetStateAction<string>>;
+  setIcon: Dispatch<SetStateAction<string | null>>;
 }> = ({ slide, setImage, setIcon }) => {
   const ref = useRef(null);
 

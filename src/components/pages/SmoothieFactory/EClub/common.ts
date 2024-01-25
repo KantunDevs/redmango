@@ -6,5 +6,5 @@ export const Title = styled.h1<{ color?: string; mb?: string }>`
   font-size: clamp(35px, 3.43vw, 52px);
   line-height: clamp(45px, 3.96vw, 60px);
   text-transform: initial;
-  font-weight: 500;
+  font-weight: 600;
 `;

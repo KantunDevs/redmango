@@ -5,6 +5,8 @@ import type * as prismic from '@prismicio/client';
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | GallerySlice
+  | WhatsNewSlice
   | HomepageLetsConnectSlice
   | HomepageJoinOurClubSlice
   | HomepageProbioticsSlice
@@ -73,7 +75,7 @@ export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocu
   Lang
 >;
 
-type MenuDocumentDataSlicesSlice = HomepageOurStarsSlice;
+type MenuDocumentDataSlicesSlice = MenuItemsSlice | GallerySlice | WhatsNewSlice | HomepageOurStarsSlice;
 
 /**
  * Content for Menu documents
@@ -137,7 +139,435 @@ export type MenuDocument<Lang extends string = string> = prismic.PrismicDocument
   Lang
 >;
 
-export type AllDocumentTypes = HomepageDocument | MenuDocument;
+type ProbioticsDocumentDataSlicesSlice =
+  | GoWithYourGutSlice
+  | BacteriaInfoSlice
+  | SuperBioticsSlice
+  | RedBannerSlice
+  | HealthBenefitsSlice
+  | ProbioticsHeaderSlice;
+
+/**
+ * Content for Probiotics documents
+ */
+interface ProbioticsDocumentData {
+  /**
+   * Slice Zone field in *Probiotics*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: probiotics.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProbioticsDocumentDataSlicesSlice> /**
+   * Meta Description field in *Probiotics*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: probiotics.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Probiotics*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: probiotics.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Probiotics*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: probiotics.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Probiotics document from Prismic
+ *
+ * - **API ID**: `probiotics`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProbioticsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<ProbioticsDocumentData>,
+  'probiotics',
+  Lang
+>;
+
+export type AllDocumentTypes = HomepageDocument | MenuDocument | ProbioticsDocument;
+
+/**
+ * Primary content in *BacteriaInfo → Primary*
+ */
+export interface BacteriaInfoSliceDefaultPrimary {
+  /**
+   * Title field in *BacteriaInfo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bacteria_info.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Paragraph 1 field in *BacteriaInfo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bacteria_info.primary.paragraph_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  paragraph_1: prismic.KeyTextField;
+
+  /**
+   * Paragraph 2 field in *BacteriaInfo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bacteria_info.primary.paragraph_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  paragraph_2: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for BacteriaInfo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BacteriaInfoSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<BacteriaInfoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BacteriaInfo*
+ */
+type BacteriaInfoSliceVariation = BacteriaInfoSliceDefault;
+
+/**
+ * BacteriaInfo Shared Slice
+ *
+ * - **API ID**: `bacteria_info`
+ * - **Description**: BacteriaInfo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BacteriaInfoSlice = prismic.SharedSlice<'bacteria_info', BacteriaInfoSliceVariation>;
+
+/**
+ * Primary content in *Gallery → Items*
+ */
+export interface GallerySliceDefaultItem {
+  /**
+   * Title field in *Gallery → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Gallery → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Button field in *Gallery → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].button
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button: prismic.KeyTextField;
+
+  /**
+   * Text field in *Gallery → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * Image field in *Gallery → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Gallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  Simplify<GallerySliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Gallery*
+ */
+type GallerySliceVariation = GallerySliceDefault;
+
+/**
+ * Gallery Shared Slice
+ *
+ * - **API ID**: `gallery`
+ * - **Description**: Gallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySlice = prismic.SharedSlice<'gallery', GallerySliceVariation>;
+
+/**
+ * Primary content in *GoWithYourGut → Primary*
+ */
+export interface GoWithYourGutSliceDefaultPrimary {
+  /**
+   * Main Title field in *GoWithYourGut → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: go_with_your_gut.primary.main_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_title: prismic.KeyTextField;
+
+  /**
+   * Title field in *GoWithYourGut → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: go_with_your_gut.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Disclaimer 1 field in *GoWithYourGut → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: go_with_your_gut.primary.disclaimer_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  disclaimer_1: prismic.KeyTextField;
+
+  /**
+   * Disclaimer 2 field in *GoWithYourGut → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: go_with_your_gut.primary.disclaimer_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  disclaimer_2: prismic.KeyTextField;
+
+  /**
+   * Disclaimer 3 field in *GoWithYourGut → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: go_with_your_gut.primary.disclaimer_3
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  disclaimer_3: prismic.KeyTextField;
+
+  /**
+   * Disclaimer 4 field in *GoWithYourGut → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: go_with_your_gut.primary.disclaimer_4
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  disclaimer_4: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for GoWithYourGut Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GoWithYourGutSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<GoWithYourGutSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *GoWithYourGut*
+ */
+type GoWithYourGutSliceVariation = GoWithYourGutSliceDefault;
+
+/**
+ * GoWithYourGut Shared Slice
+ *
+ * - **API ID**: `go_with_your_gut`
+ * - **Description**: GoWithYourGut
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GoWithYourGutSlice = prismic.SharedSlice<'go_with_your_gut', GoWithYourGutSliceVariation>;
+
+/**
+ * Primary content in *HealthBenefits → Primary*
+ */
+export interface HealthBenefitsSliceDefaultPrimary {
+  /**
+   * Title field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Benefit 1 Title field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_1_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  benefit_1_title: prismic.KeyTextField;
+
+  /**
+   * Benefit 1 Text 1 field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_1_text_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  benefit_1_text_1: prismic.KeyTextField;
+
+  /**
+   * Benefit 1 Text 2 field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_1_text_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  benefit_1_text_2: prismic.KeyTextField;
+
+  /**
+   * Benefit 2 Title field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_2_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  benefit_2_title: prismic.KeyTextField;
+
+  /**
+   * Benefit 2 Text 1 field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_2_text_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  benefit_2_text_1: prismic.KeyTextField;
+
+  /**
+   * Benefit 2 Text 2 field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_2_text_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  benefit_2_text_2: prismic.KeyTextField;
+
+  /**
+   * Benefit 1 Image field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_1_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  benefit_1_image: prismic.ImageField<never>;
+
+  /**
+   * Benefit 2 Image field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_2_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  benefit_2_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HealthBenefits Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HealthBenefitsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<HealthBenefitsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HealthBenefits*
+ */
+type HealthBenefitsSliceVariation = HealthBenefitsSliceDefault;
+
+/**
+ * HealthBenefits Shared Slice
+ *
+ * - **API ID**: `health_benefits`
+ * - **Description**: HealthBenefits
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HealthBenefitsSlice = prismic.SharedSlice<'health_benefits', HealthBenefitsSliceVariation>;
 
 /**
  * Primary content in *HomepageHeader → Primary*
@@ -525,6 +955,336 @@ type HomepageProbioticsSliceVariation = HomepageProbioticsSliceDefault;
  */
 export type HomepageProbioticsSlice = prismic.SharedSlice<'homepage_probiotics', HomepageProbioticsSliceVariation>;
 
+/**
+ * Primary content in *MenuItems → Items*
+ */
+export interface MenuItemsSliceDefaultItem {
+  /**
+   * Image field in *MenuItems → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_items.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Subtitle field in *MenuItems → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_items.items[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Title field in *MenuItems → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_items.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *MenuItems → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_items.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * Button 1 field in *MenuItems → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_items.items[].button_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_1: prismic.KeyTextField;
+
+  /**
+   * Button 2 field in *MenuItems → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_items.items[].button_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_2: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for MenuItems Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MenuItemsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  Simplify<MenuItemsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *MenuItems*
+ */
+type MenuItemsSliceVariation = MenuItemsSliceDefault;
+
+/**
+ * MenuItems Shared Slice
+ *
+ * - **API ID**: `menu_items`
+ * - **Description**: MenuItems
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MenuItemsSlice = prismic.SharedSlice<'menu_items', MenuItemsSliceVariation>;
+
+/**
+ * Primary content in *ProbioticsHeader → Primary*
+ */
+export interface ProbioticsHeaderSliceDefaultPrimary {
+  /**
+   * Title field in *ProbioticsHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: probiotics_header.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *ProbioticsHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: probiotics_header.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Text field in *ProbioticsHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: probiotics_header.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * Advantage 1 field in *ProbioticsHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: probiotics_header.primary.advantage_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  advantage_1: prismic.KeyTextField;
+
+  /**
+   * Advantage 2 field in *ProbioticsHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: probiotics_header.primary.advantage_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  advantage_2: prismic.KeyTextField;
+
+  /**
+   * Advantage 3 field in *ProbioticsHeader → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: probiotics_header.primary.advantage_3
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  advantage_3: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ProbioticsHeader Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProbioticsHeaderSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<ProbioticsHeaderSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProbioticsHeader*
+ */
+type ProbioticsHeaderSliceVariation = ProbioticsHeaderSliceDefault;
+
+/**
+ * ProbioticsHeader Shared Slice
+ *
+ * - **API ID**: `probiotics_header`
+ * - **Description**: ProbioticsHeader
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProbioticsHeaderSlice = prismic.SharedSlice<'probiotics_header', ProbioticsHeaderSliceVariation>;
+
+/**
+ * Primary content in *RedBanner → Primary*
+ */
+export interface RedBannerSliceDefaultPrimary {
+  /**
+   * Title field in *RedBanner → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: red_banner.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for RedBanner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RedBannerSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<RedBannerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RedBanner*
+ */
+type RedBannerSliceVariation = RedBannerSliceDefault;
+
+/**
+ * RedBanner Shared Slice
+ *
+ * - **API ID**: `red_banner`
+ * - **Description**: RedBanner
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RedBannerSlice = prismic.SharedSlice<'red_banner', RedBannerSliceVariation>;
+
+/**
+ * Primary content in *SuperBiotics → Primary*
+ */
+export interface SuperBioticsSliceDefaultPrimary {
+  /**
+   * Title 1 field in *SuperBiotics → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: super_biotics.primary.title_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_1: prismic.KeyTextField;
+
+  /**
+   * Text 1 field in *SuperBiotics → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: super_biotics.primary.text_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text_1: prismic.KeyTextField;
+
+  /**
+   * Text 2 field in *SuperBiotics → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: super_biotics.primary.text_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text_2: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for SuperBiotics Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SuperBioticsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<SuperBioticsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SuperBiotics*
+ */
+type SuperBioticsSliceVariation = SuperBioticsSliceDefault;
+
+/**
+ * SuperBiotics Shared Slice
+ *
+ * - **API ID**: `super_biotics`
+ * - **Description**: SuperBiotics
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SuperBioticsSlice = prismic.SharedSlice<'super_biotics', SuperBioticsSliceVariation>;
+
+/**
+ * Primary content in *WhatsNew → Primary*
+ */
+export interface WhatsNewSliceDefaultPrimary {
+  /**
+   * Title field in *WhatsNew → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: whats_new.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for WhatsNew Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WhatsNewSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<WhatsNewSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *WhatsNew*
+ */
+type WhatsNewSliceVariation = WhatsNewSliceDefault;
+
+/**
+ * WhatsNew Shared Slice
+ *
+ * - **API ID**: `whats_new`
+ * - **Description**: WhatsNew
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WhatsNewSlice = prismic.SharedSlice<'whats_new', WhatsNewSliceVariation>;
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -538,7 +1298,26 @@ declare module '@prismicio/client' {
       MenuDocument,
       MenuDocumentData,
       MenuDocumentDataSlicesSlice,
+      ProbioticsDocument,
+      ProbioticsDocumentData,
+      ProbioticsDocumentDataSlicesSlice,
       AllDocumentTypes,
+      BacteriaInfoSlice,
+      BacteriaInfoSliceDefaultPrimary,
+      BacteriaInfoSliceVariation,
+      BacteriaInfoSliceDefault,
+      GallerySlice,
+      GallerySliceDefaultItem,
+      GallerySliceVariation,
+      GallerySliceDefault,
+      GoWithYourGutSlice,
+      GoWithYourGutSliceDefaultPrimary,
+      GoWithYourGutSliceVariation,
+      GoWithYourGutSliceDefault,
+      HealthBenefitsSlice,
+      HealthBenefitsSliceDefaultPrimary,
+      HealthBenefitsSliceVariation,
+      HealthBenefitsSliceDefault,
       HomepageHeaderSlice,
       HomepageHeaderSliceDefaultPrimary,
       HomepageHeaderSliceVariation,
@@ -560,6 +1339,26 @@ declare module '@prismicio/client' {
       HomepageProbioticsSliceDefaultPrimary,
       HomepageProbioticsSliceVariation,
       HomepageProbioticsSliceDefault,
+      MenuItemsSlice,
+      MenuItemsSliceDefaultItem,
+      MenuItemsSliceVariation,
+      MenuItemsSliceDefault,
+      ProbioticsHeaderSlice,
+      ProbioticsHeaderSliceDefaultPrimary,
+      ProbioticsHeaderSliceVariation,
+      ProbioticsHeaderSliceDefault,
+      RedBannerSlice,
+      RedBannerSliceDefaultPrimary,
+      RedBannerSliceVariation,
+      RedBannerSliceDefault,
+      SuperBioticsSlice,
+      SuperBioticsSliceDefaultPrimary,
+      SuperBioticsSliceVariation,
+      SuperBioticsSliceDefault,
+      WhatsNewSlice,
+      WhatsNewSliceDefaultPrimary,
+      WhatsNewSliceVariation,
+      WhatsNewSliceDefault,
     };
   }
 }

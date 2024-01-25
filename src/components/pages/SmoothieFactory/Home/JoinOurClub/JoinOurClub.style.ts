@@ -36,7 +36,7 @@ export const LeftSection = styled.div`
 export const LeftSectionTitle = styled.h1`
   font-size: clamp(35px, 3.43vw, 52px);
   line-height: clamp(45px, 3.96vw, 60px);
-  font-weight: 500;
+  font-weight: 600;
   color: #fff;
   text-transform: uppercase;
 `;
@@ -44,7 +44,7 @@ export const LeftSectionTitle = styled.h1`
 export const RightSectionTitle = styled.h1`
   font-size: clamp(35px, 3.43vw, 52px);
   line-height: clamp(45px, 3.96vw, 60px);
-  font-weight: 500;
+  font-weight: 600;
   color: #cb333b;
   text-transform: uppercase;
 `;

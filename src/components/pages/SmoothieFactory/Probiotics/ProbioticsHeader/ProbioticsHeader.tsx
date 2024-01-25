@@ -16,18 +16,20 @@ import {
 } from './ProbioticsHeader.style';
 import Image from 'next/image';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
+import { ProbioticsHeaderSlice } from 'prismicio-types';
 
-const ProbioticsHeader: FC = () => (
+const ProbioticsHeader: FC<{ slice: ProbioticsHeaderSlice }> = ({
+  slice: {
+    primary: { title, subtitle, text, advantage_1, advantage_2, advantage_3 },
+  },
+}) => (
   <>
     <StyledMaxWidthWrapper>
       <Wrapper>
         <Content>
-          <Title>All probiotics are not equal</Title>
-          <Subtitle>Sometimes, bacteria can be a good thing</Subtitle>
-          <Text>
-            More than 400 types of bacteria live in the human digestive system. Many of these bacteria types are “good
-            bacteria” or “probiotics” - they help the digestive system to do its job.
-          </Text>
+          <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
+          <Subtitle dangerouslySetInnerHTML={{ __html: subtitle as string }}></Subtitle>
+          <Text dangerouslySetInnerHTML={{ __html: text as string }}></Text>
           <Icons>
             <Icon>
               <Circle>
@@ -38,7 +40,7 @@ const ProbioticsHeader: FC = () => (
                   src="/images/taste (1).svg"
                 />
               </Circle>
-              <Description>Aid digestion by breaking down sugars</Description>
+              <Description dangerouslySetInnerHTML={{ __html: advantage_1 as string }}></Description>
             </Icon>
             <Icon>
               <Circle>
@@ -49,7 +51,7 @@ const ProbioticsHeader: FC = () => (
                   src="/images/Icon (9).svg"
                 />
               </Circle>
-              <Description>Aid digestion by breaking down sugars</Description>
+              <Description dangerouslySetInnerHTML={{ __html: advantage_2 as string }}></Description>
             </Icon>
             <Icon>
               <Circle>
@@ -60,7 +62,7 @@ const ProbioticsHeader: FC = () => (
                   src="/images/taste (2).svg"
                 />
               </Circle>
-              <Description>Aid digestion by breaking down sugars</Description>
+              <Description dangerouslySetInnerHTML={{ __html: advantage_3 as string }}></Description>
             </Icon>
           </Icons>
         </Content>

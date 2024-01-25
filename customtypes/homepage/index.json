@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "gallery": {
+              "type": "SharedSlice"
+            },
+            "whats_new": {
+              "type": "SharedSlice"
+            },
             "homepage_lets_connect": {
               "type": "SharedSlice"
             },

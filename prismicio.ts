@@ -19,6 +19,14 @@ const routes: prismic.ClientConfig['routes'] = [
     path: '/',
     type: 'homepage',
   },
+  {
+    path: '/menu',
+    type: 'menu',
+  },
+  {
+    path: '/probiotics',
+    type: 'probiotics',
+  },
 ];
 
 /**

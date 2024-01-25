@@ -11,38 +11,63 @@ import {
   ImageContainer,
   StyledMaxWidthWrapper,
 } from './HealthBenefits.style';
-import Image from 'next/image';
+import { HealthBenefitsSlice } from 'prismicio-types';
+import { PrismicImage } from '@prismicio/react';
 
-const HealthBenefits: FC = () => (
+const HealthBenefits: FC<{ slice: HealthBenefitsSlice }> = ({
+  slice: {
+    primary: {
+      title,
+      benefit_1_title,
+      benefit_1_text_1,
+      benefit_1_text_2,
+      benefit_1_image,
+      benefit_2_image,
+      benefit_2_title,
+      benefit_2_text_1,
+      benefit_2_text_2,
+    },
+  },
+}) => (
   <>
     <StyledMaxWidthWrapper>
-      <Title>health benefits</Title>
+      <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
       <Row>
         <TextArea>
-          <TextAreaTitle textAlignRight>DIGESTIVE HEALTH</TextAreaTitle>
-          <Paragraph textAlignRight>
-            Taking probiotics can re-populate the digestive tract with healthful bacteria. improving digestive
-            management
-          </Paragraph>
-          <Paragraph textAlignRight>
-            Probiotics can be helpful for people with irritable bowel syndrome, or IBS
-          </Paragraph>
+          <TextAreaTitle textAlignRight dangerouslySetInnerHTML={{ __html: benefit_1_title as string }}></TextAreaTitle>
+          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_1_text_1 as string }}></Paragraph>
+          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_1_text_2 as string }}></Paragraph>
         </TextArea>
         <ImageContainer>
-          <Image alt="DIGESTIVE HEALTH" src="/images/Rectangle 106 (5).jpg" fill style={{ objectFit: 'cover' }} />
+          <PrismicImage
+            field={benefit_1_image}
+            style={{
+              objectFit: 'cover',
+              position: 'absolute',
+              height: '100%',
+              width: '100%',
+              inset: '0px',
+            }}
+          />
         </ImageContainer>
       </Row>
       <Row>
         <ImageContainer order>
-          <Image alt="DIGESTIVE HEALTH" src="/images/Rectangle 106 (5).jpg" fill style={{ objectFit: 'cover' }} />
+          <PrismicImage
+            field={benefit_2_image}
+            style={{
+              objectFit: 'cover',
+              position: 'absolute',
+              height: '100%',
+              width: '100%',
+              inset: '0px',
+            }}
+          />
         </ImageContainer>
         <TextArea>
-          <TextAreaTitle>DIGESTIVE HEALTH</TextAreaTitle>
-          <Paragraph>
-            Taking probiotics can re-populate the digestive tract with healthful bacteria. improving digestive
-            management
-          </Paragraph>
-          <Paragraph>Probiotics can be helpful for people with irritable bowel syndrome, or IBS</Paragraph>
+          <TextAreaTitle textAlignRight dangerouslySetInnerHTML={{ __html: benefit_2_title as string }}></TextAreaTitle>
+          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_2_text_1 as string }}></Paragraph>
+          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_2_text_2 as string }}></Paragraph>
         </TextArea>
       </Row>
     </StyledMaxWidthWrapper>

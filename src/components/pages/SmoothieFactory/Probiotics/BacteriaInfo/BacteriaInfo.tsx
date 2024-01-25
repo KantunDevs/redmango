@@ -5,8 +5,13 @@ import type { FC } from 'react';
 import { StyledMaxWidthWrapper, Title } from './BacteriaInfo.style';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 import { Paragraph } from '../HealthBenefits/HealthBenefits.style';
+import { BacteriaInfoSlice } from 'prismicio-types';
 
-const BacteriaInfo: FC = () => (
+const BacteriaInfo: FC<{ slice: BacteriaInfoSlice }> = ({
+  slice: {
+    primary: { title, paragraph_1, paragraph_2 },
+  },
+}) => (
   <StyledMaxWidthWrapper>
     <FloatingImage
       style={{ marginBottom: 'clamp(30px, 3.57vw, 54px)' }}
@@ -15,17 +20,15 @@ const BacteriaInfo: FC = () => (
       height="clamp(100px, 11.97vw, 181px)"
       width="clamp(100px, 11.97vw, 181px)"
     />
-    <Title>
-      This patented strain of probiotic bacteria is clinically proven to support the digestive and immune systems**
-    </Title>
-    <Paragraph style={{ textAlign: 'center', maxWidth: '814px' }}>
-      Inside each cell of the bacteria is a hardened structure, or spore which is similar to a seed. It serves as a
-      natural protective shield against the heat and pressure of manufacturing and the strong acids in your stomach.
-    </Paragraph>
-    <Paragraph style={{ textAlign: 'center', maxWidth: '814px' }}>
-      Red Mango's Super Biotics are designed to survive and thrive in the stomach. so more cultures and viable cells are
-      delivered than with ordinary yogurt.***
-    </Paragraph>
+    <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
+    <Paragraph
+      style={{ textAlign: 'center', maxWidth: '814px' }}
+      dangerouslySetInnerHTML={{ __html: paragraph_1 as string }}
+    ></Paragraph>
+    <Paragraph
+      style={{ textAlign: 'center', maxWidth: '814px' }}
+      dangerouslySetInnerHTML={{ __html: paragraph_2 as string }}
+    ></Paragraph>
   </StyledMaxWidthWrapper>
 );
 

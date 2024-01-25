@@ -1,0 +1,40 @@
+{
+  "id": "bacteria_info",
+  "type": "SharedSlice",
+  "name": "BacteriaInfo",
+  "description": "BacteriaInfo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "paragraph_1": {
+          "type": "Text",
+          "config": {
+            "label": "Paragraph 1",
+            "placeholder": ""
+          }
+        },
+        "paragraph_2": {
+          "type": "Text",
+          "config": {
+            "label": "Paragraph 2",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

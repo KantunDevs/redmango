@@ -1,0 +1,40 @@
+{
+  "id": "super_biotics",
+  "type": "SharedSlice",
+  "name": "SuperBiotics",
+  "description": "SuperBiotics",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title_1": {
+          "type": "Text",
+          "config": {
+            "label": "Title 1",
+            "placeholder": ""
+          }
+        },
+        "text_1": {
+          "type": "Text",
+          "config": {
+            "label": "Text 1",
+            "placeholder": ""
+          }
+        },
+        "text_2": {
+          "type": "Text",
+          "config": {
+            "label": "Text 2",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import OurStars from '@components/pages/SmoothieFactory/Home/OurStars/OurStars';
 import WhatIsNew from '@components/pages/SmoothieFactory/Home/WhatIsNew/WhatIsNew';
 import MenuItems from '@components/pages/SmoothieFactory/Menu/MenuItem/MenuItem';
 import { createClient } from 'prismicio';
-import { HomepageOurStarsSlice } from 'prismicio-types';
+import { GallerySlice, HomepageOurStarsSlice, MenuItemsSlice, WhatsNewSlice } from 'prismicio-types';
 
 import type { FC } from 'react';
 
@@ -21,12 +21,19 @@ const Menu: FC = async () => {
     | HomepageOurStarsSlice
     | undefined;
 
+  const whatsNewSlice = page.data.slices.find((slice) => slice.slice_type === 'whats_new') as WhatsNewSlice | undefined;
+
+  const gallerySlice = page.data.slices.find((slice) => slice.slice_type === 'gallery') as GallerySlice | undefined;
+
+  const menuItemsSlice = page.data.slices.find((slice) => slice.slice_type === 'menu_items') as
+    | MenuItemsSlice
+    | undefined;
   return (
     <div style={{ marginTop: 'clamp(32px,7.67vw, 116px)' }}>
       {ourStarsSlice ? <OurStars slice={ourStarsSlice} /> : null}
-      <WhatIsNew />
-      <Gallery mb="clamp(175px, 21.03vw, 318px)" />
-      <MenuItems />
+      {whatsNewSlice ? <WhatIsNew slice={whatsNewSlice} /> : null}
+      {gallerySlice ? <Gallery mb="clamp(175px, 21.03vw, 318px)" slice={gallerySlice} /> : null}
+      {menuItemsSlice ? <MenuItems slice={menuItemsSlice} /> : null}
     </div>
   );
 };

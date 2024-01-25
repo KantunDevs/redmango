@@ -44,8 +44,8 @@ const Header: FC<{ slice: HomepageHeaderSlice }> = ({
     primary: { title, text, button },
   },
 }) => {
-  const [image, setImage] = useState(INITIAL_IMG);
-  const [icon, setIcon] = useState(null);
+  const [image, setImage] = useState<string>(INITIAL_IMG);
+  const [icon, setIcon] = useState<null | string>(null);
 
   return (
     <>

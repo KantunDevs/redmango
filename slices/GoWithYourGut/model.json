@@ -1,0 +1,61 @@
+{
+  "id": "go_with_your_gut",
+  "type": "SharedSlice",
+  "name": "GoWithYourGut",
+  "description": "GoWithYourGut",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_title": {
+          "type": "Text",
+          "config": {
+            "label": "Main Title",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "disclaimer_1": {
+          "type": "Text",
+          "config": {
+            "label": "Disclaimer 1",
+            "placeholder": ""
+          }
+        },
+        "disclaimer_2": {
+          "type": "Text",
+          "config": {
+            "label": "Disclaimer 2",
+            "placeholder": ""
+          }
+        },
+        "disclaimer_3": {
+          "type": "Text",
+          "config": {
+            "label": "Disclaimer 3",
+            "placeholder": ""
+          }
+        },
+        "disclaimer_4": {
+          "type": "Text",
+          "config": {
+            "label": "Disclaimer 4",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -4,53 +4,33 @@ import Image from 'next/image';
 
 import { MaxWidthWrapper } from '@styles/common';
 
-import { Container, Paper, Title, Text, RelativeWrapper, PageTitle } from './Privacy.style';
+import {
+  Container,
+  Paper,
+  Title,
+  Text,
+  RelativeWrapper,
+  PageTitle,
+  TitleContainer,
+  ImageContainer,
+} from './Privacy.style';
 
 import type { FC } from 'react';
 
-import FloatingImage from '../OrangeLeaf/common/FloatingImage/FloatingImage';
-
 const Privacy: FC = () => (
   <RelativeWrapper>
-    <FloatingImage
-      alt="green bubble"
-      height="clamp(671px/1.3, 44.37vw, 671px)"
-      hideUnder={650}
-      right="67%"
-      src="/images/green-bubble-bg.svg"
-      top="168%"
-      width="clamp(652px/1.3,43.12vw, 652px)"
-    />
-    <FloatingImage
-      alt="background"
-      height="clamp(287px / 1.3, 18.98vw, 287px)"
-      hideUnder={650}
-      left="-57%"
-      src="/images/orange-tos.png"
-      top="861%"
-      width="clamp(284px / 1.3, 18.78vw, 284px)"
-    />
     <Container>
-      <Image
-        alt="background"
-        src="/images/SmoothiePattern.png"
-        style={{ objectFit: 'cover', objectPosition: 'bottom' }}
-        fill
-      />
+      <MaxWidthWrapper>
+        <TitleContainer>
+          <PageTitle>Privacy Policy</PageTitle>
+        </TitleContainer>
+      </MaxWidthWrapper>
+      <ImageContainer>
+        <Image alt="bg" src="/images/Rectangle 73.jpg" fill style={{ objectFit: 'cover' }} />
+      </ImageContainer>
     </Container>
     <MaxWidthWrapper>
       <Paper>
-        <FloatingImage
-          alt="avocado"
-          height="clamp(216px / 1.3, 14.28vw, 216px)"
-          hideUnder={650}
-          right="52%"
-          src="/images/avocado-tos.png"
-          style={{ zIndex: 1 }}
-          top="56%"
-          width="clamp(165px / 1.3 , 10.91vw, 165px)"
-        />
-        <PageTitle>Privacy Policy</PageTitle>
         <Title>OUR PRIVACY COMMITMENT TO YOU</Title>
         <Text>
           Smoothie Holdings, LLC and its subsidiaries and affiliated companies (collectively, “Smoothie Factory,” “we,”

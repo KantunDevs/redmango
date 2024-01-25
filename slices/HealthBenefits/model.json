@@ -1,0 +1,84 @@
+{
+  "id": "health_benefits",
+  "type": "SharedSlice",
+  "name": "HealthBenefits",
+  "description": "HealthBenefits",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "benefit_1_title": {
+          "type": "Text",
+          "config": {
+            "label": "Benefit 1 Title",
+            "placeholder": ""
+          }
+        },
+        "benefit_1_text_1": {
+          "type": "Text",
+          "config": {
+            "label": "Benefit 1 Text 1",
+            "placeholder": ""
+          }
+        },
+        "benefit_1_text_2": {
+          "type": "Text",
+          "config": {
+            "label": "Benefit 1 Text 2",
+            "placeholder": ""
+          }
+        },
+        "benefit_2_title": {
+          "type": "Text",
+          "config": {
+            "label": "Benefit 2 Title",
+            "placeholder": ""
+          }
+        },
+        "benefit_2_text_1": {
+          "type": "Text",
+          "config": {
+            "label": "Benefit 2 Text 1",
+            "placeholder": ""
+          }
+        },
+        "benefit_2_text_2": {
+          "type": "Text",
+          "config": {
+            "label": "Benefit 2 Text 2",
+            "placeholder": ""
+          }
+        },
+        "benefit_1_image": {
+          "type": "Image",
+          "config": {
+            "label": "Benefit 1 Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "benefit_2_image": {
+          "type": "Image",
+          "config": {
+            "label": "Benefit 2 Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

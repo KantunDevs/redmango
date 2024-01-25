@@ -41,7 +41,7 @@ export const Step = styled.div<{ reverseOnMobile?: boolean }>`
 export const StepTitle = styled.h1`
   font-size: clamp(35px, 3.43vw, 52px);
   line-height: clamp(45 px, 3.96vw, 60px);
-  font-weight: 500;
+  font-weight: 600;
   color: #cb333b;
 `;
 
@@ -49,7 +49,7 @@ export const StepSubtitle = styled.h2`
   font-size: clamp(24px, 2.11vw, 32px);
   line-height: clamp(28px, 3.17vw, 48px);
   color: #4e3629;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
 `;
 

@@ -78,6 +78,7 @@ export const ContentContainer = styled.div`
 `;
 
 export const Subtitle = styled.h2`
+  text-transform: uppercase;
   font-size: clamp(14px, 1.05vw, 16px);
   font-weight: 400;
   line-height: clamp(26px, 1.85vw, 28px);
@@ -87,7 +88,7 @@ export const Subtitle = styled.h2`
 
 export const GalleryTitle = styled.h1`
   font-size: clamp(24px, 2.11vw, 32px);
-  font-weight: 500;
+  font-weight: 600;
   line-height: clamp(28px, 3.17vw, 48px);
   color: #cb333b;
   margin-bottom: 16px;

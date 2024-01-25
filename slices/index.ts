@@ -3,9 +3,18 @@
 import dynamic from 'next/dynamic';
 
 export const components = {
+  bacteria_info: dynamic(() => import('./BacteriaInfo')),
+  gallery: dynamic(() => import('./Gallery')),
+  go_with_your_gut: dynamic(() => import('./GoWithYourGut')),
+  health_benefits: dynamic(() => import('./HealthBenefits')),
   homepage_header: dynamic(() => import('./HomepageHeader')),
   homepage_join_our_club: dynamic(() => import('./HomepageJoinOurClub')),
   homepage_lets_connect: dynamic(() => import('./HomepageLetsConnect')),
   homepage_our_stars: dynamic(() => import('./HomepageOurStars')),
   homepage_probiotics: dynamic(() => import('./HomepageProbiotics')),
+  menu_items: dynamic(() => import('./MenuItems')),
+  probiotics_header: dynamic(() => import('./ProbioticsHeader')),
+  red_banner: dynamic(() => import('./RedBanner')),
+  super_biotics: dynamic(() => import('./SuperBiotics')),
+  whats_new: dynamic(() => import('./WhatsNew')),
 };

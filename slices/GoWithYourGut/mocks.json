@@ -1,0 +1,39 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"main_title": {
+				"__TYPE__": "FieldContent",
+				"value": "listen",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "building",
+				"type": "Text"
+			},
+			"disclaimer_1": {
+				"__TYPE__": "FieldContent",
+				"value": "volume",
+				"type": "Text"
+			},
+			"disclaimer_2": {
+				"__TYPE__": "FieldContent",
+				"value": "basic",
+				"type": "Text"
+			},
+			"disclaimer_3": {
+				"__TYPE__": "FieldContent",
+				"value": "welcome",
+				"type": "Text"
+			},
+			"disclaimer_4": {
+				"__TYPE__": "FieldContent",
+				"value": "younger",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

@@ -1,0 +1,24 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "fort",
+				"type": "Text"
+			},
+			"paragraph_1": {
+				"__TYPE__": "FieldContent",
+				"value": "gone",
+				"type": "Text"
+			},
+			"paragraph_2": {
+				"__TYPE__": "FieldContent",
+				"value": "cabin",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

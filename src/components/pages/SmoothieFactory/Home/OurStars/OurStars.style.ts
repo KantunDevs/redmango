@@ -27,7 +27,7 @@ export const ColumnTitle = styled.h1`
   font-size: clamp(24px, 2.11vw, 32px);
   line-height: clamp(28px, 3.17vw, 48px);
   color: #421b00;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 8px;
   text-transform: uppercase;
 `;

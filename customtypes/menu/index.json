@@ -11,6 +11,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "menu_items": {
+              "type": "SharedSlice"
+            },
+            "gallery": {
+              "type": "SharedSlice"
+            },
+            "whats_new": {
+              "type": "SharedSlice"
+            },
             "homepage_our_stars": {
               "type": "SharedSlice"
             }

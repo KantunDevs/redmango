@@ -1,0 +1,61 @@
+{
+  "id": "probiotics_header",
+  "type": "SharedSlice",
+  "name": "ProbioticsHeader",
+  "description": "ProbioticsHeader",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": ""
+          }
+        },
+        "text": {
+          "type": "Text",
+          "config": {
+            "label": "Text",
+            "placeholder": ""
+          }
+        },
+        "advantage_1": {
+          "type": "Text",
+          "config": {
+            "label": "Advantage 1",
+            "placeholder": ""
+          }
+        },
+        "advantage_2": {
+          "type": "Text",
+          "config": {
+            "label": "Advantage 2",
+            "placeholder": ""
+          }
+        },
+        "advantage_3": {
+          "type": "Text",
+          "config": {
+            "label": "Advantage 3",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

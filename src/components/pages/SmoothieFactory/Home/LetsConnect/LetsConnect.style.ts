@@ -128,7 +128,7 @@ export const CardTitle = styled.span`
   color: #cb333b;
   font-size: 24px;
   line-height: 32px;
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 export const CardText = styled.span`

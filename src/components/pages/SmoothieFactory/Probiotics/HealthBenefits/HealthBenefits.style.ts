@@ -1,9 +1,6 @@
 import theme from '@styles/theme';
 import styled from 'styled-components';
 import { MaxWidthWrapper } from '@styles/common';
-import css from 'styled-jsx/css';
-
-import type { CSSProp } from 'styled-components';
 
 export const Title = styled.h1`
   font-size: clamp(36px, 5.29vw, 80px);
