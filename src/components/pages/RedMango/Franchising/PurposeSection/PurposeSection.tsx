@@ -1,3 +1,4 @@
+import { FranchisingPurposeSectionSlice } from 'prismicio-types';
 import {
   Container,
   ContentContainer,
@@ -10,20 +11,18 @@ import {
 
 import type { FC } from 'react';
 
-const PurposeSection: FC = () => (
+const PurposeSection: FC<{ slice: FranchisingPurposeSectionSlice }> = ({
+  slice: {
+    primary: { text },
+  },
+}) => (
   <Container>
     <ContentContainer>
       <StyledLogo alt="circularImage" src="/images/PurposeSectionMainLogo.png" />
-
-      <Text>
-        Our name, Red Mango, is a symbol of our commitment to using only the best all-natural ingredients for our frozen
-        yogurt, smoothies and parfaits.
-      </Text>
-
+      <Text dangerouslySetInnerHTML={{ __html: text as string }}></Text>
       <StyledLeftCircle alt="circularBackgroundDecoration" src="/images/PurposeSectionLeftVector.png" />
       <StyledRightCircle alt="circularBackgroundDecoration" src="/images/PurposeSectionRightVector.png" />
     </ContentContainer>
-
     <StledDivider alt="BackgroundDivider" src="/images/DividerMenuPurposeSection.png" />
   </Container>
 );

@@ -27,6 +27,14 @@ const routes: prismic.ClientConfig['routes'] = [
     path: '/probiotics',
     type: 'probiotics',
   },
+  {
+    path: '/gift-cards',
+    type: 'giftcards',
+  },
+  {
+    path: '/franchising',
+    type: 'franchising',
+  },
 ];
 
 /**

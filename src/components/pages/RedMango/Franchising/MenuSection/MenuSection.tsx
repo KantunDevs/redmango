@@ -23,6 +23,8 @@ import {
 } from './MenuSection.styles';
 
 import type { FC, MouseEventHandler } from 'react';
+import { FranchisingMenuSectionSlice } from 'prismicio-types';
+import { PrismicImage } from '@prismicio/react';
 
 type SliderInfo = {
   imageAlt: string;
@@ -31,64 +33,30 @@ type SliderInfo = {
   sliderText: string;
 };
 
-const sliderInfoArray: SliderInfo[] = [
-  {
-    imageAlt: 'menuImage',
-    imagePath: '/images/RMSandwiches.png',
-    menuTitle: 'Signature sandwiches',
-    sliderText:
-      'Our Flatbread and line of Gourmet PB&J sandwiches are and excellence combination of texture and flavors from around the world.',
-  },
-  {
-    imageAlt: 'menuImage',
-    imagePath: '/images/RMYogurt.png',
-    menuTitle: 'Frozen Yogurt',
-    sliderText:
-      "First to be certified by the Yogurt Association's Live and Active Culture Seal. 100% all-natural and nonfat. Certified Gluten Free and Kosher.",
-  },
-  {
-    imageAlt: 'menuImage',
-    imagePath: '/images/RMBowl.png',
-    menuTitle: 'Wellness bowls',
-    sliderText:
-      "A great source of antioxidants, vitamins, minerals and fiber, and garnished with a variety of colorful and tasty top- pings. It's full of superfoods, and 100% vegan",
-  },
-  {
-    imageAlt: 'menuImage',
-    imagePath: '/images/RMSmoothie.png',
-    menuTitle: 'Superior smoothies',
-    sliderText: 'No syrups, no concentrates, no purees, from the menu or customizable.',
-  },
-  {
-    imageAlt: 'menuImage',
-    imagePath: '/images/RMJuice.png',
-    menuTitle: 'Fruits and vegetables juices',
-    sliderText:
-      'Freshly made off the menu or to order. Available as Daily Detox, Simple Juice, Easy Greens, Raw6 Categories format.',
-  },
-];
-
 const sliderDefaultInterval = 4000;
 const sliderAfterClickInterval = 10000;
 
-const MenuSection: FC = () => {
+const MenuSection: FC<{ slice: FranchisingMenuSectionSlice }> = ({
+  slice: {
+    primary: { title },
+    items,
+  },
+}) => {
   const { width } = useWindowSize();
   const intervalReference = useRef<ReturnType<typeof setInterval> | null>(null);
-  const [activeSliderTitle, setActiveSliderTitle] = useState(sliderInfoArray[0].menuTitle);
+  const [activeSliderTitle, setActiveSliderTitle] = useState(items[0].title);
 
   const isDesktop = useMemo(() => (width ? width >= theme.breakpoints.desktop : false), [width]);
 
   const changeSlide = useCallback(() => {
     setActiveSliderTitle((previousValue) => {
-      if (previousValue === sliderInfoArray[sliderInfoArray.length - 1].menuTitle) {
-        return sliderInfoArray[0].menuTitle;
+      if (previousValue === items[items.length - 1].title) {
+        return items[0].title;
       }
 
-      const previousValueIndex = sliderInfoArray.findIndex(
-        (sliderInfo: SliderInfo) => sliderInfo.menuTitle === previousValue,
-      );
+      const previousValueIndex = items.findIndex((sliderInfo) => sliderInfo.title === previousValue);
 
-      return sliderInfoArray[previousValueIndex + 1].menuTitle;
+      return items[previousValueIndex + 1].title;
     });
   }, []);
 
@@ -140,34 +108,29 @@ const MenuSection: FC = () => {
   return (
     <Container>
       <CopyrightContainer>
-        <CopyrightTitle>Our product pillars</CopyrightTitle>
+        <CopyrightTitle dangerouslySetInnerHTML={{ __html: title as string }}></CopyrightTitle>
       </CopyrightContainer>
 
       <SliderContainer>
         <SliderImageContainer>
-          {sliderInfoArray.map((sliderInfo, index) => {
+          {items.map((item, index) => {
             if (index === 0) {
               return (
-                <SliderFirstImageWrapper
-                  key={sliderInfo.menuTitle}
-                  isActive={sliderInfo.menuTitle === activeSliderTitle}
-                >
+                <SliderFirstImageWrapper key={item.title} isActive={item.title === activeSliderTitle}>
                   {isDesktop ? null : (
                     <SliderImageContent>
                       <SliderImageContentTitleContainer>
-                        <SliderImageContentTitle>{sliderInfo.menuTitle}</SliderImageContentTitle>
+                        <SliderImageContentTitle>{item.title}</SliderImageContentTitle>
                       </SliderImageContentTitleContainer>
 
-                      <SliderImageContentMainText>{sliderInfo.sliderText}</SliderImageContentMainText>
+                      <SliderImageContentMainText>{item.text}</SliderImageContentMainText>
                     </SliderImageContent>
                   )}
-
                   <SliderImageRelativeContainer>
-                    <Image
-                      alt={sliderInfo.imageAlt}
+                    <PrismicImage
                       height={654}
                       sizes="100vw"
-                      src={sliderInfo.imagePath}
+                      field={item.image}
                       style={{
                         height: 'auto',
                         width: '100%',
@@ -179,10 +142,10 @@ const MenuSection: FC = () => {
                   {isDesktop ? (
                     <SliderImageContent>
                       <SliderImageContentTitleContainer>
-                        <SliderImageContentTitle>{sliderInfo.menuTitle}</SliderImageContentTitle>
+                        <SliderImageContentTitle>{item.title}</SliderImageContentTitle>
                       </SliderImageContentTitleContainer>
 
-                      <SliderImageContentMainText>{sliderInfo.sliderText}</SliderImageContentMainText>
+                      <SliderImageContentMainText>{item.text}</SliderImageContentMainText>
                     </SliderImageContent>
                   ) : null}
                 </SliderFirstImageWrapper>
@@ -190,26 +153,22 @@ const MenuSection: FC = () => {
             }
 
             return (
-              <SliderAbsoluteContentWrapper
-                key={sliderInfo.menuTitle}
-                isActive={sliderInfo.menuTitle === activeSliderTitle}
-              >
+              <SliderAbsoluteContentWrapper key={item.title} isActive={item.title === activeSliderTitle}>
                 {isDesktop ? null : (
                   <SliderImageContent>
                     <SliderImageContentTitleContainer>
-                      <SliderImageContentTitle>{sliderInfo.menuTitle}</SliderImageContentTitle>
+                      <SliderImageContentTitle>{item.title}</SliderImageContentTitle>
                     </SliderImageContentTitleContainer>
 
-                    <SliderImageContentMainText>{sliderInfo.sliderText}</SliderImageContentMainText>
+                    <SliderImageContentMainText>{item.text}</SliderImageContentMainText>
                   </SliderImageContent>
                 )}
 
                 <SliderImageRelativeContainer>
-                  <Image
-                    alt={sliderInfo.imageAlt}
+                  <PrismicImage
                     height={654}
                     sizes="100vw"
-                    src={sliderInfo.imagePath}
+                    field={item.image}
                     style={{
                       height: 'auto',
                       width: '100%',
@@ -221,23 +180,22 @@ const MenuSection: FC = () => {
                 {isDesktop ? (
                   <SliderImageContent>
                     <SliderImageContentTitleContainer>
-                      <SliderImageContentTitle>{sliderInfo.menuTitle}</SliderImageContentTitle>
+                      <SliderImageContentTitle>{item.title}</SliderImageContentTitle>
                     </SliderImageContentTitleContainer>
 
-                    <SliderImageContentMainText>{sliderInfo.sliderText}</SliderImageContentMainText>
+                    <SliderImageContentMainText>{item.text}</SliderImageContentMainText>
                   </SliderImageContent>
                 ) : null}
               </SliderAbsoluteContentWrapper>
             );
           })}
         </SliderImageContainer>
-
         <SliderButtonsContainer>
-          {sliderInfoArray.map(({ menuTitle }) => (
+          {items.map(({ title }, index) => (
             <SliderButton
-              key={menuTitle}
-              id={menuTitle}
-              isActive={menuTitle === activeSliderTitle}
+              key={index}
+              id={title as string}
+              isActive={title === activeSliderTitle}
               onClick={handleSliderButtonClick as MouseEventHandler<HTMLButtonElement> & (() => void)}
             />
           ))}

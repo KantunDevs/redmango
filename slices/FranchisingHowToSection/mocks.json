@@ -1,0 +1,41 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title_first_part": {
+				"__TYPE__": "FieldContent",
+				"value": "manufacturing",
+				"type": "Text"
+			},
+			"title_second_part": {
+				"__TYPE__": "FieldContent",
+				"value": "morning",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "porch",
+							"type": "Text"
+						}
+					],
+					[
+						"text",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "community",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

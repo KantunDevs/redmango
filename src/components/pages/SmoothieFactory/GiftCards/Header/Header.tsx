@@ -7,18 +7,19 @@ import { Wrapper, Content, Title, Text, ImageContainer, StyledMaxWidthWrapper } 
 import { CtaButton } from '../../Home/WhatIsNew/WhatIsNew.style';
 
 import type { FC } from 'react';
+import { GiftCardsHeaderSlice } from 'prismicio-types';
 
-const Header: FC = () => (
+const Header: FC<{ slice: GiftCardsHeaderSlice }> = ({
+  slice: {
+    primary: { text, title, button },
+  },
+}) => (
   <StyledMaxWidthWrapper>
     <Wrapper>
       <Content>
-        <Title>THE GIFT THAT KEEPS ON GIVING</Title>
-        <Text>
-          Treat your loved ones to a delicious and healthy dessert with Red Mango's gift cards! With a variety of
-          flavors and toppings, there's something for everyone. Plus, our frozen yogurt is packed with probiotics and
-          nutrients. Buy a gift card today and give the gift of a tasty and nutritious treat!
-        </Text>
-        <CtaButton>Get a gift card</CtaButton>
+        <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
+        <Text dangerouslySetInnerHTML={{ __html: text as string }}></Text>
+        <CtaButton dangerouslySetInnerHTML={{ __html: button as string }}></CtaButton>
       </Content>
       <ImageContainer>
         <Image alt="bg" src="/images/image 51.jpg" fill style={{ objectFit: 'cover' }} />

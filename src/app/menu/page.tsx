@@ -28,6 +28,7 @@ const Menu: FC = async () => {
   const menuItemsSlice = page.data.slices.find((slice) => slice.slice_type === 'menu_items') as
     | MenuItemsSlice
     | undefined;
+
   return (
     <div style={{ marginTop: 'clamp(32px,7.67vw, 116px)' }}>
       {ourStarsSlice ? <OurStars slice={ourStarsSlice} /> : null}

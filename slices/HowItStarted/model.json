@@ -1,0 +1,54 @@
+{
+  "id": "how_it_started",
+  "type": "SharedSlice",
+  "name": "HowItStarted",
+  "description": "HowItStarted",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "text_1": {
+          "type": "Text",
+          "config": {
+            "label": "Text 1",
+            "placeholder": ""
+          }
+        },
+        "text_2": {
+          "type": "Text",
+          "config": {
+            "label": "Text 2",
+            "placeholder": ""
+          }
+        },
+        "mission_title": {
+          "type": "Text",
+          "config": {
+            "label": "Mission Title",
+            "placeholder": ""
+          }
+        },
+        "mission_text": {
+          "type": "Text",
+          "config": {
+            "label": "Mission Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

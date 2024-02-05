@@ -1,0 +1,89 @@
+{
+  "id": "get_started_section",
+  "type": "SharedSlice",
+  "name": "GetStartedSection",
+  "description": "GetStartedSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "promotion_title": {
+          "type": "Text",
+          "config": {
+            "label": "Promotion Title",
+            "placeholder": ""
+          }
+        },
+        "promotion_subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Promotion Subtitle",
+            "placeholder": ""
+          }
+        },
+        "promotion_description": {
+          "type": "Text",
+          "config": {
+            "label": "Promotion Description",
+            "placeholder": ""
+          }
+        },
+        "promotion_option_title": {
+          "type": "Text",
+          "config": {
+            "label": "Promotion Option Title",
+            "placeholder": ""
+          }
+        },
+        "promotion_option_description": {
+          "type": "Text",
+          "config": {
+            "label": "Promotion Option Description",
+            "placeholder": ""
+          }
+        },
+        "promotion_option_title_2": {
+          "type": "Text",
+          "config": {
+            "label": "Promotion Option Title 2",
+            "placeholder": ""
+          }
+        },
+        "promotion_option_description_2": {
+          "type": "Text",
+          "config": {
+            "label": "Promotion Option Description 2",
+            "placeholder": ""
+          }
+        },
+        "military_title": {
+          "type": "Text",
+          "config": {
+            "label": "Military Title",
+            "placeholder": ""
+          }
+        },
+        "military_description": {
+          "type": "Text",
+          "config": {
+            "label": "Military Description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

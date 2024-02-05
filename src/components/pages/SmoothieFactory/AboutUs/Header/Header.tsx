@@ -5,18 +5,18 @@ import { Wrapper, Content, SideImage, Title, Text, HeaderMaxWidthWrapper } from 
 import type { FC } from 'react';
 import Image from 'next/image';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
+import { AboutUsHeaderSlice } from 'prismicio-types';
 
-const Header: FC = () => (
+const Header: FC<{ slice: AboutUsHeaderSlice }> = ({
+  slice: {
+    primary: { title, text },
+  },
+}) => (
   <HeaderMaxWidthWrapper>
     <Wrapper>
       <Content>
-        <Title>Have you ever tasted a red mango?</Title>
-        <Text>
-          You don’t see red mangoes often in stores – but once you’ve tasted one, you’ll never settle for anything less.
-          Mangoes only turn red when they reach the peak of ripeness. That’s when they are the most delicious, and
-          nutritious. Our name, Red Mango, is a symbol of our commitment to using only the best all-natural ingredients
-          for our frozen yogurt, smoothies and parfaits.
-        </Text>
+        <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
+        <Text dangerouslySetInnerHTML={{ __html: text as string }}></Text>
       </Content>
       <SideImage>
         <Image

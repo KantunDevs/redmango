@@ -33,15 +33,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main{
+    overflow:hidden;
     flex: 1;
   }
 
-  h1, h2, h3, h4, h5, h6, button {
+  h1, h2, h3, h4, h5, h6, button, label {
     font-weight: 600;
     font-family: "futura-pt", sans-serif;
   }
 
-  p, span, input, a, label, textarea, select,li {
+  p, span, input, a, textarea, select,li {
     font-weight: 400;
     font-family: var(--variable-black);
   }

@@ -38,12 +38,12 @@ import {
   Select,
 } from './EClubSection.style';
 
-import { Error } from '../../AboutUs/AboutUsSection/AboutUsSection.style';
 import FloatingImage from '../../common/FloatingImage/FloatingImage';
 import SuccessfulSubmit from '../../common/SuccessfulSubmit/SuccessfulSubmit';
 
 import type { FC, FormEventHandler } from 'react';
 import type { FieldValues } from 'react-hook-form';
+import { Error } from '@components/pages/SmoothieFactory/AboutUs/Form/AboutUsForm.style';
 
 type EClubFormData = {
   birthday: string;

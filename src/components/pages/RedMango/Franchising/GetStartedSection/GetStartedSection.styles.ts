@@ -162,7 +162,6 @@ export const PromotionTitle = styled.h2`
 `;
 
 export const PromotionSubtitle = styled.h3`
-  font-family: 'Variable Black';
   font-size: 40px;
   line-height: 49px;
   text-align: center;

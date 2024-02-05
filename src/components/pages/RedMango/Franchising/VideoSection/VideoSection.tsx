@@ -24,8 +24,16 @@ import {
 import useVideoSection from './useVideoSection.hook';
 
 import type { FC } from 'react';
+import { FranchisingVideoSlice } from 'prismicio-types';
 
-const VideoSection: FC<{ isAboutUs?: boolean; url: string; poster: string }> = ({ isAboutUs = false, url, poster }) => {
+const VideoSection: FC<{ isAboutUs?: boolean; url: string; poster: string; slice: FranchisingVideoSlice }> = ({
+  isAboutUs = false,
+  url,
+  poster,
+  slice: {
+    primary: { title, text, button },
+  },
+}) => {
   const { handlePauseVideo, handlePlayVideo, isVideoPlaying, videoRef } = useVideoSection();
 
   return (
@@ -156,11 +164,9 @@ const VideoSection: FC<{ isAboutUs?: boolean; url: string; poster: string }> = (
       ) : (
         <VideoOverlayContainer isVideoPlaying={isVideoPlaying} onClick={handlePauseVideo}>
           <VideoOverlayContent>
-            <VideoOverlayTitle>There aren&apos;t many franchises people absolutely love to go to!</VideoOverlayTitle>
-            <VideoOverlayQuote>
-              It&apos;s fun coming in and see just happy faces. Kids loving it and adults love yogurt!
-            </VideoOverlayQuote>
-            <Button label="Watch video" onClick={handlePlayVideo} size="s" variant="outlined-secondary" />
+            <VideoOverlayTitle dangerouslySetInnerHTML={{ __html: title as string }}></VideoOverlayTitle>
+            <VideoOverlayQuote dangerouslySetInnerHTML={{ __html: text as string }}></VideoOverlayQuote>
+            <Button label={button as string} onClick={handlePlayVideo} size="s" variant="outlined-secondary" />
           </VideoOverlayContent>
         </VideoOverlayContainer>
       )}

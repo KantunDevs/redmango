@@ -1,0 +1,24 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"hashtag": {
+				"__TYPE__": "FieldContent",
+				"value": "ear",
+				"type": "Text"
+			},
+			"text": {
+				"__TYPE__": "FieldContent",
+				"value": "social",
+				"type": "Text"
+			},
+			"button": {
+				"__TYPE__": "FieldContent",
+				"value": "dawn",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

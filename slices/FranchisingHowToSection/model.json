@@ -1,0 +1,48 @@
+{
+  "id": "franchising_how_to_section",
+  "type": "SharedSlice",
+  "name": "FranchisingHowToSection",
+  "description": "FranchisingHowToSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title_first_part": {
+          "type": "Text",
+          "config": {
+            "label": "Title First Part",
+            "placeholder": ""
+          }
+        },
+        "title_second_part": {
+          "type": "Text",
+          "config": {
+            "label": "Title Second Part",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "text": {
+          "type": "Text",
+          "config": {
+            "label": "Text",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

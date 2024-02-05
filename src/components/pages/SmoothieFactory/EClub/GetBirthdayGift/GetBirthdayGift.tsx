@@ -9,8 +9,13 @@ import { CtaButton } from '../../Home/WhatIsNew/WhatIsNew.style';
 import type { FC } from 'react';
 import { MaxWidthWrapper } from '@styles/common';
 import Image from 'next/image';
+import { GetBirthdayGiftSlice } from 'prismicio-types';
 
-const GetBirthdayGift: FC = () => (
+const GetBirthdayGift: FC<{ slice: GetBirthdayGiftSlice }> = ({
+  slice: {
+    primary: { hashtag, text, button },
+  },
+}) => (
   <BgWrapper>
     <FloatingImage
       alt="icon"
@@ -26,15 +31,11 @@ const GetBirthdayGift: FC = () => (
           <ImageWrapper>
             <Image alt="raspberries" fill src="/images/image 69.jpg" style={{ objectFit: 'cover' }} />
           </ImageWrapper>
-          <Hashtag>#besteverbirthdaygift</Hashtag>
+          <Hashtag dangerouslySetInnerHTML={{ __html: hashtag as string }}></Hashtag>
         </Card>
         <ContentWrapper>
-          <Text>
-            Celebrate your birthday in style with Red Mango's E-Club! As a member, you'll receive a special birthday
-            gift each year, just for being part of our club. Plus, you'll get access to exclusive deals and promotions
-            all year long. Join today and let us help make your birthday extra sweet!
-          </Text>
-          <CtaButton>Join now</CtaButton>
+          <Text dangerouslySetInnerHTML={{ __html: text as string }}></Text>
+          <CtaButton dangerouslySetInnerHTML={{ __html: button as string }}></CtaButton>
         </ContentWrapper>
       </Wrapper>
     </MaxWidthWrapper>

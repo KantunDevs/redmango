@@ -1,0 +1,44 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "second",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "run",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "route",
+				"type": "Text"
+			},
+			"subtitle_2": {
+				"__TYPE__": "FieldContent",
+				"value": "clock",
+				"type": "Text"
+			},
+			"description_2": {
+				"__TYPE__": "FieldContent",
+				"value": "column",
+				"type": "Text"
+			},
+			"subtitle_3": {
+				"__TYPE__": "FieldContent",
+				"value": "increase",
+				"type": "Text"
+			},
+			"description_3": {
+				"__TYPE__": "FieldContent",
+				"value": "powerful",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

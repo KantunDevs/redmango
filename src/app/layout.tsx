@@ -1,7 +1,6 @@
 'use client';
 
 import localFont from 'next/font/local';
-import { useSelectedLayoutSegments } from 'next/navigation';
 
 import Footer from '@components/pages/SmoothieFactory/OrangeLeaf/common/Footer';
 import Header from '@components/pages/SmoothieFactory/OrangeLeaf/common/Header';
@@ -23,18 +22,6 @@ const variableBlack = localFont({
 });
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
-  const segments = useSelectedLayoutSegments();
-
-  const content =
-    segments[segments.length - 1] === 'franchising' ? (
-      children
-    ) : (
-      <>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </>
-    );
   return (
     <>
       <head>
@@ -45,7 +32,9 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
           <StoreProvider>
             <StyledComponentsRegistry>
               <GlobalStyle />
-              {content}
+              <Header />
+              <main>{children}</main>
+              <Footer />
             </StyledComponentsRegistry>
           </StoreProvider>
         </body>

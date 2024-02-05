@@ -11,8 +11,13 @@ import Image from 'next/image';
 
 import { Title } from '../../Home/common';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
+import { ChooseDesignsSlice } from 'prismicio-types';
 
-const ChooseDesigns: FC = () => (
+const ChooseDesigns: FC<{ slice: ChooseDesignsSlice }> = ({
+  slice: {
+    primary: { text, title, button, title_2, button_2 },
+  },
+}) => (
   <>
     <MaxWidthWrapper style={{ position: 'relative', marginBottom: '85px' }}>
       <StyledFloatingImage
@@ -34,10 +39,8 @@ const ChooseDesigns: FC = () => (
         width="739px"
         hideUnder={650}
       />
-      <Title color="#421B00" mb="20px">
-        Choose from <br /> multiple designs...
-      </Title>
-      <Button>Get a gift card!</Button>
+      <Title color="#421B00" mb="20px" dangerouslySetInnerHTML={{ __html: title as string }}></Title>
+      <Button dangerouslySetInnerHTML={{ __html: button as string }}></Button>
     </MaxWidthWrapper>
     <Cards>
       <Card>
@@ -60,11 +63,14 @@ const ChooseDesigns: FC = () => (
           height="clamp(120px, 11.17vw,169px)"
           width="clamp(120px,11.17vw, 169px)"
         />
-        <Title style={{ textAlign: 'center' }} color="#cb333b" mb="28px">
-          Already have a giftcard?
-        </Title>
-        <GiftCardText>It’s easy to check your balance and review transactions.</GiftCardText>
-        <CtaButton>Check your balance</CtaButton>
+        <Title
+          style={{ textAlign: 'center' }}
+          color="#cb333b"
+          mb="28px"
+          dangerouslySetInnerHTML={{ __html: title_2 as string }}
+        ></Title>
+        <GiftCardText dangerouslySetInnerHTML={{ __html: text as string }}></GiftCardText>
+        <CtaButton dangerouslySetInnerHTML={{ __html: button_2 as string }}></CtaButton>
       </GiftCard>
     </GiftCardArea>
   </>

@@ -24,8 +24,13 @@ import {
 } from './FormSection.styles';
 
 import type { FC, FormEventHandler } from 'react';
+import { FranchisingFormSectionSlice } from 'prismicio-types';
 
-const FormSection: FC = () => {
+const FormSection: FC<{ slice: FranchisingFormSectionSlice }> = ({
+  slice: {
+    primary: { title, text },
+  },
+}) => {
   const {
     formState: { errors },
     handleSubmit,
@@ -59,14 +64,8 @@ const FormSection: FC = () => {
         <Container>
           <Content>
             <ContentText>
-              <Title>Let&apos;s talk!</Title>
-              <Description>
-                Red Mango is an established leader among frozen yogurt franchises, and we truly enjoy helping our
-                franchisees build strong, successful businesses and make a positive impact in their local communities.
-                In addition, the concept has expanded into the rapidly growing market for Smoothies and Fresh Juices and
-                has also added salads, wraps, and other light and healthy foods to generate increased sales on a year
-                round basis.
-              </Description>
+              <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
+              <Description dangerouslySetInnerHTML={{ __html: text as string }}></Description>
 
               {!isSmallScreen && (
                 <CtaText>Contact us to learn more about available franchise opportunities with Red Mango!</CtaText>

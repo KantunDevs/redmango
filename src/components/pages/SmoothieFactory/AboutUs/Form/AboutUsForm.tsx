@@ -7,17 +7,7 @@ import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import {
-  Form,
-  FormTitle,
-  Paper,
-  InputWrapper,
-  TextAreaInput,
-  Polygon,
-  FormBg,
-  Error,
-  ImageWrapper,
-} from './AboutUsForm.style';
+import { Form, FormTitle, Paper, InputWrapper, TextAreaInput, FormBg, Error } from './AboutUsForm.style';
 
 import { validatePhoneNumber } from '@utils/validatePhoneNumber';
 
@@ -29,6 +19,7 @@ import SuccessfulSubmit from '../../OrangeLeaf/common/SuccessfulSubmit/Successfu
 import { Label, Input } from '../../OrangeLeaf/EClub/EClubSection/EClubSection.style';
 
 import { FormButton } from '../../EClub/Form/Form.style';
+import { AboutUsFormSlice } from 'prismicio-types';
 
 const schema = object({
   email: string().email('Add a valid email').required('This field is obligatory'),
@@ -50,7 +41,11 @@ type AboutUsFormData = {
   phone: string;
 };
 
-const AboutUsForm: FC = () => {
+const AboutUsForm: FC<{ slice: AboutUsFormSlice }> = ({
+  slice: {
+    primary: { title },
+  },
+}) => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -88,7 +83,7 @@ const AboutUsForm: FC = () => {
       <FormBg>
         <Image alt="bg" src="/images/image 66 (1).jpg" style={{ objectFit: 'cover' }} fill />
         <Paper>
-          <FormTitle>Want to tell us something?</FormTitle>
+          <FormTitle dangerouslySetInnerHTML={{ __html: title as string }}></FormTitle>
           {isSubmitted ? (
             <SuccessfulSubmit />
           ) : (

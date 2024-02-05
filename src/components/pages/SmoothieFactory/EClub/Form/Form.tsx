@@ -6,13 +6,12 @@ import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { Error } from '@components/pages/SmoothieFactory/OrangeLeaf/AboutUs/AboutUsSection/AboutUsSection.style';
 import SuccessfulSubmit from '@components/pages/SmoothieFactory/OrangeLeaf/common/SuccessfulSubmit/SuccessfulSubmit';
 
 import type { FC, FormEventHandler } from 'react';
 import type { FieldValues } from 'react-hook-form';
 
-import { FormBg, Paper, Form, InputWrapper, Label, Input, Select, FormButton } from './Form.style';
+import { FormBg, Paper, Form, InputWrapper, Label, Input, Select, FormButton, Error } from './Form.style';
 import { validatePhoneNumber } from '@utils/validatePhoneNumber';
 import { Title } from '../common';
 

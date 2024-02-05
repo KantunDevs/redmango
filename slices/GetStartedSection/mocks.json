@@ -1,0 +1,59 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "count",
+				"type": "Text"
+			},
+			"promotion_title": {
+				"__TYPE__": "FieldContent",
+				"value": "shirt",
+				"type": "Text"
+			},
+			"promotion_subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "lay",
+				"type": "Text"
+			},
+			"promotion_description": {
+				"__TYPE__": "FieldContent",
+				"value": "gently",
+				"type": "Text"
+			},
+			"promotion_option_title": {
+				"__TYPE__": "FieldContent",
+				"value": "chance",
+				"type": "Text"
+			},
+			"promotion_option_description": {
+				"__TYPE__": "FieldContent",
+				"value": "environment",
+				"type": "Text"
+			},
+			"promotion_option_title_2": {
+				"__TYPE__": "FieldContent",
+				"value": "not",
+				"type": "Text"
+			},
+			"promotion_option_description_2": {
+				"__TYPE__": "FieldContent",
+				"value": "somebody",
+				"type": "Text"
+			},
+			"military_title": {
+				"__TYPE__": "FieldContent",
+				"value": "official",
+				"type": "Text"
+			},
+			"military_description": {
+				"__TYPE__": "FieldContent",
+				"value": "function",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

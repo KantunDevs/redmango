@@ -1,0 +1,40 @@
+{
+  "id": "get_birthday_gift",
+  "type": "SharedSlice",
+  "name": "GetBirthdayGift",
+  "description": "GetBirthdayGift",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "hashtag": {
+          "type": "Text",
+          "config": {
+            "label": "Hashtag",
+            "placeholder": ""
+          }
+        },
+        "text": {
+          "type": "Text",
+          "config": {
+            "label": "Text",
+            "placeholder": ""
+          }
+        },
+        "button": {
+          "type": "Text",
+          "config": {
+            "label": "Button",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

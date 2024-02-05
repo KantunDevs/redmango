@@ -1,0 +1,29 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "serve",
+				"type": "Text"
+			},
+			"step_1": {
+				"__TYPE__": "FieldContent",
+				"value": "broke",
+				"type": "Text"
+			},
+			"step_2": {
+				"__TYPE__": "FieldContent",
+				"value": "deer",
+				"type": "Text"
+			},
+			"step_3": {
+				"__TYPE__": "FieldContent",
+				"value": "mean",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

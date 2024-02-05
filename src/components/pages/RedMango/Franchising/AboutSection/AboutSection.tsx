@@ -15,8 +15,13 @@ import {
 } from './AboutSection.styles';
 
 import type { FC } from 'react';
+import { FranchisingAboutSectionSlice } from 'prismicio-types';
 
-const AboutSection: FC = () => {
+const AboutSection: FC<{ slice: FranchisingAboutSectionSlice }> = ({
+  slice: {
+    primary: { title, subtitle, description, subtitle_2, description_2, subtitle_3, description_3 },
+  },
+}) => {
   const onClickHandle = useCallback(() => {
     const contactElement = document.getElementById('contact');
     contactElement?.scrollIntoView();
@@ -24,15 +29,11 @@ const AboutSection: FC = () => {
 
   return (
     <Container>
-      <Title>Why us?</Title>
+      <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
       <Row>
         <ContentLeft>
-          <Subtitle>In business for yourself, not by yourself</Subtitle>
-          <Description>
-            You start by on location training and after we offer ongoing operation support, quality assurance visits and
-            professional marketing support. We do ongoing product and menu development and system and technology
-            support.
-          </Description>
+          <Subtitle dangerouslySetInnerHTML={{ __html: subtitle as string }}></Subtitle>
+          <Description dangerouslySetInnerHTML={{ __html: description as string }}></Description>
           <Button label="Learn more" onClick={onClickHandle} />
         </ContentLeft>
         <ImageContainer>
@@ -44,23 +45,15 @@ const AboutSection: FC = () => {
           <Image alt="first-row-image" height={620} src="/images/rm-about-2.png" width={640} />
         </ImageContainer>
         <ContentRight>
-          <Subtitle>A business within a business...</Subtitle>
-          <Description>
-            Within a business; Red Mango is more than 1 business; it has a collection of offers: Smoothies, fruit and
-            vegetable juices, comprehensive line of probiotics, bubble tea, wellness bowls, grilled paninis, wraps,
-            salads, seasonal soups and much more. Our multi menu categories allow for pricing elasticity.
-          </Description>
+          <Subtitle dangerouslySetInnerHTML={{ __html: subtitle_2 as string }}></Subtitle>
+          <Description dangerouslySetInnerHTML={{ __html: description_2 as string }}></Description>
           <Button label="Learn more" onClick={onClickHandle} />
         </ContentRight>
       </Row>
       <Row>
         <ContentLeft>
-          <Subtitle>Simplicity</Subtitle>
-          <Description>
-            No need for kitchen hood, exhaust system, fryers, fire suppression system and other expensive equipment. Our
-            gourmet style recipes easily executed by unskilled labor, as it requires minimal amount of food and beverage
-            preparation.
-          </Description>
+          <Subtitle dangerouslySetInnerHTML={{ __html: subtitle_3 as string }}></Subtitle>
+          <Description dangerouslySetInnerHTML={{ __html: description_3 as string }}></Description>
           <Button label="Learn more" onClick={onClickHandle} />
         </ContentLeft>
         <ImageContainer>

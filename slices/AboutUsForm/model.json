@@ -1,0 +1,26 @@
+{
+  "id": "about_us_form",
+  "type": "SharedSlice",
+  "name": "AboutUsForm",
+  "description": "AboutUsForm",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

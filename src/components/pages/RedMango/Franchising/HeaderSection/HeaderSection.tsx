@@ -20,8 +20,14 @@ import {
 } from './HeaderSection.styles';
 
 import type { FC } from 'react';
+import { FranchisingHeaderSlice } from 'prismicio-types';
 
-const HeaderSection: FC = () => {
+const HeaderSection: FC<{ slice: FranchisingHeaderSlice }> = ({
+  slice: {
+    items,
+    primary: { title, text, button },
+  },
+}) => {
   const onClickHandle = useCallback(() => {
     const contactElement = document.getElementById('contact');
     contactElement?.scrollIntoView();
@@ -39,13 +45,10 @@ const HeaderSection: FC = () => {
         <MobileContainer>
           <ContentContainer>
             <TextContent>
-              <MainText>Award winning frozen yogurt!</MainText>
-              <Text>
-                First to be certified by the Yogurt Asso-ciation&apos;s Live and Active Culture Seal. 100% all-natural
-                and nonfat. Certified Gluten Free and Kosher.
-              </Text>
+              <MainText dangerouslySetInnerHTML={{ __html: title as string }}></MainText>
+              <Text dangerouslySetInnerHTML={{ __html: text as string }}></Text>
 
-              <Button label="Become a part of the family" onClick={onClickHandle} variant="secondary" />
+              <Button label={button as string} onClick={onClickHandle} variant="secondary" />
             </TextContent>
 
             <MainContentImage alt="main-content-image" src="/images/RedMangoHeaderSectionMain.png" />
@@ -58,8 +61,8 @@ const HeaderSection: FC = () => {
       <BottomContentContainer>
         <MobileContainer>
           <CardsContainer>
-            {cardContentMap.map(({ id, text }) => (
-              <CardContentContainer key={id}>
+            {items.map(({ text }) => (
+              <CardContentContainer key={text}>
                 <StyledSVG
                   fill="none"
                   height="306"
@@ -73,7 +76,7 @@ const HeaderSection: FC = () => {
                   />
                 </StyledSVG>
 
-                <CardText>{text}</CardText>
+                <CardText dangerouslySetInnerHTML={{ __html: text as string }}></CardText>
               </CardContentContainer>
             ))}
           </CardsContainer>

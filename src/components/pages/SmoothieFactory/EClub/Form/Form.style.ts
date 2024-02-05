@@ -210,6 +210,12 @@ export const Label = styled.label`
   line-height: clamp(28px, 2.11vw, 32px);
 `;
 
+export const Error = styled.span`
+  font-size: 12px;
+  line-height: 16px;
+  color: #ff0000;
+`;
+
 export const Input = styled.input`
   border: 2px solid #cb333b;
   padding: 5px 8px 5px 8px;

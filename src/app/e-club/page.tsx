@@ -2,6 +2,8 @@ import Form from '@components/pages/SmoothieFactory/EClub/Form/Form';
 import GetBirthdayGift from '@components/pages/SmoothieFactory/EClub/GetBirthdayGift/GetBirthdayGift';
 import GetRewards from '@components/pages/SmoothieFactory/EClub/GetRewards/GetRewards';
 import HowDoesItWork from '@components/pages/SmoothieFactory/EClub/HowDoesItWork/HowDoesItWork';
+import { createClient } from 'prismicio';
+import { GetBirthdayGiftSlice, GetRewardsSlice, HowDoesItWorkSlice } from 'prismicio-types';
 
 import type { FC } from 'react';
 
@@ -39,16 +41,31 @@ const getOptions = async (): Promise<GetOptionsResponse> => {
 /* @ts-expect-error Server Component */
 const EClub: FC = async () => {
   const data = await getOptions();
+  const client = createClient();
+
+  const page = await client.getSingle('eclub');
 
   const optionMatch = data.merge_fields.find((field) => field.tag === 'MMERGE3');
 
   const choices = optionMatch === undefined ? [] : optionMatch.options.choices;
 
+  const getRewards = page.data.slices.find((slice) => slice.slice_type === 'get_rewards') as
+    | GetRewardsSlice
+    | undefined;
+
+  const getBirthdayGift = page.data.slices.find((slice) => slice.slice_type === 'get_birthday_gift') as
+    | GetBirthdayGiftSlice
+    | undefined;
+
+  const howDoesItWork = page.data.slices.find((slice) => slice.slice_type === 'how_does_it_work') as
+    | HowDoesItWorkSlice
+    | undefined;
+
   return (
     <>
-      <GetRewards />
-      <GetBirthdayGift />
-      <HowDoesItWork />
+      {getRewards ? <GetRewards slice={getRewards} /> : null}
+      {getBirthdayGift ? <GetBirthdayGift slice={getBirthdayGift} /> : null}
+      {howDoesItWork ? <HowDoesItWork slice={howDoesItWork} /> : null}
       <Form options={choices} />
     </>
   );

@@ -1,0 +1,34 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "cake",
+				"type": "Text"
+			},
+			"text_1": {
+				"__TYPE__": "FieldContent",
+				"value": "topic",
+				"type": "Text"
+			},
+			"text_2": {
+				"__TYPE__": "FieldContent",
+				"value": "branch",
+				"type": "Text"
+			},
+			"mission_title": {
+				"__TYPE__": "FieldContent",
+				"value": "captured",
+				"type": "Text"
+			},
+			"mission_text": {
+				"__TYPE__": "FieldContent",
+				"value": "ship",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

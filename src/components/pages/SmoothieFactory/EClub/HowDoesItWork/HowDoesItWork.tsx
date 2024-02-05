@@ -14,10 +14,15 @@ import {
 
 import FloatingImage from '@components/pages/SmoothieFactory/OrangeLeaf/common/FloatingImage/FloatingImage';
 import { MaxWidthWrapper } from '@styles/common';
+import { HowDoesItWorkSlice } from 'prismicio-types';
 
 import type { FC } from 'react';
 
-const HowDoesItWork: FC = () => (
+const HowDoesItWork: FC<{ slice: HowDoesItWorkSlice }> = ({
+  slice: {
+    primary: { title, step_1, step_2, step_3 },
+  },
+}) => (
   <RelativeWrapper>
     <MaxWidthWrapper>
       <FloatingImage
@@ -29,7 +34,7 @@ const HowDoesItWork: FC = () => (
         width="clamp(117px,15.93vw, 241px)"
       />
       <Wrapper>
-        <HowDoesItWorkTitle>HOW DOES IT WORK?</HowDoesItWorkTitle>
+        <HowDoesItWorkTitle dangerouslySetInnerHTML={{ __html: title as string }}></HowDoesItWorkTitle>
         <Steps>
           <Step>
             <StepContent>
@@ -41,7 +46,7 @@ const HowDoesItWork: FC = () => (
               />
 
               <StepTitle>01</StepTitle>
-              <StepSubtitle>Sign up</StepSubtitle>
+              <StepSubtitle dangerouslySetInnerHTML={{ __html: step_1 as string }}></StepSubtitle>
             </StepContent>
             <ImageContainer>
               <FloatingImage
@@ -82,7 +87,7 @@ const HowDoesItWork: FC = () => (
               />
 
               <StepTitle>02</StepTitle>
-              <StepSubtitle>Wait for email</StepSubtitle>
+              <StepSubtitle dangerouslySetInnerHTML={{ __html: step_2 as string }}></StepSubtitle>
             </StepContent>
           </Step>
           <Step>
@@ -94,7 +99,7 @@ const HowDoesItWork: FC = () => (
                 width="clamp(39px, 4.10vw, 62px)"
               />
               <StepTitle>03</StepTitle>
-              <StepSubtitle>get rewards</StepSubtitle>
+              <StepSubtitle dangerouslySetInnerHTML={{ __html: step_3 as string }}></StepSubtitle>
             </StepContent>
             <ImageContainer>
               <FloatingImage
