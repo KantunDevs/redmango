@@ -2,14 +2,21 @@ import Gallery from '@components/pages/SmoothieFactory/Home/Gallery/Gallery';
 import OurStars from '@components/pages/SmoothieFactory/Home/OurStars/OurStars';
 import WhatIsNew from '@components/pages/SmoothieFactory/Home/WhatIsNew/WhatIsNew';
 import MenuItems from '@components/pages/SmoothieFactory/Menu/MenuItem/MenuItem';
+import { Metadata } from 'next';
 import { createClient } from 'prismicio';
 import { GallerySlice, HomepageOurStarsSlice, MenuItemsSlice, WhatsNewSlice } from 'prismicio-types';
 
 import type { FC } from 'react';
 
-export const metadata = {
-  title: 'Menu | Smoothie Factory®',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+  const page = await client.getSingle('menu');
+
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+  };
+}
 
 /* @ts-expect-error Server Component */
 const Menu: FC = async () => {

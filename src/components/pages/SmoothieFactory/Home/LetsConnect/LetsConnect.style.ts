@@ -158,6 +158,7 @@ export const FollowUsTitle = styled.h2`
   font-size: clamp(24px, 2.11vw, 32px);
   line-height: clamp(28px, 3.17vw, 48px);
   text-transform: uppercase;
+  margin-bottom: clamp(24px, 9.39vw, 142px);
 `;
 
 export const SocialLinksWrapper = styled.div`

@@ -14,6 +14,7 @@ import type { FieldValues } from 'react-hook-form';
 import { FormBg, Paper, Form, InputWrapper, Label, Input, Select, FormButton, Error } from './Form.style';
 import { validatePhoneNumber } from '@utils/validatePhoneNumber';
 import { Title } from '../common';
+import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 
 type EClubFormData = {
   birthday: string;
@@ -77,13 +78,21 @@ const FormComponent: FC<{ options: string[] }> = ({ options }) => {
   return (
     <>
       <FormBg id="form-bg">
+        <FloatingImage
+          right="16%"
+          bottom="-42%"
+          alt="bg"
+          height="clamp(478px, 45.23vw, 684px)"
+          src="/images/form-bg.svg"
+          width="clamp(494px, 46.69vw, 706px)"
+        />
         <Image alt="background" src="/images/image 66.jpg" style={{ objectFit: 'cover' }} fill />
         <Paper>
           {isSubmitted ? (
             <SuccessfulSubmit />
           ) : (
             <>
-              <Title mb="clamp(35px,2.57vw, 39px)">#GETREWARDS</Title>
+              <Title mb="clamp(35px,2.57vw, 39px)">#GETOFFERS</Title>
               <Form onSubmit={handleSubmit(onSubmit) as FormEventHandler}>
                 <InputWrapper>
                   <Label htmlFor="firstName">Your first name*:</Label>

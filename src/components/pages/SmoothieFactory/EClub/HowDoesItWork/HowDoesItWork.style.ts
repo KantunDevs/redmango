@@ -29,7 +29,7 @@ export const HowDoesItWorkTitle = styled(Title)`
 
 export const Step = styled.div<{ reverseOnMobile?: boolean }>`
   display: flex;
-  gap: 100px;
+  gap: 40px;
   align-items: center;
   justify-content: center;
   @media only screen and (max-width: ${theme.breakpoints.mobile}px) {
@@ -59,15 +59,6 @@ export const Steps = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-export const ImageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  @media only screen and (max-width: ${theme.breakpoints.smallScreen}px) {
-    gap: 14px;
-  }
 `;
 
 export const StepContent = styled.div<{ alignStart?: boolean }>`

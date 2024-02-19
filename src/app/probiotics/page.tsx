@@ -4,6 +4,7 @@ import HealthBenefits from '@components/pages/SmoothieFactory/Probiotics/HealthB
 import ProbioticsHeader from '@components/pages/SmoothieFactory/Probiotics/ProbioticsHeader/ProbioticsHeader';
 import RedBanner from '@components/pages/SmoothieFactory/Probiotics/RedBanner/RedBanner';
 import SuperBiotics from '@components/pages/SmoothieFactory/Probiotics/SuperBiotics/SuperBiotics';
+import { Metadata } from 'next';
 import { createClient } from 'prismicio';
 import {
   BacteriaInfoSlice,
@@ -16,9 +17,15 @@ import {
 
 import type { FC } from 'react';
 
-export const metadata = {
-  title: 'Probiotics | Red Mango',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+  const page = await client.getSingle('probiotics');
+
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+  };
+}
 
 /* @ts-expect-error Server Component */
 const Probiotics: FC = async () => {

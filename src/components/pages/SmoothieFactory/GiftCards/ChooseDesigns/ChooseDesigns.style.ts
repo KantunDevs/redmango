@@ -21,6 +21,8 @@ export const Cards = styled.div`
   width: clamp(1494px, 131.74vw, 1992px);
   gap: clamp(24px, 2.11vw, 32px);
   margin-bottom: clamp(76px, 15.6vw, 236px);
+  position: relative;
+  z-index: 2;
 `;
 
 export const Card = styled.div`

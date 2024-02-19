@@ -17,11 +17,25 @@ import {
   WhatsNewSlice,
   GallerySlice,
 } from 'prismicio-types';
+import { Metadata } from 'next';
 
-export const metadata = {
-  title:
-    'Red Mango | Red Mango is committed to providing the healthiest and best tasting all-natural nonfat frozen yogurt and fresh fruit smoothies. No wonder Zagat ranked us #1, twice.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+  const page = await client.getSingle('homepage');
+
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+    openGraph: {
+      title: page.data.meta_title || undefined,
+      images: [
+        {
+          url: page.data.meta_image.url || '',
+        },
+      ],
+    },
+  };
+}
 
 /* @ts-expect-error Server Component */
 const Home: FC = async () => {
@@ -57,9 +71,9 @@ const Home: FC = async () => {
     <>
       {headerSlice ? <Header slice={headerSlice} /> : null}
       {whatsNewSlice ? <WhatIsNew slice={whatsNewSlice} /> : null}
-      {gallerySlice ? <Gallery mb="clamp(48px, 10.18vw, 154px)" slice={gallerySlice} /> : null}
-      {ourStarsSlice ? <OurStars slice={ourStarsSlice} /> : null}
+      {gallerySlice ? <Gallery mb="0" slice={gallerySlice} /> : null}
       {probioticsSlice ? <Probiotics slice={probioticsSlice} /> : null}
+      {ourStarsSlice ? <OurStars slice={ourStarsSlice} /> : null}
       {joinOurClubSlice && letsConnectSlice ? (
         <JoinOurClub slice={joinOurClubSlice} letsConnectSlice={letsConnectSlice} />
       ) : null}

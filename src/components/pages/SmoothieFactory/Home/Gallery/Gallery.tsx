@@ -25,14 +25,6 @@ import { AnimatePresence } from 'framer-motion';
 import { GallerySlice } from 'prismicio-types';
 import { PrismicNextImage } from '@prismicio/next';
 
-type Slider = {
-  img: {
-    src: string;
-  };
-  text: string;
-  title: string;
-};
-
 const sliderDefaultInterval = 4000;
 const sliderAfterClickInterval = 10000;
 

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import FloatingImage from '@components/pages/SmoothieFactory/OrangeLeaf/common/FloatingImage/FloatingImage';
 import theme from '@styles/theme';
 
 export const BgImage = styled.div`
@@ -13,15 +12,34 @@ export const BgImage = styled.div`
 `;
 
 export const Card = styled.div`
-  padding: clamp(40px, 6.61vw, 100px) clamp(32px, 5.22vw, 79px);
+  padding-inline: clamp(32px, 5.22vw, 79px);
+  padding-block: 100px 79px;
   background: #fff;
   border: 2px solid #cb333b;
-  z-index: 1;
+  z-index: 3;
   transform: translateY(clamp(40px, 7.07vw, 107px));
   max-width: 672px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  margin-inline: 32px;
+  @media only screen and (max-width: ${theme.breakpoints.smallScreen}px) {
+    padding-block: 40px;
+  }
+`;
+
+export const Circle = styled.div`
+  background-color: #fff;
+  padding: clamp(36px, 2.64vw, 40px);
+  top: 0;
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #cb333b;
+  transform: translateY(calc(-1 * clamp(71px, 7.07vw, 107px)));
+  @media only screen and (max-width: ${theme.breakpoints.smallScreen}px) {
+    display: none;
+  }
 `;
 
 export const CardTitle = styled.h1`
@@ -40,4 +58,12 @@ export const CardText = styled.p`
   color: #4e3629;
   margin-bottom: clamp(16px, 1.85vw, 28px);
   text-align: center;
+`;
+
+export const PatterWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
 `;

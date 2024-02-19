@@ -2,14 +2,21 @@ import Form from '@components/pages/SmoothieFactory/EClub/Form/Form';
 import GetBirthdayGift from '@components/pages/SmoothieFactory/EClub/GetBirthdayGift/GetBirthdayGift';
 import GetRewards from '@components/pages/SmoothieFactory/EClub/GetRewards/GetRewards';
 import HowDoesItWork from '@components/pages/SmoothieFactory/EClub/HowDoesItWork/HowDoesItWork';
+import { Metadata } from 'next';
 import { createClient } from 'prismicio';
 import { GetBirthdayGiftSlice, GetRewardsSlice, HowDoesItWorkSlice } from 'prismicio-types';
 
 import type { FC } from 'react';
 
-export const metadata = {
-  title: 'Smoothie Factory® | A smoothie bar and nutrition supplement franchise company',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+  const page = await client.getSingle('eclub');
+
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+  };
+}
 
 type MergeField = {
   tag: string;

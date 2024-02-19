@@ -1,31 +1,21 @@
-import styled, { keyframes } from 'styled-components';
-
-const animation = keyframes`
- 0% {
-      stroke-dasharray: 1100;
-      stroke-dashoffset: 1100;
-  }
-  50% {
-      stroke-dasharray: 1100;
-      stroke-dashoffset: 0;
-  }
-  100% {
-      stroke-dasharray: 1100;
-      stroke-dashoffset: 1100;
-  }
-`;
+import theme from '@styles/theme';
+import styled from 'styled-components';
 
 export const Container = styled.section`
   width: 100%;
+  max-width: 1512px;
+  margin-inline: auto;
   min-height: 100vh;
   background: #fff;
   z-index: 10000;
-  position: fixed;
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
 `;
 
-export const Svg = styled.svg`
-  animation: ${animation} 2s linear forwards infinite;
+export const LottieWrapper = styled.div`
+  position: absolute;
+  width: min(21.62%, 327px);
+  width: min(21.62%, 327px);
 `;

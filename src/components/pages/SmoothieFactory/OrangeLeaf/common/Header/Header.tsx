@@ -97,9 +97,9 @@ const Header: FC = () => {
         </ButtonLink>
         <NativeLink href="/locations">Locations</NativeLink>
         <ButtonLink
-          data-is-active={pathname === '/e-club'}
+          data-is-active={pathname === '/club-mango'}
           onClick={(): void => {
-            onClose('/e-club');
+            onClose('/club-mang');
           }}
         >
           Club Mango
@@ -126,7 +126,7 @@ const Header: FC = () => {
       </HamburgerMenu>
       <MobileWrapper>
         <HomeLink href="/">
-          <FloatingImage alt="smoothie factory logo" height="38px" src="/images/logo-mobile.svg" width="40px" />
+          <FloatingImage alt="red mango logo" height="38px" src="/images/logo-mobile.svg" width="40px" />
         </HomeLink>
         <HamburgerButton onClick={onHamburgerClick}>
           <svg fill="none" height="18" viewBox="0 0 21 18">
@@ -140,7 +140,7 @@ const Header: FC = () => {
     </>
   ) : (
     <OuterContainer>
-      <MaxWidthWrapper>
+      <MaxWidthWrapper style={{ paddingInline: 0 }}>
         <Container>
           <Section>
             <NextLink href="/">
@@ -156,8 +156,8 @@ const Header: FC = () => {
             <NextLink href="/probiotics">
               <Link data-is-active={pathname === '/probiotics'}>Probiotics</Link>
             </NextLink>
-            <NextLink href="/e-club">
-              <Link data-is-active={pathname === '/e-club'}>Club Mango</Link>
+            <NextLink href="/club-mango">
+              <Link data-is-active={pathname === '/club-mango'}>Club Mango</Link>
             </NextLink>
             <NextLink href="/gift-cards">
               <Link data-is-active={pathname === '/gift-cards'}>Gift cards</Link>
