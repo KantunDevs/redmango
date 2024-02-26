@@ -133,7 +133,6 @@ export type EclubDocument<Lang extends string = string> = prismic.PrismicDocumen
 >;
 
 type FranchisingDocumentDataSlicesSlice =
-  | FranchisingFormSectionSlice
   | GetStartedSectionSlice
   | FranchisingGetStartedSectionSlice
   | FranchisingAboutSectionSlice
@@ -827,61 +826,6 @@ export type FranchisingAboutSectionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *FranchisingFormSection → Primary*
- */
-export interface FranchisingFormSectionSliceDefaultPrimary {
-  /**
-   * Title field in *FranchisingFormSection → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: franchising_form_section.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Text field in *FranchisingFormSection → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: franchising_form_section.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  text: prismic.KeyTextField;
-}
-
-/**
- * Default variation for FranchisingFormSection Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type FranchisingFormSectionSliceDefault = prismic.SharedSliceVariation<
-  'default',
-  Simplify<FranchisingFormSectionSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *FranchisingFormSection*
- */
-type FranchisingFormSectionSliceVariation = FranchisingFormSectionSliceDefault;
-
-/**
- * FranchisingFormSection Shared Slice
- *
- * - **API ID**: `franchising_form_section`
- * - **Description**: FranchisingFormSection
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type FranchisingFormSectionSlice = prismic.SharedSlice<
-  'franchising_form_section',
-  FranchisingFormSectionSliceVariation
->;
-
-/**
  * Primary content in *FranchisingGetStartedSection → Primary*
  */
 export interface FranchisingGetStartedSectionSliceDefaultPrimary {
@@ -1004,16 +948,6 @@ export interface FranchisingHeaderSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   text: prismic.KeyTextField;
-
-  /**
-   * Button field in *FranchisingHeader → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: franchising_header.primary.button
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button: prismic.KeyTextField;
 }
 
 /**
@@ -1634,6 +1568,27 @@ export interface GetStartedSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   military_description: prismic.KeyTextField;
+
+  /**
+   * Military Image field in *GetStartedSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: get_started_section.primary.military_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  military_image: prismic.ImageField<never>;
+
+  /**
+   * Show Promotion field in *GetStartedSection → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: get_started_section.primary.show_promotion
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_promotion: prismic.BooleanField;
 }
 
 /**
@@ -2858,10 +2813,6 @@ declare module '@prismicio/client' {
       FranchisingAboutSectionSliceDefaultPrimary,
       FranchisingAboutSectionSliceVariation,
       FranchisingAboutSectionSliceDefault,
-      FranchisingFormSectionSlice,
-      FranchisingFormSectionSliceDefaultPrimary,
-      FranchisingFormSectionSliceVariation,
-      FranchisingFormSectionSliceDefault,
       FranchisingGetStartedSectionSlice,
       FranchisingGetStartedSectionSliceDefaultPrimary,
       FranchisingGetStartedSectionSliceDefaultItem,

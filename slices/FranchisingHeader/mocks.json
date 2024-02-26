@@ -12,11 +12,6 @@
 				"__TYPE__": "FieldContent",
 				"value": "globe",
 				"type": "Text"
-			},
-			"button": {
-				"__TYPE__": "FieldContent",
-				"value": "blind",
-				"type": "Text"
 			}
 		},
 		"items": [

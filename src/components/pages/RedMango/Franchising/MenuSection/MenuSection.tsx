@@ -1,5 +1,6 @@
+'use client';
+
 import { useCallback, useState, useRef, useEffect, useMemo } from 'react';
-import Image from 'next/image';
 
 import theme from '@styles/theme';
 import useWindowSize from '@hooks/useWindowSize';

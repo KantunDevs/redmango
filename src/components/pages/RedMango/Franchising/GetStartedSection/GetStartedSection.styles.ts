@@ -214,19 +214,16 @@ export const LineSeparator = styled.div`
 `;
 
 export const Flag = styled.div`
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-
-  @media only screen and (max-width: ${theme.breakpoints.smallScreen}px) {
-    top: unset;
-    bottom: -160px;
+  position: relative;
+  width: 402px;
+  aspect-ratio: 402/372;
+  @media only screen and (max-width: ${theme.breakpoints.tablet}px) {
+    display: none;
   }
 `;
 
 export const MilitaryContainer = styled.div`
-  position: relative;
+  display: flex;
   background-color: #cb333b;
 `;
 
@@ -237,6 +234,7 @@ export const MilitaryContent = styled.div`
   background-color: #ffffff;
   border-bottom-left-radius: 140px;
   display: flex;
+  flex: 1;
   flex-direction: column;
 
   @media only screen and (max-width: ${theme.breakpoints.desktop}px) {

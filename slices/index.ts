@@ -8,7 +8,6 @@ export const components = {
   bacteria_info: dynamic(() => import('./BacteriaInfo')),
   choose_designs: dynamic(() => import('./ChooseDesigns')),
   franchising_about_section: dynamic(() => import('./FranchisingAboutSection')),
-  franchising_form_section: dynamic(() => import('./FranchisingFormSection')),
   franchising_get_started_section: dynamic(() => import('./FranchisingGetStartedSection')),
   franchising_header: dynamic(() => import('./FranchisingHeader')),
   franchising_how_to_section: dynamic(() => import('./FranchisingHowToSection')),

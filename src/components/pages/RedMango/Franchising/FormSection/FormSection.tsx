@@ -1,8 +1,9 @@
+'use client';
+
 import { useCallback, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import Button from '@components/pages/RedMango/Button';
-import Card from '@components/ui/Card';
 import theme from '@styles/theme';
 import useWindowSize from '@hooks/useWindowSize';
 
@@ -21,16 +22,14 @@ import {
   FormLabel,
   InputField,
   Title,
+  Card,
+  Row,
+  Field,
 } from './FormSection.styles';
 
 import type { FC, FormEventHandler } from 'react';
-import { FranchisingFormSectionSlice } from 'prismicio-types';
 
-const FormSection: FC<{ slice: FranchisingFormSectionSlice }> = ({
-  slice: {
-    primary: { title, text },
-  },
-}) => {
+const FormSection: FC = () => {
   const {
     formState: { errors },
     handleSubmit,
@@ -60,109 +59,97 @@ const FormSection: FC<{ slice: FranchisingFormSectionSlice }> = ({
 
   return (
     <>
-      <BackgroundContainer>
-        <Container>
-          <Content>
-            <ContentText>
-              <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
-              <Description dangerouslySetInnerHTML={{ __html: text as string }}></Description>
-
-              {!isSmallScreen && (
-                <CtaText>Contact us to learn more about available franchise opportunities with Red Mango!</CtaText>
-              )}
-            </ContentText>
-            <CardContainer id="contact">
-              <Card size="s">
-                {isSent ? (
-                  <CtaText>
-                    <div style={{ fontFamily: 'inherit', margin: '518.5px 0', textAlign: 'center' }}>
-                      Thank you for contacting us!
-                      <br />
-                      We&apos;ll get in touch as soon as possible.
-                    </div>
-                  </CtaText>
-                ) : (
-                  <Form onSubmit={handleSubmit(onSubmit) as FormEventHandler}>
-                    {isSmallScreen && (
-                      <CtaText>
-                        Contact us to learn more about available franchise opportunities with Red Mango!
-                      </CtaText>
-                    )}
-                    <FormLabel>First name*:</FormLabel>
-                    <InputField
-                      {...register('firstName', { required: true })}
-                      disabled={isDisabled}
-                      placeholder="First name"
-                    />
-                    {errors.firstName?.type === 'required' && 'First name is required'}
-
-                    <FormLabel>Last name*:</FormLabel>
-                    <InputField
-                      {...register('lastName', { required: true })}
-                      disabled={isDisabled}
-                      placeholder="Last name"
-                    />
-                    {errors.lastName?.type === 'required' && 'Last name is required'}
-
-                    <FormLabel>City*:</FormLabel>
-                    <InputField {...register('city', { required: true })} disabled={isDisabled} placeholder="City" />
-                    {errors.city?.type === 'required' && 'City is required'}
-
-                    <FormLabel>State*:</FormLabel>
-                    <InputField {...register('state', { required: true })} disabled={isDisabled} placeholder="State" />
-                    {errors.state?.type === 'required' && 'State is required'}
-
-                    <FormLabel>ZIP*:</FormLabel>
-                    <InputField {...register('zip', { required: true })} disabled={isDisabled} placeholder="ZIP" />
-                    {errors.zip?.type === 'required' && 'ZIP is required'}
-
-                    <FormLabel>E-mail*:</FormLabel>
-                    <InputField
-                      {...register('email', { required: true })}
-                      disabled={isDisabled}
-                      placeholder="example@mail.com"
-                    />
-                    {errors.email?.type === 'required' && 'E-mail is required'}
-
-                    <FormLabel>Phone number*:</FormLabel>
-                    <InputField
-                      {...register('phone', { required: true })}
-                      disabled={isDisabled}
-                      placeholder="555 123 3456"
-                    />
-                    {errors.phone?.type === 'required' && 'Phone number is required'}
-
-                    <FormLabel>Best time to contact*:</FormLabel>
-                    <InputField
-                      {...register('contactTime', { required: true })}
-                      disabled={isDisabled}
-                      placeholder="17:00"
-                    />
-                    {errors.contactTime?.type === 'required' && 'Best time to contact is required'}
-
-                    <FormLabel>Cash Available for Investment*:</FormLabel>
-                    <InputField {...register('cash', { required: true })} disabled={isDisabled} placeholder="15,000" />
-                    {errors.cash?.type === 'required' && 'Cash Available for Investment is required'}
-                    <br />
-                    <br />
-                    <br />
-                    <Button isDisabled={isDisabled} label="Send" type="submit" isFullWidth />
-                  </Form>
-                )}
-              </Card>
-            </CardContainer>
-          </Content>
-        </Container>
-      </BackgroundContainer>
-      <Disclaimer>
-        This information is not intended as an offer to sell a franchise. We will not offer you a franchise until we
-        have complied with disclosure and registration requirements in your jurisdiction. Contact Red Mango FC, LLC,
-        located at 14860 Montfort Drive, Suite 150, Dallas, TX 75254, to request a copy of their FDD. RESIDENTS OF NEW
-        YORK: This advertisement is not an offering. An offering can only be made by a prospectus filed first with the
-        Department of Law of the State of New York. Such filing does not constitute approval by the New York Department
-        of Law. RESIDENTS OF MINNESOTA: MN Franchise Registration Number: 10193. RESIDENTS OF FLORIDA: FL Advertising
-        Number: BF47541.
-      </Disclaimer>
+      <Card>
+        {isSent ? (
+          <CtaText>
+            <div style={{ fontFamily: 'inherit', margin: '518.5px 0', textAlign: 'center' }}>
+              Thank you for contacting us!
+              <br />
+              We&apos;ll get in touch as soon as possible.
+            </div>
+          </CtaText>
+        ) : (
+          <Form onSubmit={handleSubmit(onSubmit) as FormEventHandler}>
+            {isSmallScreen && (
+              <CtaText>Contact us to learn more about available franchise opportunities with Red Mango!</CtaText>
+            )}
+            <Row>
+              <Field>
+                <FormLabel>First name*:</FormLabel>
+                <InputField
+                  {...register('firstName', { required: true })}
+                  disabled={isDisabled}
+                  placeholder="First name"
+                />
+                {errors.firstName?.type === 'required' && 'First name is required'}
+              </Field>
+              <Field>
+                <FormLabel>Last name*:</FormLabel>
+                <InputField
+                  {...register('lastName', { required: true })}
+                  disabled={isDisabled}
+                  placeholder="Last name"
+                />
+                {errors.lastName?.type === 'required' && 'Last name is required'}
+              </Field>
+            </Row>
+            <Row>
+              <Field>
+                <FormLabel>City*:</FormLabel>
+                <InputField {...register('city', { required: true })} disabled={isDisabled} placeholder="City" />
+                {errors.city?.type === 'required' && 'City is required'}
+              </Field>
+              <Field>
+                <FormLabel>State*:</FormLabel>
+                <InputField {...register('state', { required: true })} disabled={isDisabled} placeholder="State" />
+                {errors.state?.type === 'required' && 'State is required'}
+              </Field>
+              <Field>
+                <FormLabel>ZIP*:</FormLabel>
+                <InputField {...register('zip', { required: true })} disabled={isDisabled} placeholder="ZIP" />
+                {errors.zip?.type === 'required' && 'ZIP is required'}
+              </Field>
+            </Row>
+            <Row>
+              <Field>
+                <FormLabel>E-mail*:</FormLabel>
+                <InputField
+                  {...register('email', { required: true })}
+                  disabled={isDisabled}
+                  placeholder="example@mail.com"
+                />
+                {errors.email?.type === 'required' && 'E-mail is required'}
+              </Field>
+              <Field>
+                <FormLabel>Phone number*:</FormLabel>
+                <InputField
+                  {...register('phone', { required: true })}
+                  disabled={isDisabled}
+                  placeholder="555 123 3456"
+                />
+                {errors.phone?.type === 'required' && 'Phone number is required'}
+              </Field>
+            </Row>
+            <Row style={{ marginBottom: '40px' }}>
+              <Field>
+                <FormLabel>Best time to contact*:</FormLabel>
+                <InputField
+                  {...register('contactTime', { required: true })}
+                  disabled={isDisabled}
+                  placeholder="17:00"
+                />
+                {errors.contactTime?.type === 'required' && 'Best time to contact is required'}
+              </Field>
+              <Field>
+                <FormLabel>Cash Available for Investment*:</FormLabel>
+                <InputField {...register('cash', { required: true })} disabled={isDisabled} placeholder="15,000" />
+                {errors.cash?.type === 'required' && 'Cash Available for Investment is required'}
+              </Field>
+            </Row>
+            <Button isDisabled={isDisabled} label="Send" type="submit" isFullWidth />
+          </Form>
+        )}
+      </Card>
     </>
   );
 };

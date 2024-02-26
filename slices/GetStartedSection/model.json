@@ -81,6 +81,23 @@
             "label": "Military Description",
             "placeholder": ""
           }
+        },
+        "military_image": {
+          "type": "Image",
+          "config": {
+            "label": "Military Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "show_promotion": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Promotion",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {}

@@ -1,40 +1,31 @@
+'use client';
+
 import Button from '@components/pages/RedMango/Button';
 
 import {
   Container,
-  OrangeSection,
-  OrangeSectionWrapper,
-  PauseButton,
-  PauseCircle,
-  PauseIndicator1,
-  PauseIndicator2,
   PlayButton,
   PlayCircle,
   PlayIndicator,
-  VideoButton,
-  VideoButtonOutlined,
   VideoContainer,
   VideoOverlayContainer,
   VideoOverlayContent,
   VideoOverlayQuote,
   VideoOverlayTitle,
-  VideoText,
-  VideoTitle,
 } from './VideoSection.styles';
 import useVideoSection from './useVideoSection.hook';
 
 import type { FC } from 'react';
 import { FranchisingVideoSlice } from 'prismicio-types';
 
-const VideoSection: FC<{ isAboutUs?: boolean; url: string; poster: string; slice: FranchisingVideoSlice }> = ({
-  isAboutUs = false,
-  url,
+const VideoSection: FC<{ slice: FranchisingVideoSlice; poster: string; url: string }> = ({
   poster,
+  url,
   slice: {
     primary: { title, text, button },
   },
 }) => {
-  const { handlePauseVideo, handlePlayVideo, isVideoPlaying, videoRef } = useVideoSection();
+  const { handlePlayVideo, isVideoPlaying, videoRef, onPause, onPlay } = useVideoSection();
 
   return (
     <Container isVideoPlaying={isVideoPlaying}>
@@ -50,126 +41,20 @@ const VideoSection: FC<{ isAboutUs?: boolean; url: string; poster: string; slice
             <circle cx="64.5" cy="64.5" r="62.5" stroke="white" strokeWidth="4" />
           </PlayCircle>
         </PlayButton>
-
-        <PauseButton isVideoPlaying={isVideoPlaying} onClick={handlePauseVideo}>
-          <PauseCircle fill="none" height="101" viewBox="0 0 101 101" width="101" xmlns="http://www.w3.org/2000/svg">
-            <g filter="url(#filter0_d_102_886)">
-              <circle cx="50.5" cy="45.5" r="38.5" shapeRendering="crispEdges" stroke="white" strokeWidth="4" />
-            </g>
-            <defs>
-              <filter
-                colorInterpolationFilters="sRGB"
-                filterUnits="userSpaceOnUse"
-                height="101"
-                id="filter0_d_102_886"
-                width="101"
-                x="0"
-                y="0"
-              >
-                <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  result="hardAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                />
-                <feOffset dy="5" />
-                <feGaussianBlur stdDeviation="5" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix type="matrix" values="0 0 0 0 0.258824 0 0 0 0 0.105882 0 0 0 0 0 0 0 0 0.25 0" />
-                <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_102_886" />
-                <feBlend in="SourceGraphic" in2="effect1_dropShadow_102_886" mode="normal" result="shape" />
-              </filter>
-            </defs>
-          </PauseCircle>
-          <PauseIndicator1 fill="none" height="56" viewBox="0 0 30 56" width="30" xmlns="http://www.w3.org/2000/svg">
-            <g filter="url(#filter0_d_102_890)">
-              <rect fill="white" height="35.1628" rx="4" width="8.7907" x="10.7441" y="5.23267" />
-              <rect height="34.1628" rx="3.5" stroke="white" width="7.7907" x="11.2441" y="5.73267" />
-            </g>
-            <defs>
-              <filter
-                colorInterpolationFilters="sRGB"
-                filterUnits="userSpaceOnUse"
-                height="55.1628"
-                id="filter0_d_102_890"
-                width="28.7908"
-                x="0.744141"
-                y="0.232666"
-              >
-                <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  result="hardAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                />
-                <feOffset dy="5" />
-                <feGaussianBlur stdDeviation="5" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix type="matrix" values="0 0 0 0 0.258824 0 0 0 0 0.105882 0 0 0 0 0 0 0 0 0.25 0" />
-                <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_102_890" />
-                <feBlend in="SourceGraphic" in2="effect1_dropShadow_102_890" mode="normal" result="shape" />
-              </filter>
-            </defs>
-          </PauseIndicator1>
-          <PauseIndicator2 fill="none" height="56" viewBox="0 0 30 56" width="30" xmlns="http://www.w3.org/2000/svg">
-            <g filter="url(#filter0_d_102_891)">
-              <rect fill="white" height="35.1628" rx="4" width="8.7907" x="10.4651" y="5.23267" />
-              <rect height="34.1628" rx="3.5" stroke="white" width="7.7907" x="10.9651" y="5.73267" />
-            </g>
-            <defs>
-              <filter
-                colorInterpolationFilters="sRGB"
-                filterUnits="userSpaceOnUse"
-                height="55.1628"
-                id="filter0_d_102_891"
-                width="28.7908"
-                x="0.465088"
-                y="0.232666"
-              >
-                <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  result="hardAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                />
-                <feOffset dy="5" />
-                <feGaussianBlur stdDeviation="5" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix type="matrix" values="0 0 0 0 0.258824 0 0 0 0 0.105882 0 0 0 0 0 0 0 0 0.25 0" />
-                <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_102_891" />
-                <feBlend in="SourceGraphic" in2="effect1_dropShadow_102_891" mode="normal" result="shape" />
-              </filter>
-            </defs>
-          </PauseIndicator2>
-        </PauseButton>
-        <video ref={videoRef} height="auto" onClick={handlePauseVideo} poster={poster} width="100%">
+        <video ref={videoRef} height="auto" poster={poster} width="100%" controls onPause={onPause} onPlay={onPlay}>
           <track kind="captions" />
           <source src={url} type="video/mp4" />
         </video>
       </VideoContainer>
-      {isAboutUs ? (
-        <OrangeSection isVideoPlaying={isVideoPlaying}>
-          <OrangeSectionWrapper>
-            <VideoTitle>Kids love us!</VideoTitle>
-            <VideoText>
-              A perfect place to spend the day with your family! For post school treat or a special celebration!
-            </VideoText>
-            <VideoButton onClick={handlePlayVideo}>watch video</VideoButton>
-            <VideoButtonOutlined>See Nutrition info</VideoButtonOutlined>
-          </OrangeSectionWrapper>
-        </OrangeSection>
-      ) : (
-        <VideoOverlayContainer isVideoPlaying={isVideoPlaying} onClick={handlePauseVideo}>
-          <VideoOverlayContent>
-            <VideoOverlayTitle dangerouslySetInnerHTML={{ __html: title as string }}></VideoOverlayTitle>
-            <VideoOverlayQuote dangerouslySetInnerHTML={{ __html: text as string }}></VideoOverlayQuote>
-            <Button label={button as string} onClick={handlePlayVideo} size="s" variant="outlined-secondary" />
-          </VideoOverlayContent>
-        </VideoOverlayContainer>
-      )}
+      <VideoOverlayContainer isVideoPlaying={isVideoPlaying}>
+        <VideoOverlayContent>
+          <VideoOverlayTitle dangerouslySetInnerHTML={{ __html: title as string }}></VideoOverlayTitle>
+          <VideoOverlayQuote dangerouslySetInnerHTML={{ __html: text as string }}></VideoOverlayQuote>
+          <a href="#contact">
+            <Button label={button as string} size="s" variant="outlined-secondary" />
+          </a>
+        </VideoOverlayContent>
+      </VideoOverlayContainer>
     </Container>
   );
 };

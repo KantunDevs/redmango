@@ -46,6 +46,7 @@ export const PlayButton = styled.button<VideoControlPops>`
     if (isVideoPlaying) {
       return css`
         opacity: 0;
+        pointer-events: none;
       `;
     }
 
@@ -65,32 +66,6 @@ export const PlayCircle = styled.svg`
   position: absolute;
   top: calc(50% - calc(129px / 2));
   left: calc(50% - calc(129px / 2));
-`;
-
-export const PauseButton = styled.button<VideoControlPops>`
-  background: transparent;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  height: 101px;
-  width: 101px;
-  position: absolute;
-  right: 24px;
-  bottom: 24px;
-  z-index: 1;
-  transition: opacity 0.5s ease;
-
-  ${({ isVideoPlaying }): CSSProp => {
-    if (isVideoPlaying) {
-      return css`
-        opacity: 1;
-      `;
-    }
-
-    return css`
-      opacity: 0;
-    `;
-  }};
 `;
 
 export const PauseIndicator1 = styled.svg`
@@ -116,7 +91,7 @@ export const VideoOverlayContainer = styled.div<VideoControlPops>`
   position: absolute;
   transition: opacity 0.5s ease;
   right: 0;
-  bottom: 4px;
+  bottom: 0;
   width: 36%;
   height: 100%;
   display: flex;
@@ -127,6 +102,7 @@ export const VideoOverlayContainer = styled.div<VideoControlPops>`
   ${({ isVideoPlaying }): CSSProp => {
     if (isVideoPlaying) {
       return css`
+        pointer-events: none;
         opacity: 0;
       `;
     }

@@ -1,3 +1,5 @@
+'use client';
+
 import { FranchisingPurposeSectionSlice } from 'prismicio-types';
 import {
   Container,

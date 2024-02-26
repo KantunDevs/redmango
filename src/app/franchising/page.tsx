@@ -1,17 +1,14 @@
-'use client';
-
 import AboutSection from '@components/pages/RedMango/Franchising/AboutSection';
-import FormSection from '@components/pages/RedMango/Franchising/FormSection';
 import GetStartedSection from '@components/pages/RedMango/Franchising/GetStartedSection';
 import HeaderSection from '@components/pages/RedMango/Franchising/HeaderSection';
 import HowToSection from '@components/pages/RedMango/Franchising/HowToSection';
 import MenuSection from '@components/pages/RedMango/Franchising/MenuSection';
 import PurposeSection from '@components/pages/RedMango/Franchising/PurposeSection';
 import VideoSection from '@components/pages/RedMango/Franchising/VideoSection';
+import { Metadata } from 'next';
 import { createClient } from 'prismicio';
 import {
   FranchisingAboutSectionSlice,
-  FranchisingFormSectionSlice,
   FranchisingGetStartedSectionSlice,
   FranchisingHeaderSlice,
   FranchisingHowToSectionSlice,
@@ -22,6 +19,24 @@ import {
 } from 'prismicio-types';
 
 import type { FC } from 'react';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+  const page = await client.getSingle('franchising');
+
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+    openGraph: {
+      title: page.data.meta_title || undefined,
+      images: [
+        {
+          url: page.data.meta_image.url || '',
+        },
+      ],
+    },
+  };
+}
 
 /* @ts-expect-error Server Component */
 const Franchising: FC = async () => {
@@ -61,10 +76,6 @@ const Franchising: FC = async () => {
     | GetStartedSectionSlice
     | undefined;
 
-  const formSection = page.data.slices.find((slice) => slice.slice_type === 'franchising_form_section') as
-    | FranchisingFormSectionSlice
-    | undefined;
-
   return (
     <>
       {headerSlice ? <HeaderSection slice={headerSlice} /> : null}
@@ -80,7 +91,6 @@ const Franchising: FC = async () => {
       {purposeSection ? <PurposeSection slice={purposeSection} /> : null}
       {aboutSection ? <AboutSection slice={aboutSection} /> : null}
       {cards && getStartedSection ? <GetStartedSection cards={cards} slice={getStartedSection} /> : null}
-      {formSection ? <FormSection slice={formSection} /> : null}
     </>
   );
 };

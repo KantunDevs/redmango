@@ -1,3 +1,5 @@
+'use client';
+
 import { FranchisingHowToSectionSlice } from 'prismicio-types';
 import {
   BackgroundContainer,
