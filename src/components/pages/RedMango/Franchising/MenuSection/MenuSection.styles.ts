@@ -46,12 +46,12 @@ export const CopyrightTitle = styled.h2`
 export const SliderContainer = styled.div`
   width: 100%;
   z-index: 1;
+  position: relative;
 `;
 
 export const SliderImageContainer = styled.div`
   width: 100%;
   position: relative;
-  margin-bottom: 50px;
   background-color: white;
 `;
 
@@ -152,10 +152,11 @@ export const SliderImageContentTitle = styled.h2`
 export const SliderButtonsContainer = styled.div`
   display: flex;
   padding-left: 172px;
-  margin-bottom: 92px;
-
+  position: absolute;
+  bottom: 92px;
   @media only screen and (max-width: ${theme.breakpoints.tablet}px) {
     padding: 0 25px;
+    bottom: 20px;
   }
 `;
 

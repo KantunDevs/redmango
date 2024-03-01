@@ -1015,6 +1015,17 @@ export interface FranchisingHowToSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title_second_part: prismic.KeyTextField;
+
+  /**
+   * Show Section field in *FranchisingHowToSection → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: franchising_how_to_section.primary.show_section
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_section: prismic.BooleanField;
 }
 
 /**

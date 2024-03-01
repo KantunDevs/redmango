@@ -25,6 +25,15 @@
             "label": "Title Second Part",
             "placeholder": ""
           }
+        },
+        "show_section": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Section",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {

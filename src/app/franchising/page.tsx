@@ -86,7 +86,7 @@ const Franchising: FC = async () => {
           poster="/images/red-mango-video-poster.jpeg"
         />
       ) : null}
-      {howToSection ? <HowToSection slice={howToSection} /> : null}
+      {howToSection && howToSection.primary.show_section ? <HowToSection slice={howToSection} /> : null}
       {menuSection ? <MenuSection slice={menuSection} /> : null}
       {purposeSection ? <PurposeSection slice={purposeSection} /> : null}
       {aboutSection ? <AboutSection slice={aboutSection} /> : null}

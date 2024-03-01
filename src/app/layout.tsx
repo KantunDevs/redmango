@@ -32,9 +32,9 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
           <StoreProvider>
             <StyledComponentsRegistry>
               <GlobalStyle />
-              <Header />
+              {/* <Header /> */}
               <main>{children}</main>
-              <Footer />
+              {/* <Footer /> */}
             </StyledComponentsRegistry>
           </StoreProvider>
         </body>
