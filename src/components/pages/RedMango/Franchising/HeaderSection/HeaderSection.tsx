@@ -13,7 +13,7 @@ import {
   BgWrapper,
 } from './HeaderSection.styles';
 
-import type { FC } from 'react';
+import { useEffect, type FC } from 'react';
 import { FranchisingHeaderSlice } from 'prismicio-types';
 import FormSection from '../FormSection';
 import Image from 'next/image';
@@ -25,6 +25,24 @@ const HeaderSection: FC<{ slice: FranchisingHeaderSlice }> = ({
     primary: { title, text },
   },
 }) => {
+  useEffect(() => {
+    if (window.top) {
+      window.top.postMessage({ height: document.body.clientHeight, type: 'iframeLoaded' }, '*');
+    }
+
+    const observer = new ResizeObserver(() => {
+      if (window.top) {
+        window.top.postMessage({ height: document.body.clientHeight, type: 'iframeLoaded' }, '*');
+      }
+    });
+
+    observer.observe(document.body);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <SectionContainer id="contact">
       <BgWrapper>
