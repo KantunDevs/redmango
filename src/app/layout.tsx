@@ -10,6 +10,7 @@ import type { FC, ReactNode } from 'react';
 import GlobalStyle from './GlobalStyle';
 import { StoreProvider } from 'src/context/StoreProvider';
 import Script from 'next/script';
+import { useSelectedLayoutSegments } from 'next/navigation';
 
 const variableBlack = localFont({
   src: [
@@ -23,6 +24,18 @@ const variableBlack = localFont({
 });
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
+  const segments = useSelectedLayoutSegments();
+  const content =
+    segments[segments.length - 1] === 'franchising' ? (
+      children
+    ) : (
+      <>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </>
+    );
+
   return (
     <>
       <head>
@@ -50,9 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <StoreProvider>
             <StyledComponentsRegistry>
               <GlobalStyle />
-              {/* <Header /> */}
-              <main>{children}</main>
-              {/* <Footer /> */}
+              {content}
             </StyledComponentsRegistry>
           </StoreProvider>
         </body>
