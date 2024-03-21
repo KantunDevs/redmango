@@ -1,7 +1,5 @@
 'use client';
 
-import FloatingImage from '@components/pages/SmoothieFactory/OrangeLeaf/common/FloatingImage/FloatingImage';
-
 import { MaxWidthWrapper } from '@styles/common';
 
 import type { FC } from 'react';
@@ -12,10 +10,12 @@ const WhatIsNew: FC<{ slice: WhatsNewSlice }> = ({
   slice: {
     primary: { title },
   },
-}) => (
-  <MaxWidthWrapper>
-    <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
-  </MaxWidthWrapper>
-);
+}) => {
+  return (
+    <MaxWidthWrapper>
+      <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
+    </MaxWidthWrapper>
+  );
+};
 
 export default WhatIsNew;

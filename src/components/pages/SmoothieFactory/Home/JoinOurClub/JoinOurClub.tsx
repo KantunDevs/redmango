@@ -28,7 +28,25 @@ const JoinOurClub: FC<{ slice: HomepageJoinOurClubSlice; letsConnectSlice: Homep
 }) => (
   <Wrapper>
     <Image fill alt="bg" src="/images/image 45.jpg" style={{ objectFit: 'contain', objectPosition: '0 100px' }} />
-    <Image fill alt="bg" src="/images/image 45.jpg" style={{ objectFit: 'contain', objectPosition: 'bottom' }} />
+    <Image
+      fill
+      alt="bg"
+      src="/images/image 45.jpg"
+      style={{ position: 'absolute', objectFit: 'contain', objectPosition: 'bottom' }}
+    />
+    <FloatingImage
+      width="clamp(701px, 61.83vw, 935px)"
+      height="clamp(691px, 60.97vw, 922px)"
+      alt="bg"
+      src="/images/Group 90.svg"
+      bottom="19%"
+      left="0%"
+      style={{
+        zIndex: 1,
+        left: 'initial',
+      }}
+    />
+
     <Background>
       <LeftSection>
         <FloatingImage

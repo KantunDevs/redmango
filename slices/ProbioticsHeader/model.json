@@ -32,27 +32,6 @@
             "label": "Text",
             "placeholder": ""
           }
-        },
-        "advantage_1": {
-          "type": "Text",
-          "config": {
-            "label": "Advantage 1",
-            "placeholder": ""
-          }
-        },
-        "advantage_2": {
-          "type": "Text",
-          "config": {
-            "label": "Advantage 2",
-            "placeholder": ""
-          }
-        },
-        "advantage_3": {
-          "type": "Text",
-          "config": {
-            "label": "Advantage 3",
-            "placeholder": ""
-          }
         }
       },
       "items": {}

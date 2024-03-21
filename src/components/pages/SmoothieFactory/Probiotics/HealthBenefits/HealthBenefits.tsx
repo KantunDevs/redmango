@@ -19,13 +19,14 @@ const HealthBenefits: FC<{ slice: HealthBenefitsSlice }> = ({
     primary: {
       title,
       benefit_1_title,
-      benefit_1_text_1,
-      benefit_1_text_2,
+      benefit_1_text,
       benefit_1_image,
       benefit_2_image,
       benefit_2_title,
-      benefit_2_text_1,
-      benefit_2_text_2,
+      benefit_2_text,
+      benefit_3_image,
+      benefit_3_title,
+      benefit_3_text,
     },
   },
 }) => (
@@ -35,8 +36,7 @@ const HealthBenefits: FC<{ slice: HealthBenefitsSlice }> = ({
       <Row>
         <TextArea>
           <TextAreaTitle textAlignRight dangerouslySetInnerHTML={{ __html: benefit_1_title as string }}></TextAreaTitle>
-          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_1_text_1 as string }}></Paragraph>
-          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_1_text_2 as string }}></Paragraph>
+          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_1_text as string }}></Paragraph>
         </TextArea>
         <ImageContainer>
           <PrismicImage
@@ -66,9 +66,26 @@ const HealthBenefits: FC<{ slice: HealthBenefitsSlice }> = ({
         </ImageContainer>
         <TextArea>
           <TextAreaTitle textAlignRight dangerouslySetInnerHTML={{ __html: benefit_2_title as string }}></TextAreaTitle>
-          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_2_text_1 as string }}></Paragraph>
-          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_2_text_2 as string }}></Paragraph>
+          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_2_text as string }}></Paragraph>
         </TextArea>
+      </Row>
+      <Row>
+        <TextArea>
+          <TextAreaTitle textAlignRight dangerouslySetInnerHTML={{ __html: benefit_3_title as string }}></TextAreaTitle>
+          <Paragraph textAlignRight dangerouslySetInnerHTML={{ __html: benefit_3_text as string }}></Paragraph>
+        </TextArea>
+        <ImageContainer>
+          <PrismicImage
+            field={benefit_3_image}
+            style={{
+              objectFit: 'cover',
+              position: 'absolute',
+              height: '100%',
+              width: '100%',
+              inset: '0px',
+            }}
+          />
+        </ImageContainer>
       </Row>
     </StyledMaxWidthWrapper>
   </>

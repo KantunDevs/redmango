@@ -37,14 +37,9 @@ export const RightContainer = styled.div`
 `;
 
 export const LemonsColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   background-color: #cb333b;
-  padding: 0 16px;
   width: 100%;
   max-width: 31.56%;
-  align-items: center;
 `;
 
 export const GalleryImage = styled(motion.div)`

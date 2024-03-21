@@ -25,6 +25,8 @@ export const RightColumn = styled.div`
 
 export const StyledMaxWidthWrapper = styled(MaxWidthWrapper)`
   display: flex;
+  z-index: 1;
+  position: relative;
   padding-inline: 0;
   border-inline: 2px solid #cb333b;
   border-bottom: 2px solid #cb333b;

@@ -1,6 +1,6 @@
 'use client';
 
-import { BgImage, Card, CardTitle, CardText, Circle, PatterWrapper } from './Probiotics.style';
+import { BgImage, Card, CardTitle, CardText, Circle } from './Probiotics.style';
 
 import type { FC } from 'react';
 import Image from 'next/image';
@@ -30,21 +30,6 @@ const Probiotics: FC<{ slice: HomepageProbioticsSlice }> = ({
         <CardText dangerouslySetInnerHTML={{ __html: text as string }}></CardText>
         <Button dangerouslySetInnerHTML={{ __html: button as string }}></Button>
       </Card>
-
-      <PatterWrapper>
-        <FloatingImage
-          alt="pattern image"
-          src="/images/Icon (15).svg"
-          width="1622px"
-          height="clamp(34px,6.74vw, 102px)"
-        />
-        <FloatingImage
-          alt="pattern image"
-          src="/images/Icon (15).svg"
-          width="1622px"
-          height="clamp(34px,6.74vw, 102px)"
-        />
-      </PatterWrapper>
     </BgImage>
   );
 };

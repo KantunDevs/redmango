@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import FloatingImage from '@components/pages/SmoothieFactory/OrangeLeaf/common/FloatingImage/FloatingImage';
 import theme from '@styles/theme';
 
 export const Title = styled.h1`
@@ -83,13 +82,4 @@ export const Button = styled.button`
   border-radius: 30px;
   box-shadow: 0px 0px 10px 0px rgba(113, 49, 14, 0.3);
   cursor: pointer;
-`;
-
-export const IconsWrapper = styled.div`
-  display: flex;
-  gap: 10px;
-  padding: 20px 30px;
-  @media only screen and (max-width: ${theme.breakpoints.smallScreen}px) {
-    padding: 0px;
-  }
 `;

@@ -91,44 +91,7 @@ const Gallery: FC<{ mb: string; slice: GallerySlice }> = ({ mb, slice: { items }
       <StyledMaxWidthWrapper>
         <FlexWrapper>
           <LeftContainer>
-            <LemonsColumn>
-              <FloatingImage
-                alt="lemon"
-                src="/images/taste.svg"
-                width="clamp(48px,5.22vw, 79px)"
-                height="clamp(48px,5.22vw, 79px)"
-              />
-              <FloatingImage
-                alt="lemon"
-                src="/images/taste.svg"
-                width="clamp(48px,5.22vw, 79px)"
-                height="clamp(48px,5.22vw, 79px)"
-              />
-              <FloatingImage
-                alt="lemon"
-                src="/images/taste.svg"
-                width="clamp(48px,5.22vw, 79px)"
-                height="clamp(48px,5.22vw, 79px)"
-              />
-              <FloatingImage
-                alt="lemon"
-                src="/images/taste.svg"
-                width="clamp(48px,5.22vw, 79px)"
-                height="clamp(48px,5.22vw, 79px)"
-              />
-              <FloatingImage
-                alt="lemon"
-                src="/images/taste.svg"
-                width="clamp(48px,5.22vw, 79px)"
-                height="clamp(48px,5.22vw, 79px)"
-              />
-              <FloatingImage
-                alt="lemon"
-                src="/images/taste.svg"
-                width="clamp(48px,5.22vw, 79px)"
-                height="clamp(48px,5.22vw, 79px)"
-              />
-            </LemonsColumn>
+            <LemonsColumn></LemonsColumn>
             <AnimatePresence initial={false}>
               <GalleryImage
                 key={activeSliderIndex}

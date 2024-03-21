@@ -1808,24 +1808,14 @@ export interface HealthBenefitsSliceDefaultPrimary {
   benefit_1_title: prismic.KeyTextField;
 
   /**
-   * Benefit 1 Text 1 field in *HealthBenefits → Primary*
+   * Benefit 1 Text field in *HealthBenefits → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: health_benefits.primary.benefit_1_text_1
+   * - **API ID Path**: health_benefits.primary.benefit_1_text
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  benefit_1_text_1: prismic.KeyTextField;
-
-  /**
-   * Benefit 1 Text 2 field in *HealthBenefits → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: health_benefits.primary.benefit_1_text_2
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  benefit_1_text_2: prismic.KeyTextField;
+  benefit_1_text: prismic.KeyTextField;
 
   /**
    * Benefit 2 Title field in *HealthBenefits → Primary*
@@ -1838,24 +1828,14 @@ export interface HealthBenefitsSliceDefaultPrimary {
   benefit_2_title: prismic.KeyTextField;
 
   /**
-   * Benefit 2 Text 1 field in *HealthBenefits → Primary*
+   * Benefit 2 Text field in *HealthBenefits → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: health_benefits.primary.benefit_2_text_1
+   * - **API ID Path**: health_benefits.primary.benefit_2_text
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  benefit_2_text_1: prismic.KeyTextField;
-
-  /**
-   * Benefit 2 Text 2 field in *HealthBenefits → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: health_benefits.primary.benefit_2_text_2
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  benefit_2_text_2: prismic.KeyTextField;
+  benefit_2_text: prismic.KeyTextField;
 
   /**
    * Benefit 1 Image field in *HealthBenefits → Primary*
@@ -1876,6 +1856,36 @@ export interface HealthBenefitsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   benefit_2_image: prismic.ImageField<never>;
+
+  /**
+   * Benefit 3 Title field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_3_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  benefit_3_title: prismic.KeyTextField;
+
+  /**
+   * Benefit 3 Text field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_3_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  benefit_3_text: prismic.KeyTextField;
+
+  /**
+   * Benefit 3 Image field in *HealthBenefits → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: health_benefits.primary.benefit_3_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  benefit_3_image: prismic.ImageField<never>;
 }
 
 /**
@@ -2570,36 +2580,6 @@ export interface ProbioticsHeaderSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   text: prismic.KeyTextField;
-
-  /**
-   * Advantage 1 field in *ProbioticsHeader → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: probiotics_header.primary.advantage_1
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  advantage_1: prismic.KeyTextField;
-
-  /**
-   * Advantage 2 field in *ProbioticsHeader → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: probiotics_header.primary.advantage_2
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  advantage_2: prismic.KeyTextField;
-
-  /**
-   * Advantage 3 field in *ProbioticsHeader → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: probiotics_header.primary.advantage_3
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  advantage_3: prismic.KeyTextField;
 }
 
 /**

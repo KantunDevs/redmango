@@ -26,17 +26,10 @@
             "placeholder": ""
           }
         },
-        "benefit_1_text_1": {
+        "benefit_1_text": {
           "type": "Text",
           "config": {
-            "label": "Benefit 1 Text 1",
-            "placeholder": ""
-          }
-        },
-        "benefit_1_text_2": {
-          "type": "Text",
-          "config": {
-            "label": "Benefit 1 Text 2",
+            "label": "Benefit 1 Text",
             "placeholder": ""
           }
         },
@@ -47,17 +40,10 @@
             "placeholder": ""
           }
         },
-        "benefit_2_text_1": {
+        "benefit_2_text": {
           "type": "Text",
           "config": {
-            "label": "Benefit 2 Text 1",
-            "placeholder": ""
-          }
-        },
-        "benefit_2_text_2": {
-          "type": "Text",
-          "config": {
-            "label": "Benefit 2 Text 2",
+            "label": "Benefit 2 Text",
             "placeholder": ""
           }
         },
@@ -73,6 +59,28 @@
           "type": "Image",
           "config": {
             "label": "Benefit 2 Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "benefit_3_title": {
+          "type": "Text",
+          "config": {
+            "label": "Benefit 3 Title",
+            "placeholder": ""
+          }
+        },
+        "benefit_3_text": {
+          "type": "Text",
+          "config": {
+            "label": "Benefit 3 Text",
+            "placeholder": ""
+          }
+        },
+        "benefit_3_image": {
+          "type": "Image",
+          "config": {
+            "label": "Benefit 3 Image",
             "constraint": {},
             "thumbnails": []
           }

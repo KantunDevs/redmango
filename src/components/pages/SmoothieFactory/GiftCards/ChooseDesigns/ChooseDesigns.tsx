@@ -2,7 +2,7 @@
 
 import { MaxWidthWrapper } from '@styles/common';
 
-import { StyledFloatingImage, Cards, Card, GiftCardArea, GiftCard, GiftCardText, Button } from './ChooseDesigns.style';
+import { Cards, Card, GiftCardArea, GiftCard, GiftCardText, Button } from './ChooseDesigns.style';
 
 import { CtaButton } from '../../Home/WhatIsNew/WhatIsNew.style';
 
@@ -20,15 +20,6 @@ const ChooseDesigns: FC<{ slice: ChooseDesignsSlice }> = ({
 }) => (
   <>
     <MaxWidthWrapper style={{ position: 'relative', marginBottom: '85px' }}>
-      <StyledFloatingImage
-        style={{ zIndex: -1 }}
-        alt="bg"
-        bottom="0%"
-        right="44%"
-        src="/images/Frame 108 (2).png"
-        height="clamp(76px, 6.74vw, 102px)"
-        width="clamp(946px, 83.46vw, 1262px)"
-      />
       <FloatingImage
         style={{ zIndex: -1 }}
         alt="bg"

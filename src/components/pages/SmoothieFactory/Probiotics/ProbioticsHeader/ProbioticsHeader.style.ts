@@ -24,48 +24,6 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: flex-start;
   flex: 1;
-  position: relative;
-`;
-
-export const Description = styled.span`
-  font-size: clamp(14px, 1.05vw, 16px);
-  line-height: clamp(26px, 1.85vw, 28px);
-  color: #000000;
-  max-width: clamp(92px, 11.77vw, 178px);
-  text-align: center;
-`;
-
-export const Icons = styled.div`
-  display: flex;
-  position: absolute;
-  justify-content: space-between;
-  bottom: 0;
-  left: clamp(32px, 6.41vw, 97px);
-  min-width: clamp(329px, 45.63vw, 690px);
-  transform: translateY(calc(100% - clamp(39px, 4.29vw, 65px)));
-  z-index: 1;
-  @media (max-width: ${theme.breakpoints.tablet}px) {
-    position: static;
-    left: initial;
-    width: 100%;
-    transform: initial;
-  }
-`;
-
-export const Circle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  border-radius: 50%;
-  border: 2px solid #cb333b;
-  background: #fff;
-`;
-
-export const Icon = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 `;
 
 export const Title = styled.h1`

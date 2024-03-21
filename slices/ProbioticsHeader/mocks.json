@@ -17,21 +17,6 @@
 				"__TYPE__": "FieldContent",
 				"value": "mood",
 				"type": "Text"
-			},
-			"advantage_1": {
-				"__TYPE__": "FieldContent",
-				"value": "garden",
-				"type": "Text"
-			},
-			"advantage_2": {
-				"__TYPE__": "FieldContent",
-				"value": "soil",
-				"type": "Text"
-			},
-			"advantage_3": {
-				"__TYPE__": "FieldContent",
-				"value": "father",
-				"type": "Text"
 			}
 		},
 		"items": []

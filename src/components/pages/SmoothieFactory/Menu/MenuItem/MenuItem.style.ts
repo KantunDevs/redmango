@@ -3,7 +3,7 @@ import type { CSSProp } from 'styled-components';
 import theme from '@styles/theme';
 import { MaxWidthWrapper } from '@styles/common';
 
-export const ContentColumn = styled.div<{ variant: 1 | 2 | 3 }>`
+export const ContentColumn = styled.div<{ variant: 1 | 2 }>`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -17,15 +17,8 @@ export const ContentColumn = styled.div<{ variant: 1 | 2 | 3 }>`
         order: 1;
       `;
     }
-    if (variant === 2) {
-      return css`
-        border-left: 2px solid #cb333b;
-        order: 2;
-      `;
-    }
-
     return css`
-      border-right: 2px solid #cb333b;
+      border-left: 2px solid #cb333b;
       order: 2;
     `;
   }};
@@ -76,7 +69,7 @@ export const Text = styled.p`
   margin-bottom: clamp(16px, 2.11vw, 32px);
 `;
 
-export const RedColumn = styled.div<{ variant: 1 | 2 | 3 }>`
+export const RedColumn = styled.div<{ variant: 1 | 2 }>`
   width: clamp(120px, 13.22vw, 200px);
   height: 100%;
   overflow: hidden;
@@ -90,14 +83,8 @@ export const RedColumn = styled.div<{ variant: 1 | 2 | 3 }>`
         order: 2;
       `;
     }
-    if (variant === 2) {
-      return css`
-        order: 3;
-      `;
-    }
-
     return css`
-      order: 1;
+      order: 3;
     `;
   }};
 
@@ -108,7 +95,7 @@ export const RedColumn = styled.div<{ variant: 1 | 2 | 3 }>`
   }
 `;
 
-export const ImageColumn = styled.div<{ variant: 1 | 2 | 3 }>`
+export const ImageColumn = styled.div<{ variant: 1 | 2 }>`
   width: 35.38%;
   height: 100%;
   position: relative;
@@ -122,14 +109,8 @@ export const ImageColumn = styled.div<{ variant: 1 | 2 | 3 }>`
         order: 3;
       `;
     }
-    if (variant === 2) {
-      return css`
-        order: 1;
-      `;
-    }
-
     return css`
-      order: 3;
+      order: 1;
     `;
   }};
 

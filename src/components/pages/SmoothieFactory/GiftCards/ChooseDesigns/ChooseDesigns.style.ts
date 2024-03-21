@@ -62,12 +62,6 @@ export const GiftCardText = styled.p`
   margin-bottom: 28px;
 `;
 
-export const StyledFloatingImage = styled(FloatingImage)`
-  @media only screen and (max-width: ${theme.breakpoints.tablet}px) {
-    transform: translateY(106%);
-  }
-`;
-
 export const Button = styled.button`
   padding: 8px clamp(24px, 2.11vw, 32px);
   font-size: clamp(14px, 1.05vw, 16px);

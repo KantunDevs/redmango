@@ -27,6 +27,22 @@ const HowItStarted: FC<{ slice: HowItStartedSlice }> = ({
       </MaxWidthWrapper>
     </ContentWrapper>
     <OurMission>
+      <FloatingImage
+        width="clamp(326px,38.35vw, 580px)"
+        height="clamp(316px, 37.16vw, 562px)"
+        alt="bg"
+        left="-55%"
+        top="-23%"
+        src="/images/white-circle.svg"
+      />
+      <FloatingImage
+        width="clamp(228px,26.91vw, 407px)"
+        height="clamp(221px, 26.05vw, 394px)"
+        alt="bg"
+        right="78%"
+        bottom="16%"
+        src="/images/white-circle.svg"
+      />
       <MaxWidthWrapper style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
         <FloatingImage
           width="clamp(82px,7.47vw, 113px)"

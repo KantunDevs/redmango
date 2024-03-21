@@ -59,11 +59,3 @@ export const CardText = styled.p`
   margin-bottom: clamp(16px, 1.85vw, 28px);
   text-align: center;
 `;
-
-export const PatterWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  transform: translateY(100%);
-`;

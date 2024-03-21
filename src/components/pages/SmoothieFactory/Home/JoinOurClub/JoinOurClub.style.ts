@@ -13,6 +13,9 @@ export const Background = styled.div`
 
 export const Wrapper = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const LeftSection = styled.div`

@@ -66,6 +66,7 @@ export const InfoCardText = styled.p`
 
 export const OurMission = styled.div`
   background-color: #cb333b;
+  position: relative;
   padding-top: clamp(64px, 4.36vw, 66px);
   padding-bottom: clamp(64px, 6.87vw, 104px);
   margin-bottom: clamp(23px, 7.93vw, 120px);
