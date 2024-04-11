@@ -473,6 +473,70 @@ export type ProbioticsDocument<Lang extends string = string> = prismic.PrismicDo
   Lang
 >;
 
+type ThankYouDocumentDataSlicesSlice = ThankYouSlice;
+
+/**
+ * Content for Thank You documents
+ */
+interface ThankYouDocumentData {
+  /**
+   * Slice Zone field in *Thank You*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thank_you.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ThankYouDocumentDataSlicesSlice> /**
+   * Meta Description field in *Thank You*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: thank_you.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Thank You*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thank_you.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Thank You*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: thank_you.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Thank You document from Prismic
+ *
+ * - **API ID**: `thank_you`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ThankYouDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<ThankYouDocumentData>,
+  'thank_you',
+  Lang
+>;
+
 export type AllDocumentTypes =
   | AboutusDocument
   | EclubDocument
@@ -480,7 +544,8 @@ export type AllDocumentTypes =
   | GiftcardsDocument
   | HomepageDocument
   | MenuDocument
-  | ProbioticsDocument;
+  | ProbioticsDocument
+  | ThankYouDocument;
 
 /**
  * Primary content in *AboutUsForm → Primary*
@@ -2714,6 +2779,58 @@ type SuperBioticsSliceVariation = SuperBioticsSliceDefault;
 export type SuperBioticsSlice = prismic.SharedSlice<'super_biotics', SuperBioticsSliceVariation>;
 
 /**
+ * Primary content in *ThankYou → Primary*
+ */
+export interface ThankYouSliceDefaultPrimary {
+  /**
+   * Title field in *ThankYou → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thank_you.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *ThankYou → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thank_you.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ThankYou Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThankYouSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<ThankYouSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ThankYou*
+ */
+type ThankYouSliceVariation = ThankYouSliceDefault;
+
+/**
+ * ThankYou Shared Slice
+ *
+ * - **API ID**: `thank_you`
+ * - **Description**: ThankYou
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThankYouSlice = prismic.SharedSlice<'thank_you', ThankYouSliceVariation>;
+
+/**
  * Primary content in *WhatsNew → Primary*
  */
 export interface WhatsNewSliceDefaultPrimary {
@@ -2783,6 +2900,9 @@ declare module '@prismicio/client' {
       ProbioticsDocument,
       ProbioticsDocumentData,
       ProbioticsDocumentDataSlicesSlice,
+      ThankYouDocument,
+      ThankYouDocumentData,
+      ThankYouDocumentDataSlicesSlice,
       AllDocumentTypes,
       AboutUsFormSlice,
       AboutUsFormSliceDefaultPrimary,
@@ -2905,6 +3025,10 @@ declare module '@prismicio/client' {
       SuperBioticsSliceDefaultPrimary,
       SuperBioticsSliceVariation,
       SuperBioticsSliceDefault,
+      ThankYouSlice,
+      ThankYouSliceDefaultPrimary,
+      ThankYouSliceVariation,
+      ThankYouSliceDefault,
       WhatsNewSlice,
       WhatsNewSliceDefaultPrimary,
       WhatsNewSliceVariation,

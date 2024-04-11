@@ -32,5 +32,6 @@ export const components = {
   probiotics_header: dynamic(() => import('./ProbioticsHeader')),
   red_banner: dynamic(() => import('./RedBanner')),
   super_biotics: dynamic(() => import('./SuperBiotics')),
+  thank_you: dynamic(() => import('./ThankYou')),
   whats_new: dynamic(() => import('./WhatsNew')),
 };

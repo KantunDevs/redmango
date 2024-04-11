@@ -35,6 +35,8 @@ const GlobalStyle = createGlobalStyle`
   main{
     overflow:hidden;
     flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   h1, h2, h3, h4, h5, h6, button, label {
