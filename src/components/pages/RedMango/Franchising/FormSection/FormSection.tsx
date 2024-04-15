@@ -28,6 +28,7 @@ import {
 } from './FormSection.styles';
 
 import type { FC, FormEventHandler } from 'react';
+import { useRouter } from 'next/navigation';
 
 const FormSection: FC = () => {
   const {
@@ -40,6 +41,7 @@ const FormSection: FC = () => {
   const [isSent, setIsSent] = useState(false);
   const { width } = useWindowSize();
   const isSmallScreen = useMemo(() => (width ? width < theme.breakpoints.smallScreen : false), [width]);
+  const router = useRouter();
 
   const onSubmit = useCallback(
     (formData: FieldValues) => {
@@ -49,10 +51,14 @@ const FormSection: FC = () => {
       void fetch('/api/form?brand=rm', {
         body: JSON.stringify(formData),
         method: 'post',
-      }).finally(() => {
-        reset();
-        setIsDisabled(false);
-      });
+      })
+        .then(() => {
+          router.push('/thank-you');
+        })
+        .finally(() => {
+          reset();
+          setIsDisabled(false);
+        });
     },
     [reset],
   );
