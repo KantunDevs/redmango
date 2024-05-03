@@ -1,13 +1,15 @@
 import { Dispatch, FC, SetStateAction, useRef } from 'react';
 import { FlavorItem, FlavorText, AnimationWrapper, Slider, FlavorTextWhite } from './FlavorItem.style';
 import { animate } from 'framer-motion';
-import { INITIAL_IMG } from './Header';
+import { HomepageHeaderSliceDefaultItem, Simplify } from 'prismicio-types';
+import { ImageFieldImage } from '@prismicio/client';
 
 const FlavorItemComponent: FC<{
-  slide: { text: string; animationText: string; image: string; icon: string };
-  setImage: Dispatch<SetStateAction<string>>;
-  setIcon: Dispatch<SetStateAction<string | null>>;
-}> = ({ slide, setImage, setIcon }) => {
+  slide: Simplify<HomepageHeaderSliceDefaultItem>;
+  setImage: Dispatch<SetStateAction<ImageFieldImage | null | undefined>>;
+  setIcon: Dispatch<SetStateAction<ImageFieldImage | null | undefined>>;
+  initialImage: ImageFieldImage | null | undefined;
+}> = ({ slide, setImage, setIcon, initialImage }) => {
   const ref = useRef(null);
 
   const onMouseEnter = () => {
@@ -17,7 +19,7 @@ const FlavorItemComponent: FC<{
   };
 
   const onMouseLeave = () => {
-    setImage(INITIAL_IMG);
+    setImage(initialImage);
     setIcon(null);
     animate(ref.current, { opacity: 0 });
   };
@@ -28,16 +30,16 @@ const FlavorItemComponent: FC<{
         <FlavorText>{slide.text}</FlavorText>
         <AnimationWrapper initial={{ opacity: 0 }} ref={ref}>
           <Slider>
-            <FlavorTextWhite>{slide.animationText}</FlavorTextWhite>
-            <FlavorTextWhite>{slide.animationText}</FlavorTextWhite>
-            <FlavorTextWhite>{slide.animationText}</FlavorTextWhite>
-            <FlavorTextWhite>{slide.animationText}</FlavorTextWhite>
+            <FlavorTextWhite>{slide.animated_text}</FlavorTextWhite>
+            <FlavorTextWhite>{slide.animated_text}</FlavorTextWhite>
+            <FlavorTextWhite>{slide.animated_text}</FlavorTextWhite>
+            <FlavorTextWhite>{slide.animated_text}</FlavorTextWhite>
           </Slider>
           <Slider>
-            <FlavorTextWhite aria-hidden="true">{slide.animationText}</FlavorTextWhite>
-            <FlavorTextWhite aria-hidden="true">{slide.animationText}</FlavorTextWhite>
-            <FlavorTextWhite aria-hidden="true">{slide.animationText}</FlavorTextWhite>
-            <FlavorTextWhite aria-hidden="true">{slide.animationText}</FlavorTextWhite>
+            <FlavorTextWhite aria-hidden="true">{slide.animated_text}</FlavorTextWhite>
+            <FlavorTextWhite aria-hidden="true">{slide.animated_text}</FlavorTextWhite>
+            <FlavorTextWhite aria-hidden="true">{slide.animated_text}</FlavorTextWhite>
+            <FlavorTextWhite aria-hidden="true">{slide.animated_text}</FlavorTextWhite>
           </Slider>
         </AnimationWrapper>
       </FlavorItem>

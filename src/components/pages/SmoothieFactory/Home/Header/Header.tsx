@@ -7,45 +7,20 @@ import { Button } from '@styles/common';
 import { HomepageHeaderSlice } from 'prismicio-types';
 import FlavorItemComponent from './FlavorItem';
 import Image from 'next/image';
-import { FloatingIconImage } from '../../OrangeLeaf/GiftCards/GiftCardsSection/GiftCardsSection.style';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
-
-const slides = [
-  {
-    text: 'SWEET',
-    animationText: '100% NATURAL',
-    image: '/images/image 44.jpg',
-    icon: '/images/taste (3).svg',
-  },
-  {
-    text: 'NO FAT',
-    animationText: 'SALTY',
-    image: '/images/image 44 (1).jpg',
-    icon: '/images/taste (4).svg',
-  },
-  {
-    text: 'GLUTEN FREE',
-    animationText: 'SOUR',
-    image: '/images/image 44 (2).jpg',
-    icon: '/images/taste (5).svg',
-  },
-  {
-    text: 'PROBIOTC RICH',
-    animationText: 'SPICY',
-    image: '/images/image 44 (3).jpg',
-    icon: '/images/taste (6).svg',
-  },
-];
+import { PrismicImage } from '@prismicio/react';
+import { ImageFieldImage } from '@prismicio/client';
 
 export const INITIAL_IMG = '/images/red-mango-home-header-bg.jpg';
 
 const Header: FC<{ slice: HomepageHeaderSlice }> = ({
   slice: {
-    primary: { title, text, button },
+    primary: { title, text, button, image: initialImage },
+    items,
   },
 }) => {
-  const [image, setImage] = useState<string>(INITIAL_IMG);
-  const [icon, setIcon] = useState<null | string>(null);
+  const [image, setImage] = useState<ImageFieldImage | null | undefined>(initialImage);
+  const [icon, setIcon] = useState<ImageFieldImage | null | undefined>(null);
 
   return (
     <>
@@ -57,14 +32,20 @@ const Header: FC<{ slice: HomepageHeaderSlice }> = ({
             <Button dangerouslySetInnerHTML={{ __html: button as string }}></Button>
           </Content>
           <Flavors>
-            {slides.map((slide, index) => (
-              <FlavorItemComponent slide={slide} key={index} setImage={setImage} setIcon={setIcon} />
+            {items.map((slide, index) => (
+              <FlavorItemComponent
+                initialImage={initialImage}
+                slide={slide}
+                key={index}
+                setImage={setImage}
+                setIcon={setIcon}
+              />
             ))}
           </Flavors>
         </StyledMaxWidthWrapper>
       </Container>
       <BG
-        key={image}
+        // key={image}
         initial={{
           opacity: 0,
         }}
@@ -74,10 +55,26 @@ const Header: FC<{ slice: HomepageHeaderSlice }> = ({
       >
         {icon ? (
           <WhiteBG>
-            <FloatingImage alt="icon" src={icon} width="155px" height="155px" />
+            <PrismicImage
+              field={icon}
+              width="155px"
+              height="155px"
+              style={{
+                objectFit: 'cover',
+              }}
+            />
           </WhiteBG>
         ) : null}
-        <Image alt="first-row-image" fill src={image} style={{ objectFit: 'cover' }} />
+        <PrismicImage
+          field={image}
+          style={{
+            objectFit: 'cover',
+            position: 'absolute',
+            height: '100%',
+            width: '100%',
+            inset: '0px',
+          }}
+        />
       </BG>
     </>
   );

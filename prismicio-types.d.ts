@@ -2013,6 +2013,61 @@ export interface HomepageHeaderSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button: prismic.KeyTextField;
+
+  /**
+   * Image field in *HomepageHeader → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_header.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *HomepageHeader → Items*
+ */
+export interface HomepageHeaderSliceDefaultItem {
+  /**
+   * Text field in *HomepageHeader → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_header.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * Animated Text field in *HomepageHeader → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_header.items[].animated_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  animated_text: prismic.KeyTextField;
+
+  /**
+   * Icon field in *HomepageHeader → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_header.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Image field in *HomepageHeader → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_header.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -2025,7 +2080,7 @@ export interface HomepageHeaderSliceDefaultPrimary {
 export type HomepageHeaderSliceDefault = prismic.SharedSliceVariation<
   'default',
   Simplify<HomepageHeaderSliceDefaultPrimary>,
-  never
+  Simplify<HomepageHeaderSliceDefaultItem>
 >;
 
 /**
@@ -2982,6 +3037,7 @@ declare module '@prismicio/client' {
       HealthBenefitsSliceDefault,
       HomepageHeaderSlice,
       HomepageHeaderSliceDefaultPrimary,
+      HomepageHeaderSliceDefaultItem,
       HomepageHeaderSliceVariation,
       HomepageHeaderSliceDefault,
       HomepageJoinOurClubSlice,
