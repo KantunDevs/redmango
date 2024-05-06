@@ -48,6 +48,14 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "asset": {
+          "type": "Link",
+          "config": {
+            "label": "Asset",
+            "placeholder": "",
+            "select": "media"
+          }
         }
       }
     }

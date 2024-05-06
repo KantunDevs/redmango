@@ -7,6 +7,7 @@ import Image from 'next/image';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 import { Button } from '@styles/common';
 import { HomepageProbioticsSlice } from 'prismicio-types';
+import Link from 'next/link';
 
 const Probiotics: FC<{ slice: HomepageProbioticsSlice }> = ({
   slice: {
@@ -15,7 +16,7 @@ const Probiotics: FC<{ slice: HomepageProbioticsSlice }> = ({
 }) => {
   return (
     <BgImage>
-      <Image alt="bg image" fill src="/images/image 46.jpg" style={{ objectFit: 'cover' }} />
+      <Image alt="bg image" fill src="/images/RM Website Home Page_5.jpg" style={{ objectFit: 'cover' }} />
       <Card>
         <Circle>
           <FloatingImage
@@ -28,7 +29,9 @@ const Probiotics: FC<{ slice: HomepageProbioticsSlice }> = ({
         </Circle>
         <CardTitle dangerouslySetInnerHTML={{ __html: title as string }}></CardTitle>
         <CardText dangerouslySetInnerHTML={{ __html: text as string }}></CardText>
-        <Button dangerouslySetInnerHTML={{ __html: button as string }}></Button>
+        <Link href="/probiotics">
+          <Button dangerouslySetInnerHTML={{ __html: button as string }}></Button>
+        </Link>
       </Card>
     </BgImage>
   );

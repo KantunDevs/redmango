@@ -24,6 +24,7 @@ import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 import { AnimatePresence } from 'framer-motion';
 import { GallerySlice } from 'prismicio-types';
 import { PrismicNextImage } from '@prismicio/next';
+import { asLink } from '@prismicio/client';
 
 const sliderDefaultInterval = 4000;
 const sliderAfterClickInterval = 10000;
@@ -113,7 +114,9 @@ const Gallery: FC<{ mb: string; slice: GallerySlice }> = ({ mb, slice: { items }
                 dangerouslySetInnerHTML={{ __html: items[activeSliderIndex].title as string }}
               ></GalleryTitle>
               <GalleryText dangerouslySetInnerHTML={{ __html: items[activeSliderIndex].text as string }}></GalleryText>
-              <Button dangerouslySetInnerHTML={{ __html: items[activeSliderIndex].button as string }}></Button>
+              <a href={asLink(items[activeSliderIndex].asset) as string} target="_blank">
+                <Button dangerouslySetInnerHTML={{ __html: items[activeSliderIndex].button as string }}></Button>
+              </a>
             </ContentContainer>
             <Indicators>
               {items.map((_slider, index) => (

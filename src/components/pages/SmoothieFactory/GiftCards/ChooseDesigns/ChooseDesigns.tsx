@@ -54,7 +54,7 @@ const ChooseDesigns: FC<{ slice: ChooseDesignsSlice }> = ({
         width="clamp(680px, 60.78vw, 919px)"
         style={{ zIndex: 1 }}
       />
-      <Image alt="gift card" src="/images/image 94.jpg" style={{ objectFit: 'cover' }} fill />
+      <Image alt="gift card" src="/images/Gift Cards Page_2.jpg" style={{ objectFit: 'cover' }} fill />
       <GiftCard>
         <FloatingImage
           alt="logo"

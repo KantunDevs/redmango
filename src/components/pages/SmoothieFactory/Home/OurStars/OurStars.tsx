@@ -17,10 +17,11 @@ import type { FC } from 'react';
 import Image from 'next/image';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 import { HomepageOurStarsSlice } from 'prismicio-types';
+import { asLink } from '@prismicio/client';
 
 const OurStars: FC<{ slice: HomepageOurStarsSlice }> = ({
   slice: {
-    primary: { main_title, title, text, button, subtitle, image, is_menu_page_variant },
+    primary: { main_title, title, text, button, subtitle, image, is_menu_page_variant, asset },
   },
 }) => (
   <>
@@ -31,7 +32,11 @@ const OurStars: FC<{ slice: HomepageOurStarsSlice }> = ({
           {is_menu_page_variant ? null : <Subtitle dangerouslySetInnerHTML={{ __html: title as string }}></Subtitle>}
           <ColumnTitle dangerouslySetInnerHTML={{ __html: subtitle as string }}></ColumnTitle>
           <ColumnText dangerouslySetInnerHTML={{ __html: text as string }}></ColumnText>
-          {is_menu_page_variant ? null : <Button dangerouslySetInnerHTML={{ __html: button as string }}></Button>}
+          {is_menu_page_variant ? null : (
+            <a href={asLink(asset) as string} target="_blank">
+              <Button dangerouslySetInnerHTML={{ __html: button as string }}></Button>
+            </a>
+          )}
         </LeftColumn>
         <RightColumn>
           <FloatingImage

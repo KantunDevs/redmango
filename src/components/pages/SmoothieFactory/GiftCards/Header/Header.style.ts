@@ -24,6 +24,8 @@ export const Content = styled.div`
 export const ImageContainer = styled.div`
   position: relative;
   width: 41.33%;
+  border-right: 2px solid #cb333b;
+  border-bottom: 2px solid #cb333b;
   @media (max-width: ${theme.breakpoints.tablet}px) {
     width: 100%;
     aspect-ratio: 1.6375/1;

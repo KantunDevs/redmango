@@ -17,6 +17,7 @@ import { Button } from '../../Home/Gallery/Gallery.style';
 import { ButtonOutlined } from '../../OrangeLeaf/common/ButtonOutlined/ButtonOutlined';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 import { MenuItemsSlice } from 'prismicio-types';
+import { asLink } from '@prismicio/client';
 
 const MenuItems: FC<{ slice: MenuItemsSlice }> = ({ slice }) => {
   return (
@@ -45,8 +46,12 @@ const MenuItems: FC<{ slice: MenuItemsSlice }> = ({ slice }) => {
                     <Title dangerouslySetInnerHTML={{ __html: item.title as string }}></Title>
                     <Text dangerouslySetInnerHTML={{ __html: item.text as string }}></Text>
                     <ButtonContainer>
-                      <Button dangerouslySetInnerHTML={{ __html: item.button_1 as string }}></Button>
-                      <ButtonOutlined dangerouslySetInnerHTML={{ __html: item.button_2 as string }}></ButtonOutlined>
+                      <a href={asLink(item.menu) as string} target="_blank">
+                        <Button dangerouslySetInnerHTML={{ __html: item.button_1 as string }}></Button>
+                      </a>
+                      <a href={asLink(item.nutrition_info) as string} target="_blank">
+                        <ButtonOutlined dangerouslySetInnerHTML={{ __html: item.button_2 as string }}></ButtonOutlined>
+                      </a>
                     </ButtonContainer>
                   </ContentColumn>
                   <RedColumn variant={1}></RedColumn>
@@ -69,8 +74,12 @@ const MenuItems: FC<{ slice: MenuItemsSlice }> = ({ slice }) => {
                     <Title dangerouslySetInnerHTML={{ __html: item.title as string }}></Title>
                     <Text dangerouslySetInnerHTML={{ __html: item.text as string }}></Text>
                     <ButtonContainer>
-                      <Button dangerouslySetInnerHTML={{ __html: item.button_1 as string }}></Button>
-                      <ButtonOutlined dangerouslySetInnerHTML={{ __html: item.button_2 as string }}></ButtonOutlined>
+                      <a href={asLink(item.menu) as string} target="_blank">
+                        <Button dangerouslySetInnerHTML={{ __html: item.button_1 as string }}></Button>
+                      </a>
+                      <a href={asLink(item.nutrition_info) as string} target="_blank">
+                        <ButtonOutlined dangerouslySetInnerHTML={{ __html: item.button_2 as string }}></ButtonOutlined>
+                      </a>
                     </ButtonContainer>
                   </ContentColumn>
                   <RedColumn variant={2}></RedColumn>

@@ -63,6 +63,14 @@
             "placeholder_true": "true",
             "placeholder_false": "false"
           }
+        },
+        "asset": {
+          "type": "Link",
+          "config": {
+            "label": "Asset",
+            "placeholder": "",
+            "select": "media"
+          }
         }
       },
       "items": {}

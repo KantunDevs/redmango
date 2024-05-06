@@ -19,6 +19,7 @@ import LetsConnect from '../LetsConnect/LetsConnect';
 
 import type { FC } from 'react';
 import { HomepageJoinOurClubSlice, HomepageLetsConnectSlice } from 'prismicio-types';
+import Link from 'next/link';
 
 const JoinOurClub: FC<{ slice: HomepageJoinOurClubSlice; letsConnectSlice: HomepageLetsConnectSlice }> = ({
   slice: {
@@ -60,7 +61,9 @@ const JoinOurClub: FC<{ slice: HomepageJoinOurClubSlice; letsConnectSlice: Homep
         <Image alt="letter icon" src="/images/Group 17.svg" width="68" height="60" />
         <LeftSectionTitle dangerouslySetInnerHTML={{ __html: title as string }}></LeftSectionTitle>
         <LeftSectionText dangerouslySetInnerHTML={{ __html: subtitle as string }}></LeftSectionText>
-        <ButtonWhite dangerouslySetInnerHTML={{ __html: button as string }}></ButtonWhite>
+        <Link href="/club-mango">
+          <ButtonWhite dangerouslySetInnerHTML={{ __html: button as string }}></ButtonWhite>
+        </Link>
         <FloatingImage
           bottom="18%"
           hideUnder={1024}
@@ -82,7 +85,9 @@ const JoinOurClub: FC<{ slice: HomepageJoinOurClubSlice; letsConnectSlice: Homep
           height="clamp(171px,12.69vw, 192px)"
         />
         <RightSectionText style={{ color: '#4E3629' }}>... for that special person!</RightSectionText>
-        <ButtonRed dangerouslySetInnerHTML={{ __html: gift_cards_button as string }}></ButtonRed>
+        <Link href="/gift-cards">
+          <ButtonRed dangerouslySetInnerHTML={{ __html: gift_cards_button as string }}></ButtonRed>
+        </Link>
       </RightSection>
     </Background>
     <LetsConnect slice={letsConnectSlice} />

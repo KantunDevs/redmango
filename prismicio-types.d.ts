@@ -1388,6 +1388,16 @@ export interface GallerySliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Asset field in *Gallery → Items*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].asset
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  asset: prismic.LinkToMediaField;
 }
 
 /**
@@ -1727,6 +1737,16 @@ export interface GiftCardsHeaderSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button: prismic.KeyTextField;
+
+  /**
+   * Image field in *GiftCardsHeader → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gift_cards_header.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -2330,6 +2350,16 @@ export interface HomepageOurStarsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   is_menu_page_variant: prismic.BooleanField;
+
+  /**
+   * Asset field in *HomepageOurStars → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_our_stars.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  asset: prismic.LinkToMediaField;
 }
 
 /**
@@ -2638,6 +2668,26 @@ export interface MenuItemsSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button_2: prismic.KeyTextField;
+
+  /**
+   * Menu field in *MenuItems → Items*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_items.items[].menu
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menu: prismic.LinkToMediaField;
+
+  /**
+   * Nutrition Info field in *MenuItems → Items*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_items.items[].nutrition_info
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  nutrition_info: prismic.LinkToMediaField;
 }
 
 /**
@@ -2700,6 +2750,16 @@ export interface ProbioticsHeaderSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   text: prismic.KeyTextField;
+
+  /**
+   * Image field in *ProbioticsHeader → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: probiotics_header.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**

@@ -1,17 +1,14 @@
 'use client';
 
-import Image from 'next/image';
-
 import { Wrapper, Content, Title, Text, ImageContainer, StyledMaxWidthWrapper } from './Header.style';
-
 import { CtaButton } from '../../Home/WhatIsNew/WhatIsNew.style';
-
 import type { FC } from 'react';
 import { GiftCardsHeaderSlice } from 'prismicio-types';
+import { PrismicImage } from '@prismicio/react';
 
 const Header: FC<{ slice: GiftCardsHeaderSlice }> = ({
   slice: {
-    primary: { text, title, button },
+    primary: { text, title, button, image },
   },
 }) => (
   <StyledMaxWidthWrapper>
@@ -22,7 +19,16 @@ const Header: FC<{ slice: GiftCardsHeaderSlice }> = ({
         <CtaButton dangerouslySetInnerHTML={{ __html: button as string }}></CtaButton>
       </Content>
       <ImageContainer>
-        <Image alt="bg" src="/images/image 51.jpg" fill style={{ objectFit: 'cover' }} />
+        <PrismicImage
+          field={image}
+          style={{
+            objectFit: 'cover',
+            position: 'absolute',
+            height: '100%',
+            width: '100%',
+            inset: '0px',
+          }}
+        />
       </ImageContainer>
     </Wrapper>
   </StyledMaxWidthWrapper>

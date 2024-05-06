@@ -55,6 +55,22 @@
             "label": "Button 2",
             "placeholder": ""
           }
+        },
+        "menu": {
+          "type": "Link",
+          "config": {
+            "label": "Menu",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "nutrition_info": {
+          "type": "Link",
+          "config": {
+            "label": "Nutrition Info",
+            "placeholder": "",
+            "select": "media"
+          }
         }
       }
     }

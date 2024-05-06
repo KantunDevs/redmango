@@ -7,9 +7,9 @@ import { Button } from '@styles/common';
 import { HomepageHeaderSlice } from 'prismicio-types';
 import FlavorItemComponent from './FlavorItem';
 import Image from 'next/image';
-import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 import { PrismicImage } from '@prismicio/react';
 import { ImageFieldImage } from '@prismicio/client';
+import Link from 'next/link';
 
 export const INITIAL_IMG = '/images/red-mango-home-header-bg.jpg';
 
@@ -29,7 +29,9 @@ const Header: FC<{ slice: HomepageHeaderSlice }> = ({
           <Content>
             <Title dangerouslySetInnerHTML={{ __html: title as string }}></Title>
             <Text dangerouslySetInnerHTML={{ __html: text as string }}></Text>
-            <Button dangerouslySetInnerHTML={{ __html: button as string }}></Button>
+            <Link href="/club-mango">
+              <Button dangerouslySetInnerHTML={{ __html: button as string }}></Button>
+            </Link>
           </Content>
           <Flavors>
             {items.map((slide, index) => (

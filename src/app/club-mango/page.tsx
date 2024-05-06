@@ -32,7 +32,6 @@ type GetOptionsResponse = {
 const getOptions = async (): Promise<GetOptionsResponse> => {
   const res = await fetch(`https://us21.api.mailchimp.com/3.0/lists/6ba144ea7f/merge-fields`, {
     headers: {
-      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       Authorization: `auth ${process.env.NEXT_PUBLIC_MAIL_CHIMP_KEY}`,
     },
     method: 'GET',

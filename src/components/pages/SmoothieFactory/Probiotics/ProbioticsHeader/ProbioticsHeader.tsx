@@ -10,12 +10,12 @@ import {
   ImageContainer,
   Subtitle,
 } from './ProbioticsHeader.style';
-import Image from 'next/image';
 import { ProbioticsHeaderSlice } from 'prismicio-types';
+import { PrismicImage } from '@prismicio/react';
 
 const ProbioticsHeader: FC<{ slice: ProbioticsHeaderSlice }> = ({
   slice: {
-    primary: { title, subtitle, text },
+    primary: { title, subtitle, text, image },
   },
 }) => (
   <>
@@ -27,7 +27,16 @@ const ProbioticsHeader: FC<{ slice: ProbioticsHeaderSlice }> = ({
           <Text dangerouslySetInnerHTML={{ __html: text as string }}></Text>
         </Content>
         <ImageContainer>
-          <Image alt="bg" src="/images/image 51 (3).jpg" fill style={{ objectFit: 'cover' }} />
+          <PrismicImage
+            field={image}
+            style={{
+              objectFit: 'cover',
+              position: 'absolute',
+              height: '100%',
+              width: '100%',
+              inset: '0px',
+            }}
+          />
         </ImageContainer>
       </Wrapper>
     </StyledMaxWidthWrapper>
