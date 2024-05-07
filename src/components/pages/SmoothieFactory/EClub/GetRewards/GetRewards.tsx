@@ -30,7 +30,7 @@ const GetRewards: FC<{ slice: GetRewardsSlice }> = ({
     <FloatingBgImage
       alt="e-club bg"
       height="clamp(650px, 58.46vw, 884px)"
-      src="/images/image 67.jpg"
+      src="/images/Club Mango Page_.jpg"
       width="clamp(483px, 45.43vw, 687px)"
       imageStyle={{ objectFit: 'cover' }}
     />

@@ -8,12 +8,12 @@ import { CtaButton } from '../../Home/WhatIsNew/WhatIsNew.style';
 
 import type { FC } from 'react';
 import { MaxWidthWrapper } from '@styles/common';
-import Image from 'next/image';
 import { GetBirthdayGiftSlice } from 'prismicio-types';
+import { PrismicImage } from '@prismicio/react';
 
 const GetBirthdayGift: FC<{ slice: GetBirthdayGiftSlice }> = ({
   slice: {
-    primary: { hashtag, text, button },
+    primary: { hashtag, text, button, image },
   },
 }) => (
   <BgWrapper>
@@ -29,7 +29,16 @@ const GetBirthdayGift: FC<{ slice: GetBirthdayGiftSlice }> = ({
       <Wrapper>
         <Card>
           <ImageWrapper>
-            <Image alt="raspberries" fill src="/images/image 69.jpg" style={{ objectFit: 'cover' }} />
+            <PrismicImage
+              field={image}
+              style={{
+                objectFit: 'cover',
+                position: 'absolute',
+                height: '100%',
+                width: '100%',
+                inset: '0px',
+              }}
+            />
           </ImageWrapper>
           <Hashtag dangerouslySetInnerHTML={{ __html: hashtag as string }}></Hashtag>
         </Card>

@@ -30,7 +30,7 @@ type GetOptionsResponse = {
 };
 
 const getOptions = async (): Promise<GetOptionsResponse> => {
-  const res = await fetch(`https://us21.api.mailchimp.com/3.0/lists/6ba144ea7f/merge-fields`, {
+  const res = await fetch(`https://us21.api.mailchimp.com/3.0/lists/b73572e3c0/merge-fields`, {
     headers: {
       Authorization: `auth ${process.env.NEXT_PUBLIC_MAIL_CHIMP_KEY}`,
     },

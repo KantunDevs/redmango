@@ -1460,6 +1460,16 @@ export interface GetBirthdayGiftSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button: prismic.KeyTextField;
+
+  /**
+   * Image field in *GetBirthdayGift → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: get_birthday_gift.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
