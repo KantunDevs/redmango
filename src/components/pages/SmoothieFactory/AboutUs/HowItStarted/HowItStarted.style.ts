@@ -64,6 +64,12 @@ export const InfoCardText = styled.p`
   text-align: center;
 `;
 
+export const OurMissionImgContainer = styled.div`
+  position: relative;
+  height: clamp(360px, 33.33vw, 504px);
+  width: 100%;
+`;
+
 export const OurMission = styled.div`
   background-color: #cb333b;
   position: relative;

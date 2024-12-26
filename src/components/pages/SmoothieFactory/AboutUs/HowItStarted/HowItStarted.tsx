@@ -5,7 +5,15 @@ import { MaxWidthWrapper } from '@styles/common';
 
 import type { FC } from 'react';
 
-import { ContentWrapper, Text, Title, OurMission, OurMissionText, OurMissionTitle } from './HowItStarted.style';
+import {
+  ContentWrapper,
+  Text,
+  Title,
+  OurMission,
+  OurMissionText,
+  OurMissionTitle,
+  OurMissionImgContainer,
+} from './HowItStarted.style';
 import FloatingImage from '../../OrangeLeaf/common/FloatingImage/FloatingImage';
 import { HowItStartedSlice } from 'prismicio-types';
 
@@ -26,6 +34,9 @@ const HowItStarted: FC<{ slice: HowItStartedSlice }> = ({
         <Text dangerouslySetInnerHTML={{ __html: text_2 as string }}></Text>
       </MaxWidthWrapper>
     </ContentWrapper>
+    <OurMissionImgContainer>
+      <Image alt="bg" src="/images/About Us Page.jpg" style={{ objectFit: 'cover', zIndex: -1 }} fill />
+    </OurMissionImgContainer>
     <OurMission>
       <FloatingImage
         width="clamp(326px,38.35vw, 580px)"

@@ -84,4 +84,7 @@ export const WhiteBG = styled.div`
   left: 0;
   background-color: #fff;
   border-right: 2px solid #cb333b;
+  @media only screen and (max-width: ${theme.breakpoints.tablet}px) {
+    display: none;
+  }
 `;

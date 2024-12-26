@@ -6,12 +6,9 @@ import { useState, type FC } from 'react';
 import { Button } from '@styles/common';
 import { HomepageHeaderSlice } from 'prismicio-types';
 import FlavorItemComponent from './FlavorItem';
-import Image from 'next/image';
 import { PrismicImage } from '@prismicio/react';
 import { ImageFieldImage } from '@prismicio/client';
 import Link from 'next/link';
-
-export const INITIAL_IMG = '/images/red-mango-home-header-bg.jpg';
 
 const Header: FC<{ slice: HomepageHeaderSlice }> = ({
   slice: {
@@ -47,7 +44,6 @@ const Header: FC<{ slice: HomepageHeaderSlice }> = ({
         </StyledMaxWidthWrapper>
       </Container>
       <BG
-        // key={image}
         initial={{
           opacity: 0,
         }}
@@ -70,11 +66,12 @@ const Header: FC<{ slice: HomepageHeaderSlice }> = ({
         <PrismicImage
           field={image}
           style={{
-            objectFit: 'cover',
+            objectFit: image?.url === initialImage.url ? 'cover' : 'contain',
             position: 'absolute',
             height: '100%',
             width: '100%',
             inset: '0px',
+            objectPosition: 'center bottom',
           }}
         />
       </BG>
